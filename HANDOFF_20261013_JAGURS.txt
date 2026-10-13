@@ -1,0 +1,366 @@
+JAGURS 跨平台开发交接
+====================
+日期：2026-10-13
+用途：拿到本文和 GitHub 仓库后，在鲲鹏或其他平台继续做 JAGURS 的 HPC 开发。
+本文中的相对路径、命令工作目录，除特别说明外，均指克隆后的 jagurs 仓库根目录。
+
+一、接手后先做什么
+------------------
+先在新平台编译现有修复版，让同一个真实广田湾快速案例通过数值校验；保存新平台
+自己的基线时间，再开始优化。现有分支已经把这一步需要的源码、输入、参考结果、
+运行脚本和原机实测报告放齐了。
+
+当前可交付的快速验证是：真实广田湾三层完整网格的前 1800 秒 + 独立解析波检查。
+原开发机 16 核整轮 169.75 秒，32 核整轮 105.39 秒，均通过。没有在鲲鹏实跑过，
+所以不能把原机时间或通过结论直接当成鲲鹏结果。
+
+已完成的灾害链采用“公开时变 Okada 震源 → 修复 JAGURS → 修复 sECOM”。
+CGFDM 的浅层断层精度问题还没有通过。GitHub 当前交付范围是 JAGURS 快速开发
+所需材料，地震源生成环境、sECOM 及完整链的迁移范围见本文最后两节。
+
+二、版本、仓库和可信基线
+----------------------
+官方上游：https://github.com/jagurs-admin/jagurs
+开发仓库：https://github.com/yanlifeng/jagurs
+开发分支：hpc/hirota-v0701-fixed
+分支入口：https://github.com/yanlifeng/jagurs/tree/hpc/hirota-v0701-fixed
+
+官方基底：JAGURS-D_V0701
+  9934f8970f545deda2cdf4f1bc18f763e191b3cd
+科学修复提交：
+  24bc4dcdd96525e7f9fee3d7696ad0ece6011420
+已实测的源码 + 快速案例提交：
+  25846a4374869cd685c1fe146b7dcb06496024dd
+
+上述修复提交的父提交就是官方 V0701。8 个 Fortran 文件与此前跑通完整广田湾父
+模型的修复版逐字节相同，相对官方 +128/-44 行。当前不是 V0702，也不是官方
+另外发布的修订版。此次交接文档提交之后分支 HEAD 会前移，实测基线仍用上述
+25846a4 定位；本文这次交接只更新文档，不修改已测算法、输入或验收阈值。
+
+逐文件源码哈希：benchmarks/hirota_quick/patch_provenance.json
+输入/参考数据哈希：benchmarks/hirota_quick/dataset_manifest.json
+原机编译与测试环境：benchmarks/hirota_quick/results/tested_build.json
+                      benchmarks/hirota_quick/results/test_environment.json
+
+换架构、编译器或链接库后，可执行文件 SHA 变化是正常的；输入和冻结参考值的
+SHA 应保持一致。跨平台是否正确看固定数值容差，不能要求二进制文件哈希相同。
+JAGURS 许可原文保存在 LICENSE；第三方输入出处见
+benchmarks/hirota_quick/DATA_SOURCES.txt。
+
+三、从 GitHub 开始的操作顺序
+--------------------------
+在新平台选择自己的工作目录，克隆后另开优化分支：
+
+  git clone --branch hpc/hirota-v0701-fixed --single-branch https://github.com/yanlifeng/jagurs.git
+  cd jagurs
+  git switch -c hpc/kunpeng-dev
+
+HTTPS 可直接读公开仓库，不需要把原开发机的 SSH key 搬过去。
+普通 Git 克隆会带上约 262 MB 的快速案例数据；没有 Git LFS 或旧目录下载依赖。
+
+准备环境：
+  - Python 3.9 或更新版本，NumPy、netCDF4；matplotlib 仅重新绘图时需要。
+  - GNU Fortran、C 编译器、GNU Make。
+  - 使用 GNU Fortran 构建的 MPI wrapper，如 mpif90 / mpifort。
+  - NetCDF C 和 Fortran 开发库、PROJ、双精度 FFTW3 开发库。
+  - 安装位置和动态库路径按目标平台的 module/软件环境设置。
+
+Python 环境示例（虚拟环境建在仓库外，避免混进提交）：
+
+  python3 -m venv ../jagurs-python
+  . ../jagurs-python/bin/activate
+  python -m pip install -r benchmarks/requirements.txt
+
+下面以各依赖位于 /usr、采用现代 PROJ 9 为例：
+
+  python benchmarks/build_gnu.py --proj9 --dry-run
+  python benchmarks/build_gnu.py --proj9
+  python benchmarks/hirota_quick/run.py prepare
+
+安装在其他位置时，换成实际路径，例如：
+
+  python benchmarks/build_gnu.py --fc mpif90 --netcdf /opt/netcdf --proj /opt/proj --fftw /opt/fftw --proj9
+
+旧 PROJ 提供 proj_api.h 时省略 --proj9；现代路径使用 proj.h。
+先用 --dry-run 检查编译器和头文件。它检查依赖和打印命令，并不证明链接或运行已
+通过；后续必须真正编译和执行案例。
+
+--local 是原开发机 Intel MPI + MKL 和本地依赖路径的专用配置。鲲鹏或其他机器
+使用上面的通用 GNU MPI + FFTW 路径。当前构建脚本要求 GNU Fortran；换成其他
+Fortran 编译器需要另配构建参数，然后执行同一套数值校验。
+
+编译输出：build/gnu/jagurs
+编译日志：build/gnu/build.log
+编译参数、源码/可执行文件哈希：build/gnu/build.json
+一次性解包后的普通输入：build/hirota_inputs/
+
+分配至少 16 个物理核，在计算节点执行：
+
+  python benchmarks/hirota_quick/run.py run --output runs/baseline01
+
+默认 16 MPI 进程、4x4 空间分块、每进程 1 个 OpenMP 线程。OpenMPI 绑定示例：
+
+  python benchmarks/hirota_quick/run.py run --output runs/baseline01 --mpi-args="--bind-to core --map-by core"
+
+两条 run 命令是替代示例，选择一条；输出目录必须是未存在的新目录。
+主案例之后，脚本会在同一作业内另外启动 4 MPI 进程跑解析波。启动器必须允许
+先 -n 16 再 -n 4，不要在 --mpiexec 或 --mpi-args 中把进程数写死。
+--mpiexec 可指定平台的 MPI 启动器；调度资源申请与启动命令需匹配目标平台。
+--cores 是 Linux taskset 的可用核范围限制，MPI 绑定仍按所用 MPI 实现设置。
+
+32 进程分解对照：
+
+  python benchmarks/hirota_quick/run.py run --output runs/baseline32 --ranks 32 --procx 8 --procy 4
+
+必须满足 ranks = procx * procy。主例和解析例顺序执行。首次编译、解包是一次性
+成本；每次 run 包含输入核验、JAGURS 计算、结果核验、计时提取和解析波检查。
+一轮产生约 12 GB 输出，建议至少留 20 GB 空间。输出目录以符号链接复用已解包
+输入，保留结果时也应保留 build/hirota_inputs，或另行完整打包这些输入。
+
+四、怎样看成功、失败和现有成绩
+----------------------------
+先看 runs/baseline01/report.json 中四项：
+  numerical_correctness_passed：真实例回归和解析波都通过。
+  profile_complete：所有预期 MPI 进程的详细计时记录齐全。
+  within_5_minutes：本轮总耗时小于 300 秒。
+  passed：以上三项同时通过。
+
+退出码 0 表示全通过；3 表示数值和计时资料通过，但超过 300 秒；2 表示数值
+或计时完整性未通过。输入损坏、MPI 失败等异常同样返回非零，并记录 error。
+因此新平台跑慢了不一定是数值错；要分开看这三项。
+
+verification.json 保存每个比较项的误差，profile.json 保存所有 ranks 的计时。
+mpi_run.json 保存实际命令、进程/线程数、数学库环境与可执行文件哈希。
+launcher.log 和 stdout.000000 等是排查 MPI/运行失败时的第一入口。
+
+本机实测（AMD EPYC 7T83；GNU 8.5.0；Intel MPI 2021.12；MKL 2023.2）：
+
+  配置            JAGURS 求解      整轮含校验      结果
+  16 MPI，4x4     161.81 s         169.75 s        PASS
+  32 MPI，8x4      97.17 s         105.39 s        PASS
+
+两种分解的 SD03 终态四个原生场均与历史参考逐值一致；16 MPI 测点最大水位差
+约 1.01e-13 m，单宽流量差约 1.02e-12 m^2/s。独立解析波相对 L2 误差约
+7.37e-6，最大水位误差约 1.26e-7 m。负向测试中的水位 +1 m、流量反号、
+漏掉 0.2 s 原生采样、修改摩擦参数四类错误均被校验器拒绝。
+
+详细证据：benchmarks/hirota_quick/results/SUMMARY.txt
+          benchmarks/hirota_quick/results/hirota16_report.json
+          benchmarks/hirota_quick/results/hirota32_report.json
+          benchmarks/hirota_quick/results/verifier_negative_controls.json
+汇报图片：benchmarks/hirota_quick/results/kernel_profile.png / .pdf
+
+五、快速案例具体是什么
+--------------------
+事件是 2011 年东北地震海啸，区域为广田湾。输入来自原来已完成的 JAGURS 父模型
+root_tohoku_north_geoprecise_coherent_10m_parent。名称里的 10m 指它服务于后续
+10 米子模型；本快速案例自身是以下三层传播网格，不能叫“三层都是 10 米”。
+
+  网格     Nx x Ny       分辨率       局部 dt
+  SD01     761 x 801     27 角秒       0.9 s
+  SD02     325 x 265      9 角秒       0.3 s
+  SD03     517 x 445      3 角秒       0.1 s
+
+本表是 Nx、Ny 顺序；元数据中的 shape 使用 Ny、Nx，切勿把两个概念混用。
+实际测点数是 2482。先前部分记录写过 4302，本交付以输入文件为准。
+每层有 182 个震源增量 GRD，共 546 个，tau=0.9 s；预制源已覆盖整个施源阶段。
+完整父模型时长为 10861 s，快速例只改 tend=1800 和相应最终地图输出步。
+
+关键运行参数全部冻结，原文位于 benchmarks/hirota_quick/data/tsun.par：
+  dt=.1，timenest=1，max_nest_level=3，nest_1way=1。
+  三层 gridfile 的非线性标志为 0，即均运行非线性浅水方程。
+  multrupt=1，init_disp_fault=0，init_disp_interpolation=0。
+  apply_kj_filter=1，def_bathy=1，coriolis=1。
+  cf=-.025，cfl=-.035，沿用原案例的 Manning 处理约定，不要擅自改正负号。
+  with_disp=0；with_abc=1，nxa=20，nya=20。
+  itgrn=1：2482 测点按原生 0.1 s 输出。
+  plotgrd=3，velgrd=2，itmap=10，itmap_start=3600，itmap_end=18000。
+
+SD03 从 360 s 起每 1 s 输出地图，保留 359.9/360.1 s 的历史耦合补充帧。
+旧步进实现还会写出 1800.1 s 的原生站点记录，回归比较截止精确的 1800.0 s。
+本例覆盖真实源加载、传播、初期进水、摩擦、嵌套、MPI 通信和原输出成本；末时刻
+已有 877 个原陆地节点变湿。它尚未覆盖完整洪峰、退水及长时间非线性误差累积。
+with_disp=0，因此此例也不代表色散/Jacobi 负载或正确性验证。
+
+数据出处：NTHMP 2023 广田湾地形，北部扩展采用 NOAA ETOPO2022；原始
+30/6/1.2 角秒地形已按此前验证路径重采样到 27/9/3 角秒三倍嵌套格。
+震源采用 Yamazaki、Cheung、Lay (2018)，DOI 10.1002/2017JB014749。
+具体出处、处理方式和限制见 benchmarks/hirota_quick/DATA_SOURCES.txt。
+
+六、为什么它可以用于查优化后的正确性
+----------------------------------
+第一个检查是旧完整计算的冻结参考。48 个固定测点由 11 个海上中心站和按地理
+顺序选出的 37 个岸边站组成，每点比较 1..1800 s 的水位和两个通量；同时检查
+原始 0.1 s 记录是否连续。终态比较 SD03 全部 230065 节点的四个原生场及坐标头。
+
+固定单点容差：
+  eta/depth：2e-5 m + 1e-6 * abs(reference)。
+  qx/qy：1e-4 m^2/s + 1e-6 * abs(reference)。
+  另查形状、坐标、网格步长、时间、有限值，以及稳定湿干节点的一致性。
+  D>1e-6 m 是校验器的水柱诊断掩码，阈值附近点单独报告；它不是对全部内部
+  干湿分支的逐步证明。这些容差是优化回归阈值，不能当成现场观测拟合误差。
+
+第二个检查独立于旧真实例结果，是平底小振幅驻波。给定深度 4000 m、波长
+40 km、网格 500 m、dt=.25 s，用离散浅水波关系和固定跃蛙半步相位计算参考。
+要求相对 L2<1e-4、最大水位误差<1e-6 m，没有拟合振幅或平移波形。
+
+优化时保持 data/、dataset_manifest.json 和 run.py 的容差固定。若失败，先查
+误差从何时、哪个场和哪个位置出现，再定位编译、并行或算法变化。不能重生成
+“优化版本自己的参考值”来让它通过。make_dataset_local.py 是维护者从旧档案
+提取数据的工具，日常开发不需要运行。
+
+七、现有源码改了什么，哪些地方不能顺手删掉
+--------------------------------------
+1. mod_mygmt_gridio.f90：保留 GRD 双精度坐标头，避免读取时量化经纬度和步长，
+   从而改变真实网格位置、嵌套和原始测点所属格子。
+2. JAGURS.f90：tau/dt 为整数时按整数步选择震源帧，防止浮点累加跨帧边界出错；
+   自定义初始场读取后重新同步时间嵌套 a/b 缓冲区。
+3. mod_displacement.f90：北起行序对应的 Kajiura 纬度修正和 MPI 北界广播。
+4. mod_grid.f90、mod_interpolation.f90、JAGURS.f90：另存原始海底位移 zz_bed，
+   海底更新用原始位移，自由水面响应才用 Kajiura 滤波后的量。
+5. mod_nest.f90：修正时间嵌套条件和特定路径的重复插值。
+6. mod_fxy_disp.f90、mod_fxy_linear_Coriolis_disp.f90：修正色散迭代新旧缓冲
+   指针和边界时刻。这些修改为保持版本一致而保留；当前快速例没有覆盖色散路径。
+7. JAGURS.f90：velgrd=2 时额外写 eta_raw、qx_raw、qy_south_raw、depth_raw，
+   以及两帧历史交接输出。当前校验器和既有下游接口依赖这些输出。
+
+更详细的修改原因见 benchmarks/hirota_quick/CHANGES.txt。不要在优化开始时
+把这 8 个文件还原成官方版，否则就换了科学计算基线。也不能说这个短例已单独
+证明全部修改、所有初值类型、全部可选物理路径都正确。
+
+八、优先看哪些代码和性能数据
+--------------------------
+主流程、源时钟、原生输出：src/JAGURS.f90。
+非线性动量：src/mod_fxy.f90 的 fxynl_rwg。
+非线性连续方程：src/mod_hxy.f90 的 hxynl_rwg。
+分层步进、计时与干湿重查：src/mod_rwg.f90 的 tstep_grid、recheck_wod。
+MPI 边界交换：src/mod_mpi.f90 的 exchange_edges、exchange_edges_b、exchange_edges_wod。
+运行中网格嵌套：src/mod_nest.f90 的 mapgrids、interp2fine；初始化插值另在 mod_interpolation。
+Kajiura/FFT：src/mod_displacement.f90 的 displacement_apply_kj_filter。
+输出：src/mod_newsubs.f90 的 dump_gmt_nl、maxgrd_write_gmt；
+      src/mod_onefile.f90 的 onefile_gather_array；src/mod_mygmt_gridio.f90。
+测点输出：src/mod_tgs.f90。
+
+16 MPI 实测的“各进程平均区段耗时 / 平均总耗时”：
+  计时区段                        快速例          旧完整例
+  - fxynl_rwg                     46.61%          43.82%
+  tstep_grid_vel                  61.61%          60.84%
+  tstep_grid_hgt                   6.46%           7.11%
+  - exch_edges_vel                13.44%          14.93%
+  - recheck_wod                    1.60%           1.79%
+  dump_gmt_nl_hgt                  9.16%          13.97%
+  displacement_apply_kj_filter     0.86%           0.21%
+
+各进程动量区段耗时分布与旧完整例的相关系数约 0.996。完整网格和分块保留了
+沿海/陆地负载不均，时间截短使施源比例变大、输出比例有所下降。
+这些是计时区段，不全是纯算术核：例如 - fxynl_rwg 的计时范围还包含紧随其后
+的 HGT halo 交换。父级 tstep 与内部区段重叠，百分比不能相加。MPI 等待多可能
+来自其他 rank 计算更慢，不能只看 rank 0 就决定要改通信。
+
+建议顺序：先固定 MPI 分块与绑定建立目标机基线，再看动量数组访问/向量化、
+负载和通信等待、嵌套交换、rank 0 输出汇总。默认例 Kajiura 占比很小，色散路径
+不启用，不宜把这两处当成本案例的首要加速目标。具体优化仍以目标机 profile 为准。
+
+构建脚本默认 -O3 -fopenmp -ffp-contract=off，内部 REAL_DBLE。
+保留 MPI=ON、USE_ALLTOALLV=ON、ONEFILE=ON、TIMER=DETAIL、CONV_CHECK=ON。
+当前校验器读取普通单文件 GRD 和逐站 tgsNNNNNN；切换 NCDIO/DIROUT、SINGLE_TGS、
+CARTESIAN 或精度会改变接口/方程或负载，不能当成同配置优化。
+make -j1 是为避开官方 Fortran module 编译依赖不完整，与求解器 MPI 并行无关。
+
+首次基线通过后，下一组优化可保留另一份构建：
+
+  python benchmarks/build_gnu.py --proj9 --build-dir build/gnu-opt
+  python benchmarks/hirota_quick/run.py run --exe build/gnu-opt/jagurs --output runs/opt01
+
+一次只改一类因素。比较速度时保持进程/线程数、绑定、输出频率和输入一致，
+分别记录求解时间与整轮时间。减少输出、改物理开关或精度，应另立实验说明。
+run.py 会设置实际 OMP 线程数及数学库线程策略；要改 OMP 数用 --threads，
+仅在外面设置 OMP_NUM_THREADS 会被脚本覆盖。
+
+九、迁移与接口中最容易误读的地方
+------------------------------
+以下是此广田湾路径的约定，尤其是以后重新接 sECOM 时必须保留：
+  - 震源 GRD 是每帧增量，不能当成累计位移重复施加；时间单位为秒。
+  - eta_raw 是相对模型背景海面的异常，单位 m。
+  - 本例背景为 -0.42 m TP，湿点绝对水位 eta_TP = eta_raw - 0.42。
+  - depth_raw=H 是相对背景面的有符号床深，湿水柱 D=H+eta_raw；
+    床面 bed_TP=-0.42-H。干陆的有符号 D 可为负，不代表活跃水柱出现物理负水深。
+  - qx_raw 正东，qy_south_raw 正南，都是单宽流量 m^2/s，不是 m/s 的速度。
+  - q 位于交错网格面。转换速度要使用对应输运面的水柱、原生干湿分支及时间层，
+    不能把面通量直接除以单元中心水深。此前因此产生过极大的假速度。
+  - 原生流量和水位有半步时差。此 SD03 路径 dt=.1 s，标签 T 的流量对应
+    T-.05 s；既有转换器用正确旧时间层面深并做时空对齐。相同文件步号不等于
+    所有变量位于同一物理时刻。
+  - GRD 行序从北到南；改数组布局或读写器时，保持真实坐标与方向。
+    内部计算双精度、GRD 数值输出单精度、坐标头双精度是当前基线。
+
+若出现“看起来结束了但未通过”：
+  先看 report.json 区分数值、详细计时、耗时；再看 launcher.log/stdout.*。
+  缺 raw 场常与输出宏/velgrd 有关；数值通过但计时不完整，检查 TIMER=DETAIL。
+  prepare 哈希失败先查克隆/解包完整性；不要删掉哈希保护跳过。
+  程序找不到库或 MPI 启动失败，先核对编译器、MPI、NetCDF/PROJ/FFTW 的环境。
+  发现跨平台差异，保存首个失败结果和构建参数，再定位坐标、时间轴、施源、通量
+  及并行变化；不要移动观测、缩放震源或放宽阈值来追求 PASS。
+
+十、地震和漫滩的简要背景
+----------------------
+地震端：最终使用 Yamazaki 等 2018 论文公开的 60 子断层参数，通过 Okada 解析
+方法计算规定破裂过程下的时变海底形变，包含既有水平位移地形坡度贡献。它是一套
+已计算好的形变输入，不是此次又运行了一套完整弹性波地震求解器。JAGURS quick
+已经打包全部形变帧，不需要重算 Okada。CGFDM 浅源误差仍未过预设门槛，未宣布通过。
+该公开震源本身使用海啸和爬高资料约束；本次属于历史复现，不是对震源的独立盲验证。
+
+漫滩端：采用 sECOM v1b 修复版，主要修了细格显式黏性更新失稳，并对齐 JAGURS
+到 sECOM 的坐标、面速度和时间层。最终 10 m 网格 978x1094，dt=.05 s，从震后
+360 s 接手到 10800 s；原机 32 OpenMP 线程约 3 小时 29 分钟。
+61 个 I 类内部水痕均淹到，MARE=14.0122%，RMSE=2.2283 m，整体指标通过。
+全部 120 原始点保留，101 点淹到、19 个 R 类未淹。薄水膜干床波前及局部前沿
+收敛尚未证明；也没有把全部 R 类点或原 CGFDM 三软件整链写成通过。
+
+当前仓库完整提供 JAGURS 快速开发材料；完整 Okada 生成环境、sECOM 修复源码、
+整链转换器、现场观测评价数据和长时段输出仍在原机历史档案。若下一阶段要搬整条
+链，需要另行打包这些内容、处理其中的原机绝对路径，并重新跑完整历史验收。
+不能把快速例的最终几帧直接代替完整的下游边界时序。
+
+十一、原机档案位置（追溯用，不是新平台 quick 的运行依赖）
+------------------------------------------------------
+当前干净 JAGURS 工作副本：
+  /home/user_home/ylf/jagurs-v0701-hirota-hpc-20261013
+
+以下路径共同根目录为 /home/user_home/ylf/disaster-chain-real-20261002：
+  已验证 JAGURS 历史修复源码/构建：
+    tsunami/root_jagurs_geoprecise_coherent_output_build
+  JAGURS 完整 10861 s 父模型档案：
+    tsunami/root_tohoku_north_geoprecise_coherent_10m_parent
+  公开地震源参数：
+    reference/candidate_events/tohoku2011/tohoku2011_yamazaki2018_source.json
+  源生成入口：
+    scripts/root_tohoku_ocean_control.py
+    scripts/root_tohoku_north_extension.py
+    reference/okada_rect_vector.f90
+  sECOM 冻结源码/构建：
+    inundation/agent_build_hirota_978x1094_viscex_v1b
+  sECOM 最终完整算例：
+    inundation/agent_hirota10_yamazaki2018_geoprecise_coherent_riemann_v3_viscex_v1b
+  sECOM 当前复跑入口及说明：
+    scripts/inundation_viscosity_exchange_v1b_production.py
+    research/inundation_viscosity_exchange_v1b_rerun.txt
+  完整历史验收结果：
+    results/hirota2011_secom10_geoprecise_viscex_v1b/result.json
+  实际坐标转换编排：
+    scripts/inundation_hirota_geoprecise.py
+  最终边界速度/时间层合同：
+    reference/coastal_data/hirota2011_parent_packets/root_tohoku_north_geoprecise_coherent_10m_parent/boundary_velocity_v3_final.json
+
+这些历史脚本部分含原机绝对路径，不能直接当作已经完成跨平台适配。后续接整链时
+从最终生产入口和结果追溯，避免误选旧的显式黏性失败版或旧坐标父模型。
+
+十二、给下一位开发者或 AI 的任务说明
+----------------------------------
+请先读本交接、benchmarks/hirota_quick/README.txt、
+benchmarks/hirota_quick/CHANGES.txt 和 benchmarks/hirota_quick/results/SUMMARY.txt。
+在新平台实际编译并跑通固定广田湾 quick，保存平台、编译参数、基线数值和时间。
+以官方 V0701 上的当前 8 文件修复为科学基线开展 HPC 优化；保持输入、参考值、
+物理参数和验收阈值固定。每项改动后执行同一 run.py，报告数值、各 rank 性能和
+整轮耗时。新平台的性能由新平台实测给出；色散、完整洪峰和下游灾害链若进入
+优化范围，补充对应路径/长算例验证。原地震 CGFDM 与漫滩未解决项按本文保留。

@@ -9,6 +9,7 @@ JAGURS V0701 修复版：广田湾 HPC 开发基线
 真实案例快速回归。源码修复提交 24bc4dc 的父提交就是官方 V0701。
 这不是官方发布的修订版。原始 JAGURS 安装说明见 INSTALL，许可见 LICENSE。
 
+跨平台开发交接（新平台先读）：HANDOFF_20261013_JAGURS.txt
 快速案例、数据和使用步骤：benchmarks/hirota_quick/README.txt
 修改原因和适用范围：benchmarks/hirota_quick/CHANGES.txt
 原始数据出处：benchmarks/hirota_quick/DATA_SOURCES.txt
