@@ -1,0 +1,6532 @@
+{
+  "rank_timers": {
+    "stdout.000000": {
+      "All": {
+        "calls": 1,
+        "elapsed_s": 96.91
+      },
+      "getpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "read_grid_info": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "displacement_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.001
+      },
+      "interpolation_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      },
+      "putpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "read_bathymetry_gmt_grdhdr": {
+        "calls": 3,
+        "elapsed_s": 0.002
+      },
+      "onefile_setparams": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "make_abc": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "allocate_edges": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "read_bathymetry_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.013
+      },
+      "read_friction_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_wfld": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "wet_or_dry": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_v_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_gridmap": {
+        "calls": 2,
+        "elapsed_s": 0.004
+      },
+      "initl_gridmap_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "interp2fine_dz": {
+        "calls": 3278,
+        "elapsed_s": 0.441
+      },
+      "exchange_edges_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "boundary_rwg": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "tgs_open_ct": {
+        "calls": 1,
+        "elapsed_s": 0.004
+      },
+      "read_rupture": {
+        "calls": 546,
+        "elapsed_s": 0.971
+      },
+      "displacement_calc_h0_lat1": {
+        "calls": 182,
+        "elapsed_s": 0.033
+      },
+      "displacement_apply_kj_filter": {
+        "calls": 546,
+        "elapsed_s": 0.955
+      },
+      "maxgrd_write_gmt_init": {
+        "calls": 546,
+        "elapsed_s": 1.724
+      },
+      "hrise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.017
+      },
+      "drise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.107
+      },
+      "tstep_grid_vel": {
+        "calls": 54003,
+        "elapsed_s": 34.549
+      },
+      "- fxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 27.603
+      },
+      "- mapgrids_vel": {
+        "calls": 54003,
+        "elapsed_s": 1.104
+      },
+      "- exch_edges_vel": {
+        "calls": 54003,
+        "elapsed_s": 1.042
+      },
+      "- exch_edges_wod": {
+        "calls": 54003,
+        "elapsed_s": 0.356
+      },
+      "maxgrd_v_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 2.763
+      },
+      "tstep_grid_hgt": {
+        "calls": 54003,
+        "elapsed_s": 6.638
+      },
+      "- hxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.726
+      },
+      "- mapgrids_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.231
+      },
+      "- outsea_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.01
+      },
+      "- exch_edges_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.874
+      },
+      "- recheck_wod": {
+        "calls": 54003,
+        "elapsed_s": 1.819
+      },
+      "maxgrd_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 0.642
+      },
+      "error_check": {
+        "calls": 54003,
+        "elapsed_s": 1.246
+      },
+      "dump_gmt_nl_hgt": {
+        "calls": 1443,
+        "elapsed_s": 17.169
+      },
+      "dump_gmt_nl_vel": {
+        "calls": 1441,
+        "elapsed_s": 0.001
+      },
+      "maxgrd_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      },
+      "maxgrd_v_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      }
+    },
+    "stdout.000001": {
+      "All": {
+        "calls": 1,
+        "elapsed_s": 96.91
+      },
+      "getpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "read_grid_info": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "displacement_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.001
+      },
+      "interpolation_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.003
+      },
+      "putpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_setparams": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "make_abc": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "allocate_edges": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "read_bathymetry_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.01
+      },
+      "read_friction_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_wfld": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "wet_or_dry": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_v_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_gridmap": {
+        "calls": 2,
+        "elapsed_s": 0.004
+      },
+      "initl_gridmap_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "interp2fine_dz": {
+        "calls": 3278,
+        "elapsed_s": 0.212
+      },
+      "exchange_edges_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "boundary_rwg": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "tgs_open_ct": {
+        "calls": 1,
+        "elapsed_s": 0.004
+      },
+      "read_rupture": {
+        "calls": 546,
+        "elapsed_s": 2.298
+      },
+      "displacement_calc_h0_lat1": {
+        "calls": 182,
+        "elapsed_s": 0.033
+      },
+      "displacement_apply_kj_filter": {
+        "calls": 546,
+        "elapsed_s": 0.957
+      },
+      "maxgrd_write_gmt_init": {
+        "calls": 546,
+        "elapsed_s": 0.043
+      },
+      "hrise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.023
+      },
+      "drise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.114
+      },
+      "tstep_grid_vel": {
+        "calls": 54003,
+        "elapsed_s": 46.592
+      },
+      "- fxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 43.493
+      },
+      "- mapgrids_vel": {
+        "calls": 54003,
+        "elapsed_s": 0.247
+      },
+      "- exch_edges_vel": {
+        "calls": 54003,
+        "elapsed_s": 1.047
+      },
+      "- exch_edges_wod": {
+        "calls": 54003,
+        "elapsed_s": 0.307
+      },
+      "maxgrd_v_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 3.57
+      },
+      "tstep_grid_hgt": {
+        "calls": 54003,
+        "elapsed_s": 6.643
+      },
+      "- hxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.746
+      },
+      "- mapgrids_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.168
+      },
+      "- outsea_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.007
+      },
+      "- exch_edges_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.947
+      },
+      "- recheck_wod": {
+        "calls": 54003,
+        "elapsed_s": 1.487
+      },
+      "maxgrd_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 0.791
+      },
+      "error_check": {
+        "calls": 54003,
+        "elapsed_s": 1.08
+      },
+      "dump_gmt_nl_hgt": {
+        "calls": 1443,
+        "elapsed_s": 14.091
+      },
+      "dump_gmt_nl_vel": {
+        "calls": 1441,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.001
+      },
+      "maxgrd_v_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      }
+    },
+    "stdout.000002": {
+      "All": {
+        "calls": 1,
+        "elapsed_s": 96.91
+      },
+      "getpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "read_grid_info": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "displacement_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.001
+      },
+      "interpolation_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.003
+      },
+      "putpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_setparams": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "make_abc": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "allocate_edges": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "read_bathymetry_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.01
+      },
+      "read_friction_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_wfld": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "wet_or_dry": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_v_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_gridmap": {
+        "calls": 2,
+        "elapsed_s": 0.004
+      },
+      "initl_gridmap_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "interp2fine_dz": {
+        "calls": 3278,
+        "elapsed_s": 0.173
+      },
+      "exchange_edges_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "boundary_rwg": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "tgs_open_ct": {
+        "calls": 1,
+        "elapsed_s": 0.004
+      },
+      "read_rupture": {
+        "calls": 546,
+        "elapsed_s": 2.296
+      },
+      "displacement_calc_h0_lat1": {
+        "calls": 182,
+        "elapsed_s": 0.032
+      },
+      "displacement_apply_kj_filter": {
+        "calls": 546,
+        "elapsed_s": 1.212
+      },
+      "maxgrd_write_gmt_init": {
+        "calls": 546,
+        "elapsed_s": 0.042
+      },
+      "hrise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.024
+      },
+      "drise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.141
+      },
+      "tstep_grid_vel": {
+        "calls": 54003,
+        "elapsed_s": 44.512
+      },
+      "- fxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 30.21
+      },
+      "- mapgrids_vel": {
+        "calls": 54003,
+        "elapsed_s": 0.216
+      },
+      "- exch_edges_vel": {
+        "calls": 54003,
+        "elapsed_s": 12.359
+      },
+      "- exch_edges_wod": {
+        "calls": 54003,
+        "elapsed_s": 0.315
+      },
+      "maxgrd_v_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 5.882
+      },
+      "tstep_grid_hgt": {
+        "calls": 54003,
+        "elapsed_s": 6.649
+      },
+      "- hxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.764
+      },
+      "- mapgrids_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.149
+      },
+      "- outsea_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.008
+      },
+      "- exch_edges_hgt": {
+        "calls": 54003,
+        "elapsed_s": 1.526
+      },
+      "- recheck_wod": {
+        "calls": 54003,
+        "elapsed_s": 1.368
+      },
+      "maxgrd_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 0.808
+      },
+      "error_check": {
+        "calls": 54003,
+        "elapsed_s": 1.053
+      },
+      "dump_gmt_nl_hgt": {
+        "calls": 1443,
+        "elapsed_s": 14.091
+      },
+      "dump_gmt_nl_vel": {
+        "calls": 1441,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.001
+      },
+      "maxgrd_v_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      }
+    },
+    "stdout.000003": {
+      "All": {
+        "calls": 1,
+        "elapsed_s": 96.91
+      },
+      "getpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "read_grid_info": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "displacement_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.001
+      },
+      "interpolation_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.003
+      },
+      "putpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_setparams": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "make_abc": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "allocate_edges": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "read_bathymetry_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.01
+      },
+      "read_friction_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_wfld": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "wet_or_dry": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_v_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_gridmap": {
+        "calls": 2,
+        "elapsed_s": 0.004
+      },
+      "initl_gridmap_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "interp2fine_dz": {
+        "calls": 3278,
+        "elapsed_s": 0.134
+      },
+      "exchange_edges_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "boundary_rwg": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "tgs_open_ct": {
+        "calls": 1,
+        "elapsed_s": 0.005
+      },
+      "read_rupture": {
+        "calls": 546,
+        "elapsed_s": 2.359
+      },
+      "displacement_calc_h0_lat1": {
+        "calls": 182,
+        "elapsed_s": 0.032
+      },
+      "displacement_apply_kj_filter": {
+        "calls": 546,
+        "elapsed_s": 1.225
+      },
+      "maxgrd_write_gmt_init": {
+        "calls": 546,
+        "elapsed_s": 0.035
+      },
+      "hrise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.025
+      },
+      "drise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.149
+      },
+      "tstep_grid_vel": {
+        "calls": 54003,
+        "elapsed_s": 50.171
+      },
+      "- fxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 35.625
+      },
+      "- mapgrids_vel": {
+        "calls": 54003,
+        "elapsed_s": 0.238
+      },
+      "- exch_edges_vel": {
+        "calls": 54003,
+        "elapsed_s": 12.609
+      },
+      "- exch_edges_wod": {
+        "calls": 54003,
+        "elapsed_s": 0.317
+      },
+      "maxgrd_v_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 6.112
+      },
+      "tstep_grid_hgt": {
+        "calls": 54003,
+        "elapsed_s": 6.489
+      },
+      "- hxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.787
+      },
+      "- mapgrids_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.158
+      },
+      "- outsea_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.009
+      },
+      "- exch_edges_hgt": {
+        "calls": 54003,
+        "elapsed_s": 1.678
+      },
+      "- recheck_wod": {
+        "calls": 54003,
+        "elapsed_s": 1.271
+      },
+      "maxgrd_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 0.871
+      },
+      "error_check": {
+        "calls": 54003,
+        "elapsed_s": 0.998
+      },
+      "dump_gmt_nl_hgt": {
+        "calls": 1443,
+        "elapsed_s": 14.091
+      },
+      "dump_gmt_nl_vel": {
+        "calls": 1441,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.001
+      },
+      "maxgrd_v_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      }
+    },
+    "stdout.000004": {
+      "All": {
+        "calls": 1,
+        "elapsed_s": 96.91
+      },
+      "getpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "read_grid_info": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "displacement_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.001
+      },
+      "interpolation_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.003
+      },
+      "putpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_setparams": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "make_abc": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "allocate_edges": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "read_bathymetry_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.01
+      },
+      "read_friction_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_wfld": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "wet_or_dry": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_v_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_gridmap": {
+        "calls": 2,
+        "elapsed_s": 0.004
+      },
+      "initl_gridmap_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "interp2fine_dz": {
+        "calls": 3278,
+        "elapsed_s": 0.118
+      },
+      "exchange_edges_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "boundary_rwg": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "tgs_open_ct": {
+        "calls": 1,
+        "elapsed_s": 0.004
+      },
+      "read_rupture": {
+        "calls": 546,
+        "elapsed_s": 2.354
+      },
+      "displacement_calc_h0_lat1": {
+        "calls": 182,
+        "elapsed_s": 0.032
+      },
+      "displacement_apply_kj_filter": {
+        "calls": 546,
+        "elapsed_s": 1.114
+      },
+      "maxgrd_write_gmt_init": {
+        "calls": 546,
+        "elapsed_s": 0.036
+      },
+      "hrise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.02
+      },
+      "drise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.152
+      },
+      "tstep_grid_vel": {
+        "calls": 54003,
+        "elapsed_s": 51.659
+      },
+      "- fxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 31.996
+      },
+      "- mapgrids_vel": {
+        "calls": 54003,
+        "elapsed_s": 0.218
+      },
+      "- exch_edges_vel": {
+        "calls": 54003,
+        "elapsed_s": 6.418
+      },
+      "- exch_edges_wod": {
+        "calls": 54003,
+        "elapsed_s": 11.628
+      },
+      "maxgrd_v_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 6.078
+      },
+      "tstep_grid_hgt": {
+        "calls": 54003,
+        "elapsed_s": 6.576
+      },
+      "- hxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.78
+      },
+      "- mapgrids_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.164
+      },
+      "- outsea_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.007
+      },
+      "- exch_edges_hgt": {
+        "calls": 54003,
+        "elapsed_s": 1.833
+      },
+      "- recheck_wod": {
+        "calls": 54003,
+        "elapsed_s": 1.255
+      },
+      "maxgrd_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 0.958
+      },
+      "error_check": {
+        "calls": 54003,
+        "elapsed_s": 0.93
+      },
+      "dump_gmt_nl_hgt": {
+        "calls": 1443,
+        "elapsed_s": 14.092
+      },
+      "dump_gmt_nl_vel": {
+        "calls": 1441,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.001
+      },
+      "maxgrd_v_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      }
+    },
+    "stdout.000005": {
+      "All": {
+        "calls": 1,
+        "elapsed_s": 96.91
+      },
+      "getpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "read_grid_info": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "displacement_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.001
+      },
+      "interpolation_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.003
+      },
+      "putpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_setparams": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "make_abc": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "allocate_edges": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "read_bathymetry_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.01
+      },
+      "read_friction_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_wfld": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "wet_or_dry": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_v_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_gridmap": {
+        "calls": 2,
+        "elapsed_s": 0.004
+      },
+      "initl_gridmap_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "interp2fine_dz": {
+        "calls": 3278,
+        "elapsed_s": 0.119
+      },
+      "exchange_edges_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "boundary_rwg": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "tgs_open_ct": {
+        "calls": 1,
+        "elapsed_s": 0.004
+      },
+      "read_rupture": {
+        "calls": 546,
+        "elapsed_s": 2.379
+      },
+      "displacement_calc_h0_lat1": {
+        "calls": 182,
+        "elapsed_s": 0.032
+      },
+      "displacement_apply_kj_filter": {
+        "calls": 546,
+        "elapsed_s": 1.243
+      },
+      "maxgrd_write_gmt_init": {
+        "calls": 546,
+        "elapsed_s": 0.034
+      },
+      "hrise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.026
+      },
+      "drise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.153
+      },
+      "tstep_grid_vel": {
+        "calls": 54003,
+        "elapsed_s": 51.627
+      },
+      "- fxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 41.346
+      },
+      "- mapgrids_vel": {
+        "calls": 54003,
+        "elapsed_s": 0.23
+      },
+      "- exch_edges_vel": {
+        "calls": 54003,
+        "elapsed_s": 8.027
+      },
+      "- exch_edges_wod": {
+        "calls": 54003,
+        "elapsed_s": 0.591
+      },
+      "maxgrd_v_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 7.34
+      },
+      "tstep_grid_hgt": {
+        "calls": 54003,
+        "elapsed_s": 5.748
+      },
+      "- hxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.779
+      },
+      "- mapgrids_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.174
+      },
+      "- outsea_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.007
+      },
+      "- exch_edges_hgt": {
+        "calls": 54003,
+        "elapsed_s": 1.183
+      },
+      "- recheck_wod": {
+        "calls": 54003,
+        "elapsed_s": 1.172
+      },
+      "maxgrd_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 0.943
+      },
+      "error_check": {
+        "calls": 54003,
+        "elapsed_s": 0.963
+      },
+      "dump_gmt_nl_hgt": {
+        "calls": 1443,
+        "elapsed_s": 14.092
+      },
+      "dump_gmt_nl_vel": {
+        "calls": 1441,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.001
+      },
+      "maxgrd_v_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      }
+    },
+    "stdout.000006": {
+      "All": {
+        "calls": 1,
+        "elapsed_s": 96.91
+      },
+      "getpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "read_grid_info": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "displacement_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.001
+      },
+      "interpolation_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.003
+      },
+      "putpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_setparams": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "make_abc": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "allocate_edges": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "read_bathymetry_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.01
+      },
+      "read_friction_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_wfld": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "wet_or_dry": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_v_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_gridmap": {
+        "calls": 2,
+        "elapsed_s": 0.004
+      },
+      "initl_gridmap_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "interp2fine_dz": {
+        "calls": 3278,
+        "elapsed_s": 0.126
+      },
+      "exchange_edges_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "boundary_rwg": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "tgs_open_ct": {
+        "calls": 1,
+        "elapsed_s": 0.004
+      },
+      "read_rupture": {
+        "calls": 546,
+        "elapsed_s": 2.496
+      },
+      "displacement_calc_h0_lat1": {
+        "calls": 182,
+        "elapsed_s": 0.032
+      },
+      "displacement_apply_kj_filter": {
+        "calls": 546,
+        "elapsed_s": 1.255
+      },
+      "maxgrd_write_gmt_init": {
+        "calls": 546,
+        "elapsed_s": 0.038
+      },
+      "hrise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.025
+      },
+      "drise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.15
+      },
+      "tstep_grid_vel": {
+        "calls": 54003,
+        "elapsed_s": 60.045
+      },
+      "- fxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 40.857
+      },
+      "- mapgrids_vel": {
+        "calls": 54003,
+        "elapsed_s": 0.268
+      },
+      "- exch_edges_vel": {
+        "calls": 54003,
+        "elapsed_s": 3.46
+      },
+      "- exch_edges_wod": {
+        "calls": 54003,
+        "elapsed_s": 5.432
+      },
+      "maxgrd_v_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 7.883
+      },
+      "tstep_grid_hgt": {
+        "calls": 54003,
+        "elapsed_s": 5.247
+      },
+      "- hxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.74
+      },
+      "- mapgrids_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.193
+      },
+      "- outsea_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.006
+      },
+      "- exch_edges_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.714
+      },
+      "- recheck_wod": {
+        "calls": 54003,
+        "elapsed_s": 1.286
+      },
+      "maxgrd_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 0.921
+      },
+      "error_check": {
+        "calls": 54003,
+        "elapsed_s": 1.015
+      },
+      "dump_gmt_nl_hgt": {
+        "calls": 1443,
+        "elapsed_s": 14.092
+      },
+      "dump_gmt_nl_vel": {
+        "calls": 1441,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.001
+      },
+      "maxgrd_v_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      }
+    },
+    "stdout.000007": {
+      "All": {
+        "calls": 1,
+        "elapsed_s": 96.91
+      },
+      "getpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "read_grid_info": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "displacement_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "interpolation_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.003
+      },
+      "putpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_setparams": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "make_abc": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "allocate_edges": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "read_bathymetry_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.01
+      },
+      "read_friction_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_wfld": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "wet_or_dry": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_v_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_gridmap": {
+        "calls": 2,
+        "elapsed_s": 0.004
+      },
+      "initl_gridmap_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "interp2fine_dz": {
+        "calls": 3278,
+        "elapsed_s": 0.154
+      },
+      "exchange_edges_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "boundary_rwg": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "tgs_open_ct": {
+        "calls": 1,
+        "elapsed_s": 0.004
+      },
+      "read_rupture": {
+        "calls": 546,
+        "elapsed_s": 2.59
+      },
+      "displacement_calc_h0_lat1": {
+        "calls": 182,
+        "elapsed_s": 0.033
+      },
+      "displacement_apply_kj_filter": {
+        "calls": 546,
+        "elapsed_s": 1.23
+      },
+      "maxgrd_write_gmt_init": {
+        "calls": 546,
+        "elapsed_s": 0.039
+      },
+      "hrise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.022
+      },
+      "drise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.14
+      },
+      "tstep_grid_vel": {
+        "calls": 54003,
+        "elapsed_s": 60.845
+      },
+      "- fxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 36.293
+      },
+      "- mapgrids_vel": {
+        "calls": 54003,
+        "elapsed_s": 0.34
+      },
+      "- exch_edges_vel": {
+        "calls": 54003,
+        "elapsed_s": 9.236
+      },
+      "- exch_edges_wod": {
+        "calls": 54003,
+        "elapsed_s": 2.233
+      },
+      "maxgrd_v_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 7.556
+      },
+      "tstep_grid_hgt": {
+        "calls": 54003,
+        "elapsed_s": 5.018
+      },
+      "- hxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.65
+      },
+      "- mapgrids_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.281
+      },
+      "- outsea_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.008
+      },
+      "- exch_edges_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.573
+      },
+      "- recheck_wod": {
+        "calls": 54003,
+        "elapsed_s": 1.382
+      },
+      "maxgrd_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 0.735
+      },
+      "error_check": {
+        "calls": 54003,
+        "elapsed_s": 1.297
+      },
+      "dump_gmt_nl_hgt": {
+        "calls": 1443,
+        "elapsed_s": 14.092
+      },
+      "dump_gmt_nl_vel": {
+        "calls": 1441,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      },
+      "maxgrd_v_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      }
+    },
+    "stdout.000008": {
+      "All": {
+        "calls": 1,
+        "elapsed_s": 96.908
+      },
+      "getpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "read_grid_info": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "displacement_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "interpolation_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.003
+      },
+      "putpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_setparams": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "make_abc": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "allocate_edges": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "read_bathymetry_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.01
+      },
+      "read_friction_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_wfld": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "wet_or_dry": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_v_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_gridmap": {
+        "calls": 2,
+        "elapsed_s": 0.004
+      },
+      "initl_gridmap_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "interp2fine_dz": {
+        "calls": 3278,
+        "elapsed_s": 0.225
+      },
+      "exchange_edges_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "boundary_rwg": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "tgs_open_ct": {
+        "calls": 1,
+        "elapsed_s": 0.004
+      },
+      "read_rupture": {
+        "calls": 546,
+        "elapsed_s": 2.191
+      },
+      "displacement_calc_h0_lat1": {
+        "calls": 182,
+        "elapsed_s": 0.035
+      },
+      "displacement_apply_kj_filter": {
+        "calls": 546,
+        "elapsed_s": 1.153
+      },
+      "maxgrd_write_gmt_init": {
+        "calls": 546,
+        "elapsed_s": 0.043
+      },
+      "hrise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.016
+      },
+      "drise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.106
+      },
+      "tstep_grid_vel": {
+        "calls": 54003,
+        "elapsed_s": 40.446
+      },
+      "- fxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 36.311
+      },
+      "- mapgrids_vel": {
+        "calls": 54003,
+        "elapsed_s": 0.596
+      },
+      "- exch_edges_vel": {
+        "calls": 54003,
+        "elapsed_s": 1.088
+      },
+      "- exch_edges_wod": {
+        "calls": 54003,
+        "elapsed_s": 0.347
+      },
+      "maxgrd_v_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 1.671
+      },
+      "tstep_grid_hgt": {
+        "calls": 54003,
+        "elapsed_s": 6.616
+      },
+      "- hxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.632
+      },
+      "- mapgrids_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.183
+      },
+      "- outsea_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.006
+      },
+      "- exch_edges_hgt": {
+        "calls": 54003,
+        "elapsed_s": 1.063
+      },
+      "- recheck_wod": {
+        "calls": 54003,
+        "elapsed_s": 1.695
+      },
+      "maxgrd_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 0.418
+      },
+      "error_check": {
+        "calls": 54003,
+        "elapsed_s": 1.482
+      },
+      "dump_gmt_nl_hgt": {
+        "calls": 1443,
+        "elapsed_s": 14.093
+      },
+      "dump_gmt_nl_vel": {
+        "calls": 1441,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_v_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      }
+    },
+    "stdout.000009": {
+      "All": {
+        "calls": 1,
+        "elapsed_s": 96.908
+      },
+      "getpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "read_grid_info": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "displacement_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.001
+      },
+      "interpolation_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.006
+      },
+      "putpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_setparams": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "make_abc": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "allocate_edges": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "read_bathymetry_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.01
+      },
+      "read_friction_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_wfld": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "wet_or_dry": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_v_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_gridmap": {
+        "calls": 2,
+        "elapsed_s": 0.004
+      },
+      "initl_gridmap_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "interp2fine_dz": {
+        "calls": 3278,
+        "elapsed_s": 0.137
+      },
+      "exchange_edges_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "boundary_rwg": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "tgs_open_ct": {
+        "calls": 1,
+        "elapsed_s": 0.005
+      },
+      "read_rupture": {
+        "calls": 546,
+        "elapsed_s": 2.587
+      },
+      "displacement_calc_h0_lat1": {
+        "calls": 182,
+        "elapsed_s": 0.034
+      },
+      "displacement_apply_kj_filter": {
+        "calls": 546,
+        "elapsed_s": 1.251
+      },
+      "maxgrd_write_gmt_init": {
+        "calls": 546,
+        "elapsed_s": 0.042
+      },
+      "hrise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.017
+      },
+      "drise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.123
+      },
+      "tstep_grid_vel": {
+        "calls": 54003,
+        "elapsed_s": 63.762
+      },
+      "- fxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 60.715
+      },
+      "- mapgrids_vel": {
+        "calls": 54003,
+        "elapsed_s": 0.149
+      },
+      "- exch_edges_vel": {
+        "calls": 54003,
+        "elapsed_s": 1.097
+      },
+      "- exch_edges_wod": {
+        "calls": 54003,
+        "elapsed_s": 0.298
+      },
+      "maxgrd_v_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 2.606
+      },
+      "tstep_grid_hgt": {
+        "calls": 54003,
+        "elapsed_s": 6.141
+      },
+      "- hxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.669
+      },
+      "- mapgrids_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.119
+      },
+      "- outsea_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.005
+      },
+      "- exch_edges_hgt": {
+        "calls": 54003,
+        "elapsed_s": 1.464
+      },
+      "- recheck_wod": {
+        "calls": 54003,
+        "elapsed_s": 1.446
+      },
+      "maxgrd_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 0.726
+      },
+      "error_check": {
+        "calls": 54003,
+        "elapsed_s": 1.165
+      },
+      "dump_gmt_nl_hgt": {
+        "calls": 1443,
+        "elapsed_s": 14.094
+      },
+      "dump_gmt_nl_vel": {
+        "calls": 1441,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.001
+      },
+      "maxgrd_v_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      }
+    },
+    "stdout.000010": {
+      "All": {
+        "calls": 1,
+        "elapsed_s": 96.908
+      },
+      "getpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "read_grid_info": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "displacement_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "interpolation_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.006
+      },
+      "putpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_setparams": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "make_abc": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "allocate_edges": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "read_bathymetry_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.01
+      },
+      "read_friction_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_wfld": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "wet_or_dry": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_v_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_gridmap": {
+        "calls": 2,
+        "elapsed_s": 0.004
+      },
+      "initl_gridmap_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "interp2fine_dz": {
+        "calls": 3278,
+        "elapsed_s": 0.107
+      },
+      "exchange_edges_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "boundary_rwg": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "tgs_open_ct": {
+        "calls": 1,
+        "elapsed_s": 0.005
+      },
+      "read_rupture": {
+        "calls": 546,
+        "elapsed_s": 2.51
+      },
+      "displacement_calc_h0_lat1": {
+        "calls": 182,
+        "elapsed_s": 0.035
+      },
+      "displacement_apply_kj_filter": {
+        "calls": 546,
+        "elapsed_s": 1.25
+      },
+      "maxgrd_write_gmt_init": {
+        "calls": 546,
+        "elapsed_s": 0.042
+      },
+      "hrise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.015
+      },
+      "drise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.144
+      },
+      "tstep_grid_vel": {
+        "calls": 54003,
+        "elapsed_s": 60.272
+      },
+      "- fxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 45.931
+      },
+      "- mapgrids_vel": {
+        "calls": 54003,
+        "elapsed_s": 0.111
+      },
+      "- exch_edges_vel": {
+        "calls": 54003,
+        "elapsed_s": 12.405
+      },
+      "- exch_edges_wod": {
+        "calls": 54003,
+        "elapsed_s": 0.297
+      },
+      "maxgrd_v_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 6.014
+      },
+      "tstep_grid_hgt": {
+        "calls": 54003,
+        "elapsed_s": 6.064
+      },
+      "- hxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.688
+      },
+      "- mapgrids_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.097
+      },
+      "- outsea_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.005
+      },
+      "- exch_edges_hgt": {
+        "calls": 54003,
+        "elapsed_s": 1.539
+      },
+      "- recheck_wod": {
+        "calls": 54003,
+        "elapsed_s": 1.375
+      },
+      "maxgrd_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 0.833
+      },
+      "error_check": {
+        "calls": 54003,
+        "elapsed_s": 1.046
+      },
+      "dump_gmt_nl_hgt": {
+        "calls": 1443,
+        "elapsed_s": 14.093
+      },
+      "dump_gmt_nl_vel": {
+        "calls": 1441,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.001
+      },
+      "maxgrd_v_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      }
+    },
+    "stdout.000011": {
+      "All": {
+        "calls": 1,
+        "elapsed_s": 96.908
+      },
+      "getpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "read_grid_info": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "displacement_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.001
+      },
+      "interpolation_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.006
+      },
+      "putpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_setparams": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "make_abc": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "allocate_edges": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "read_bathymetry_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.01
+      },
+      "read_friction_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_wfld": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "wet_or_dry": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_v_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_gridmap": {
+        "calls": 2,
+        "elapsed_s": 0.004
+      },
+      "initl_gridmap_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "interp2fine_dz": {
+        "calls": 3278,
+        "elapsed_s": 0.099
+      },
+      "exchange_edges_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "boundary_rwg": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "tgs_open_ct": {
+        "calls": 1,
+        "elapsed_s": 0.004
+      },
+      "read_rupture": {
+        "calls": 546,
+        "elapsed_s": 2.587
+      },
+      "displacement_calc_h0_lat1": {
+        "calls": 182,
+        "elapsed_s": 0.035
+      },
+      "displacement_apply_kj_filter": {
+        "calls": 546,
+        "elapsed_s": 1.251
+      },
+      "maxgrd_write_gmt_init": {
+        "calls": 546,
+        "elapsed_s": 0.038
+      },
+      "hrise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.016
+      },
+      "drise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.145
+      },
+      "tstep_grid_vel": {
+        "calls": 54003,
+        "elapsed_s": 61.333
+      },
+      "- fxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 46.75
+      },
+      "- mapgrids_vel": {
+        "calls": 54003,
+        "elapsed_s": 0.043
+      },
+      "- exch_edges_vel": {
+        "calls": 54003,
+        "elapsed_s": 12.655
+      },
+      "- exch_edges_wod": {
+        "calls": 54003,
+        "elapsed_s": 0.303
+      },
+      "maxgrd_v_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 7.419
+      },
+      "tstep_grid_hgt": {
+        "calls": 54003,
+        "elapsed_s": 5.473
+      },
+      "- hxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.715
+      },
+      "- mapgrids_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.058
+      },
+      "- outsea_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.006
+      },
+      "- exch_edges_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.961
+      },
+      "- recheck_wod": {
+        "calls": 54003,
+        "elapsed_s": 1.335
+      },
+      "maxgrd_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 0.891
+      },
+      "error_check": {
+        "calls": 54003,
+        "elapsed_s": 0.999
+      },
+      "dump_gmt_nl_hgt": {
+        "calls": 1443,
+        "elapsed_s": 14.093
+      },
+      "dump_gmt_nl_vel": {
+        "calls": 1441,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      },
+      "maxgrd_v_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      }
+    },
+    "stdout.000012": {
+      "All": {
+        "calls": 1,
+        "elapsed_s": 96.908
+      },
+      "getpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "read_grid_info": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "displacement_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.001
+      },
+      "interpolation_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.006
+      },
+      "putpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_setparams": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "make_abc": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "allocate_edges": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "read_bathymetry_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.01
+      },
+      "read_friction_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_wfld": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "wet_or_dry": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_v_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_gridmap": {
+        "calls": 2,
+        "elapsed_s": 0.004
+      },
+      "initl_gridmap_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "interp2fine_dz": {
+        "calls": 3278,
+        "elapsed_s": 0.1
+      },
+      "exchange_edges_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "boundary_rwg": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "tgs_open_ct": {
+        "calls": 1,
+        "elapsed_s": 0.004
+      },
+      "read_rupture": {
+        "calls": 546,
+        "elapsed_s": 2.587
+      },
+      "displacement_calc_h0_lat1": {
+        "calls": 182,
+        "elapsed_s": 0.035
+      },
+      "displacement_apply_kj_filter": {
+        "calls": 546,
+        "elapsed_s": 1.243
+      },
+      "maxgrd_write_gmt_init": {
+        "calls": 546,
+        "elapsed_s": 0.037
+      },
+      "hrise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.017
+      },
+      "drise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.146
+      },
+      "tstep_grid_vel": {
+        "calls": 54003,
+        "elapsed_s": 61.16
+      },
+      "- fxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 41.451
+      },
+      "- mapgrids_vel": {
+        "calls": 54003,
+        "elapsed_s": 0.04
+      },
+      "- exch_edges_vel": {
+        "calls": 54003,
+        "elapsed_s": 6.448
+      },
+      "- exch_edges_wod": {
+        "calls": 54003,
+        "elapsed_s": 11.629
+      },
+      "maxgrd_v_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 7.951
+      },
+      "tstep_grid_hgt": {
+        "calls": 54003,
+        "elapsed_s": 5.14
+      },
+      "- hxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.679
+      },
+      "- mapgrids_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.055
+      },
+      "- outsea_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.005
+      },
+      "- exch_edges_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.659
+      },
+      "- recheck_wod": {
+        "calls": 54003,
+        "elapsed_s": 1.319
+      },
+      "maxgrd_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 0.89
+      },
+      "error_check": {
+        "calls": 54003,
+        "elapsed_s": 1.011
+      },
+      "dump_gmt_nl_hgt": {
+        "calls": 1443,
+        "elapsed_s": 14.093
+      },
+      "dump_gmt_nl_vel": {
+        "calls": 1441,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.001
+      },
+      "maxgrd_v_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      }
+    },
+    "stdout.000013": {
+      "All": {
+        "calls": 1,
+        "elapsed_s": 96.908
+      },
+      "getpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "read_grid_info": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "displacement_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "interpolation_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.006
+      },
+      "putpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_setparams": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "make_abc": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "allocate_edges": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "read_bathymetry_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.01
+      },
+      "read_friction_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_wfld": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "wet_or_dry": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_v_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_gridmap": {
+        "calls": 2,
+        "elapsed_s": 0.004
+      },
+      "initl_gridmap_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "interp2fine_dz": {
+        "calls": 3278,
+        "elapsed_s": 0.101
+      },
+      "exchange_edges_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "boundary_rwg": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "tgs_open_ct": {
+        "calls": 1,
+        "elapsed_s": 0.004
+      },
+      "read_rupture": {
+        "calls": 546,
+        "elapsed_s": 2.587
+      },
+      "displacement_calc_h0_lat1": {
+        "calls": 182,
+        "elapsed_s": 0.034
+      },
+      "displacement_apply_kj_filter": {
+        "calls": 546,
+        "elapsed_s": 1.26
+      },
+      "maxgrd_write_gmt_init": {
+        "calls": 546,
+        "elapsed_s": 0.035
+      },
+      "hrise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.02
+      },
+      "drise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.149
+      },
+      "tstep_grid_vel": {
+        "calls": 54003,
+        "elapsed_s": 61.512
+      },
+      "- fxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 51.189
+      },
+      "- mapgrids_vel": {
+        "calls": 54003,
+        "elapsed_s": 0.093
+      },
+      "- exch_edges_vel": {
+        "calls": 54003,
+        "elapsed_s": 8.053
+      },
+      "- exch_edges_wod": {
+        "calls": 54003,
+        "elapsed_s": 0.59
+      },
+      "maxgrd_v_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 8.051
+      },
+      "tstep_grid_hgt": {
+        "calls": 54003,
+        "elapsed_s": 5.094
+      },
+      "- hxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.684
+      },
+      "- mapgrids_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.095
+      },
+      "- outsea_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.005
+      },
+      "- exch_edges_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.632
+      },
+      "- recheck_wod": {
+        "calls": 54003,
+        "elapsed_s": 1.27
+      },
+      "maxgrd_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 0.891
+      },
+      "error_check": {
+        "calls": 54003,
+        "elapsed_s": 1.031
+      },
+      "dump_gmt_nl_hgt": {
+        "calls": 1443,
+        "elapsed_s": 14.093
+      },
+      "dump_gmt_nl_vel": {
+        "calls": 1441,
+        "elapsed_s": 0.001
+      },
+      "maxgrd_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      },
+      "maxgrd_v_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      }
+    },
+    "stdout.000014": {
+      "All": {
+        "calls": 1,
+        "elapsed_s": 96.908
+      },
+      "getpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "read_grid_info": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "displacement_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "interpolation_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.006
+      },
+      "putpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_setparams": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "make_abc": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "allocate_edges": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "read_bathymetry_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.01
+      },
+      "read_friction_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_wfld": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "wet_or_dry": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_v_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_gridmap": {
+        "calls": 2,
+        "elapsed_s": 0.004
+      },
+      "initl_gridmap_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "interp2fine_dz": {
+        "calls": 3278,
+        "elapsed_s": 0.114
+      },
+      "exchange_edges_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "boundary_rwg": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "tgs_open_ct": {
+        "calls": 1,
+        "elapsed_s": 0.004
+      },
+      "read_rupture": {
+        "calls": 546,
+        "elapsed_s": 2.587
+      },
+      "displacement_calc_h0_lat1": {
+        "calls": 182,
+        "elapsed_s": 0.035
+      },
+      "displacement_apply_kj_filter": {
+        "calls": 546,
+        "elapsed_s": 1.249
+      },
+      "maxgrd_write_gmt_init": {
+        "calls": 546,
+        "elapsed_s": 0.041
+      },
+      "hrise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.018
+      },
+      "drise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.142
+      },
+      "tstep_grid_vel": {
+        "calls": 54003,
+        "elapsed_s": 61.663
+      },
+      "- fxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 42.487
+      },
+      "- mapgrids_vel": {
+        "calls": 54003,
+        "elapsed_s": 0.044
+      },
+      "- exch_edges_vel": {
+        "calls": 54003,
+        "elapsed_s": 3.482
+      },
+      "- exch_edges_wod": {
+        "calls": 54003,
+        "elapsed_s": 5.433
+      },
+      "maxgrd_v_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 8.179
+      },
+      "tstep_grid_hgt": {
+        "calls": 54003,
+        "elapsed_s": 4.905
+      },
+      "- hxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.662
+      },
+      "- mapgrids_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.063
+      },
+      "- outsea_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.005
+      },
+      "- exch_edges_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.431
+      },
+      "- recheck_wod": {
+        "calls": 54003,
+        "elapsed_s": 1.362
+      },
+      "maxgrd_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 0.878
+      },
+      "error_check": {
+        "calls": 54003,
+        "elapsed_s": 1.059
+      },
+      "dump_gmt_nl_hgt": {
+        "calls": 1443,
+        "elapsed_s": 14.093
+      },
+      "dump_gmt_nl_vel": {
+        "calls": 1441,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.001
+      },
+      "maxgrd_v_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      }
+    },
+    "stdout.000015": {
+      "All": {
+        "calls": 1,
+        "elapsed_s": 96.908
+      },
+      "getpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "read_grid_info": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "displacement_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "interpolation_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.006
+      },
+      "putpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_setparams": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "make_abc": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "allocate_edges": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "read_bathymetry_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.01
+      },
+      "read_friction_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_wfld": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "wet_or_dry": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_v_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_gridmap": {
+        "calls": 2,
+        "elapsed_s": 0.004
+      },
+      "initl_gridmap_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "interp2fine_dz": {
+        "calls": 3278,
+        "elapsed_s": 0.14
+      },
+      "exchange_edges_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "boundary_rwg": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "tgs_open_ct": {
+        "calls": 1,
+        "elapsed_s": 0.004
+      },
+      "read_rupture": {
+        "calls": 546,
+        "elapsed_s": 2.587
+      },
+      "displacement_calc_h0_lat1": {
+        "calls": 182,
+        "elapsed_s": 0.035
+      },
+      "displacement_apply_kj_filter": {
+        "calls": 546,
+        "elapsed_s": 1.257
+      },
+      "maxgrd_write_gmt_init": {
+        "calls": 546,
+        "elapsed_s": 0.041
+      },
+      "hrise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.016
+      },
+      "drise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.132
+      },
+      "tstep_grid_vel": {
+        "calls": 54003,
+        "elapsed_s": 60.85
+      },
+      "- fxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 36.312
+      },
+      "- mapgrids_vel": {
+        "calls": 54003,
+        "elapsed_s": 0.294
+      },
+      "- exch_edges_vel": {
+        "calls": 54003,
+        "elapsed_s": 9.259
+      },
+      "- exch_edges_wod": {
+        "calls": 54003,
+        "elapsed_s": 2.23
+      },
+      "maxgrd_v_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 7.601
+      },
+      "tstep_grid_hgt": {
+        "calls": 54003,
+        "elapsed_s": 4.988
+      },
+      "- hxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.626
+      },
+      "- mapgrids_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.238
+      },
+      "- outsea_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.007
+      },
+      "- exch_edges_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.564
+      },
+      "- recheck_wod": {
+        "calls": 54003,
+        "elapsed_s": 1.411
+      },
+      "maxgrd_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 0.783
+      },
+      "error_check": {
+        "calls": 54003,
+        "elapsed_s": 1.237
+      },
+      "dump_gmt_nl_hgt": {
+        "calls": 1443,
+        "elapsed_s": 14.094
+      },
+      "dump_gmt_nl_vel": {
+        "calls": 1441,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.001
+      },
+      "maxgrd_v_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      }
+    },
+    "stdout.000016": {
+      "All": {
+        "calls": 1,
+        "elapsed_s": 96.907
+      },
+      "getpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "read_grid_info": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "displacement_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.001
+      },
+      "interpolation_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.003
+      },
+      "putpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_setparams": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "make_abc": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "allocate_edges": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "read_bathymetry_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.01
+      },
+      "read_friction_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_wfld": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "wet_or_dry": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_v_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_gridmap": {
+        "calls": 2,
+        "elapsed_s": 0.004
+      },
+      "initl_gridmap_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "interp2fine_dz": {
+        "calls": 3278,
+        "elapsed_s": 0.169
+      },
+      "exchange_edges_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "boundary_rwg": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "tgs_open_ct": {
+        "calls": 1,
+        "elapsed_s": 0.005
+      },
+      "read_rupture": {
+        "calls": 546,
+        "elapsed_s": 2.247
+      },
+      "displacement_calc_h0_lat1": {
+        "calls": 182,
+        "elapsed_s": 0.035
+      },
+      "displacement_apply_kj_filter": {
+        "calls": 546,
+        "elapsed_s": 1.235
+      },
+      "maxgrd_write_gmt_init": {
+        "calls": 546,
+        "elapsed_s": 0.044
+      },
+      "hrise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.016
+      },
+      "drise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.134
+      },
+      "tstep_grid_vel": {
+        "calls": 54003,
+        "elapsed_s": 43.962
+      },
+      "- fxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 35.421
+      },
+      "- mapgrids_vel": {
+        "calls": 54003,
+        "elapsed_s": 0.575
+      },
+      "- exch_edges_vel": {
+        "calls": 54003,
+        "elapsed_s": 5.512
+      },
+      "- exch_edges_wod": {
+        "calls": 54003,
+        "elapsed_s": 0.353
+      },
+      "maxgrd_v_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 2.13
+      },
+      "tstep_grid_hgt": {
+        "calls": 54003,
+        "elapsed_s": 6.402
+      },
+      "- hxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.64
+      },
+      "- mapgrids_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.196
+      },
+      "- outsea_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.006
+      },
+      "- exch_edges_hgt": {
+        "calls": 54003,
+        "elapsed_s": 1.767
+      },
+      "- recheck_wod": {
+        "calls": 54003,
+        "elapsed_s": 1.521
+      },
+      "maxgrd_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 0.81
+      },
+      "error_check": {
+        "calls": 54003,
+        "elapsed_s": 1.074
+      },
+      "dump_gmt_nl_hgt": {
+        "calls": 1443,
+        "elapsed_s": 14.093
+      },
+      "dump_gmt_nl_vel": {
+        "calls": 1441,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_v_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      }
+    },
+    "stdout.000017": {
+      "All": {
+        "calls": 1,
+        "elapsed_s": 96.907
+      },
+      "getpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "read_grid_info": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "displacement_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.001
+      },
+      "interpolation_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.006
+      },
+      "putpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_setparams": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "make_abc": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "allocate_edges": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "read_bathymetry_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.01
+      },
+      "read_friction_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_wfld": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "wet_or_dry": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_v_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_gridmap": {
+        "calls": 2,
+        "elapsed_s": 0.004
+      },
+      "initl_gridmap_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "interp2fine_dz": {
+        "calls": 3278,
+        "elapsed_s": 0.115
+      },
+      "exchange_edges_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "boundary_rwg": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "tgs_open_ct": {
+        "calls": 1,
+        "elapsed_s": 0.005
+      },
+      "read_rupture": {
+        "calls": 546,
+        "elapsed_s": 2.499
+      },
+      "displacement_calc_h0_lat1": {
+        "calls": 182,
+        "elapsed_s": 0.035
+      },
+      "displacement_apply_kj_filter": {
+        "calls": 546,
+        "elapsed_s": 1.133
+      },
+      "maxgrd_write_gmt_init": {
+        "calls": 546,
+        "elapsed_s": 0.042
+      },
+      "hrise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.016
+      },
+      "drise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.148
+      },
+      "tstep_grid_vel": {
+        "calls": 54003,
+        "elapsed_s": 59.615
+      },
+      "- fxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 52.095
+      },
+      "- mapgrids_vel": {
+        "calls": 54003,
+        "elapsed_s": 0.099
+      },
+      "- exch_edges_vel": {
+        "calls": 54003,
+        "elapsed_s": 5.527
+      },
+      "- exch_edges_wod": {
+        "calls": 54003,
+        "elapsed_s": 0.307
+      },
+      "maxgrd_v_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 6.611
+      },
+      "tstep_grid_hgt": {
+        "calls": 54003,
+        "elapsed_s": 5.981
+      },
+      "- hxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.689
+      },
+      "- mapgrids_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.094
+      },
+      "- outsea_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.005
+      },
+      "- exch_edges_hgt": {
+        "calls": 54003,
+        "elapsed_s": 1.395
+      },
+      "- recheck_wod": {
+        "calls": 54003,
+        "elapsed_s": 1.352
+      },
+      "maxgrd_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 0.948
+      },
+      "error_check": {
+        "calls": 54003,
+        "elapsed_s": 0.931
+      },
+      "dump_gmt_nl_hgt": {
+        "calls": 1443,
+        "elapsed_s": 14.093
+      },
+      "dump_gmt_nl_vel": {
+        "calls": 1441,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.001
+      },
+      "maxgrd_v_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      }
+    },
+    "stdout.000018": {
+      "All": {
+        "calls": 1,
+        "elapsed_s": 96.907
+      },
+      "getpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "read_grid_info": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "displacement_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.001
+      },
+      "interpolation_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.006
+      },
+      "putpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_setparams": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "make_abc": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "allocate_edges": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "read_bathymetry_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.01
+      },
+      "read_friction_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_wfld": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "wet_or_dry": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_v_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_gridmap": {
+        "calls": 2,
+        "elapsed_s": 0.004
+      },
+      "initl_gridmap_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "interp2fine_dz": {
+        "calls": 3278,
+        "elapsed_s": 0.104
+      },
+      "exchange_edges_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "boundary_rwg": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "tgs_open_ct": {
+        "calls": 1,
+        "elapsed_s": 0.004
+      },
+      "read_rupture": {
+        "calls": 546,
+        "elapsed_s": 2.588
+      },
+      "displacement_calc_h0_lat1": {
+        "calls": 182,
+        "elapsed_s": 0.035
+      },
+      "displacement_apply_kj_filter": {
+        "calls": 546,
+        "elapsed_s": 1.202
+      },
+      "maxgrd_write_gmt_init": {
+        "calls": 546,
+        "elapsed_s": 0.043
+      },
+      "hrise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.019
+      },
+      "drise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.167
+      },
+      "tstep_grid_vel": {
+        "calls": 54003,
+        "elapsed_s": 59.684
+      },
+      "- fxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 32.054
+      },
+      "- mapgrids_vel": {
+        "calls": 54003,
+        "elapsed_s": 0.04
+      },
+      "- exch_edges_vel": {
+        "calls": 54003,
+        "elapsed_s": 25.66
+      },
+      "- exch_edges_wod": {
+        "calls": 54003,
+        "elapsed_s": 0.306
+      },
+      "maxgrd_v_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 8.145
+      },
+      "tstep_grid_hgt": {
+        "calls": 54003,
+        "elapsed_s": 5.088
+      },
+      "- hxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.69
+      },
+      "- mapgrids_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.054
+      },
+      "- outsea_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.005
+      },
+      "- exch_edges_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.567
+      },
+      "- recheck_wod": {
+        "calls": 54003,
+        "elapsed_s": 1.294
+      },
+      "maxgrd_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 0.869
+      },
+      "error_check": {
+        "calls": 54003,
+        "elapsed_s": 1.011
+      },
+      "dump_gmt_nl_hgt": {
+        "calls": 1443,
+        "elapsed_s": 14.092
+      },
+      "dump_gmt_nl_vel": {
+        "calls": 1441,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      },
+      "maxgrd_v_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      }
+    },
+    "stdout.000019": {
+      "All": {
+        "calls": 1,
+        "elapsed_s": 96.907
+      },
+      "getpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "read_grid_info": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "displacement_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "interpolation_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.006
+      },
+      "putpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_setparams": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "make_abc": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "allocate_edges": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "read_bathymetry_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.01
+      },
+      "read_friction_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_wfld": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "wet_or_dry": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_v_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_gridmap": {
+        "calls": 2,
+        "elapsed_s": 0.004
+      },
+      "initl_gridmap_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "interp2fine_dz": {
+        "calls": 3278,
+        "elapsed_s": 0.093
+      },
+      "exchange_edges_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "boundary_rwg": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "tgs_open_ct": {
+        "calls": 1,
+        "elapsed_s": 0.004
+      },
+      "read_rupture": {
+        "calls": 546,
+        "elapsed_s": 2.587
+      },
+      "displacement_calc_h0_lat1": {
+        "calls": 182,
+        "elapsed_s": 0.035
+      },
+      "displacement_apply_kj_filter": {
+        "calls": 546,
+        "elapsed_s": 1.23
+      },
+      "maxgrd_write_gmt_init": {
+        "calls": 546,
+        "elapsed_s": 0.048
+      },
+      "hrise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.021
+      },
+      "drise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.178
+      },
+      "tstep_grid_vel": {
+        "calls": 54003,
+        "elapsed_s": 61.08
+      },
+      "- fxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 33.257
+      },
+      "- mapgrids_vel": {
+        "calls": 54003,
+        "elapsed_s": 0.039
+      },
+      "- exch_edges_vel": {
+        "calls": 54003,
+        "elapsed_s": 25.872
+      },
+      "- exch_edges_wod": {
+        "calls": 54003,
+        "elapsed_s": 0.307
+      },
+      "maxgrd_v_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 8.259
+      },
+      "tstep_grid_hgt": {
+        "calls": 54003,
+        "elapsed_s": 4.909
+      },
+      "- hxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.649
+      },
+      "- mapgrids_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.055
+      },
+      "- outsea_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.005
+      },
+      "- exch_edges_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.442
+      },
+      "- recheck_wod": {
+        "calls": 54003,
+        "elapsed_s": 1.224
+      },
+      "maxgrd_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 0.881
+      },
+      "error_check": {
+        "calls": 54003,
+        "elapsed_s": 1.031
+      },
+      "dump_gmt_nl_hgt": {
+        "calls": 1443,
+        "elapsed_s": 14.093
+      },
+      "dump_gmt_nl_vel": {
+        "calls": 1441,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      },
+      "maxgrd_v_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      }
+    },
+    "stdout.000020": {
+      "All": {
+        "calls": 1,
+        "elapsed_s": 96.907
+      },
+      "getpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "read_grid_info": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "displacement_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.001
+      },
+      "interpolation_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.006
+      },
+      "putpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_setparams": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "make_abc": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "allocate_edges": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "read_bathymetry_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.01
+      },
+      "read_friction_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_wfld": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "wet_or_dry": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_v_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_gridmap": {
+        "calls": 2,
+        "elapsed_s": 0.004
+      },
+      "initl_gridmap_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "interp2fine_dz": {
+        "calls": 3278,
+        "elapsed_s": 0.096
+      },
+      "exchange_edges_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "boundary_rwg": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "tgs_open_ct": {
+        "calls": 1,
+        "elapsed_s": 0.005
+      },
+      "read_rupture": {
+        "calls": 546,
+        "elapsed_s": 2.588
+      },
+      "displacement_calc_h0_lat1": {
+        "calls": 182,
+        "elapsed_s": 0.035
+      },
+      "displacement_apply_kj_filter": {
+        "calls": 546,
+        "elapsed_s": 1.225
+      },
+      "maxgrd_write_gmt_init": {
+        "calls": 546,
+        "elapsed_s": 0.041
+      },
+      "hrise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.023
+      },
+      "drise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.169
+      },
+      "tstep_grid_vel": {
+        "calls": 54003,
+        "elapsed_s": 61.131
+      },
+      "- fxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 31.976
+      },
+      "- mapgrids_vel": {
+        "calls": 54003,
+        "elapsed_s": 0.037
+      },
+      "- exch_edges_vel": {
+        "calls": 54003,
+        "elapsed_s": 15.854
+      },
+      "- exch_edges_wod": {
+        "calls": 54003,
+        "elapsed_s": 11.62
+      },
+      "maxgrd_v_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 8.201
+      },
+      "tstep_grid_hgt": {
+        "calls": 54003,
+        "elapsed_s": 4.913
+      },
+      "- hxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.661
+      },
+      "- mapgrids_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.054
+      },
+      "- outsea_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.005
+      },
+      "- exch_edges_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.474
+      },
+      "- recheck_wod": {
+        "calls": 54003,
+        "elapsed_s": 1.187
+      },
+      "maxgrd_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 0.885
+      },
+      "error_check": {
+        "calls": 54003,
+        "elapsed_s": 1.038
+      },
+      "dump_gmt_nl_hgt": {
+        "calls": 1443,
+        "elapsed_s": 14.092
+      },
+      "dump_gmt_nl_vel": {
+        "calls": 1441,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      },
+      "maxgrd_v_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      }
+    },
+    "stdout.000021": {
+      "All": {
+        "calls": 1,
+        "elapsed_s": 96.907
+      },
+      "getpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "read_grid_info": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "displacement_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.001
+      },
+      "interpolation_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.006
+      },
+      "putpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_setparams": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "make_abc": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "allocate_edges": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "read_bathymetry_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.01
+      },
+      "read_friction_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_wfld": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "wet_or_dry": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_v_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_gridmap": {
+        "calls": 2,
+        "elapsed_s": 0.004
+      },
+      "initl_gridmap_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "interp2fine_dz": {
+        "calls": 3278,
+        "elapsed_s": 0.096
+      },
+      "exchange_edges_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "boundary_rwg": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "tgs_open_ct": {
+        "calls": 1,
+        "elapsed_s": 0.005
+      },
+      "read_rupture": {
+        "calls": 546,
+        "elapsed_s": 2.588
+      },
+      "displacement_calc_h0_lat1": {
+        "calls": 182,
+        "elapsed_s": 0.035
+      },
+      "displacement_apply_kj_filter": {
+        "calls": 546,
+        "elapsed_s": 1.259
+      },
+      "maxgrd_write_gmt_init": {
+        "calls": 546,
+        "elapsed_s": 0.042
+      },
+      "hrise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.023
+      },
+      "drise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.181
+      },
+      "tstep_grid_vel": {
+        "calls": 54003,
+        "elapsed_s": 61.494
+      },
+      "- fxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 43.139
+      },
+      "- mapgrids_vel": {
+        "calls": 54003,
+        "elapsed_s": 0.089
+      },
+      "- exch_edges_vel": {
+        "calls": 54003,
+        "elapsed_s": 16.065
+      },
+      "- exch_edges_wod": {
+        "calls": 54003,
+        "elapsed_s": 0.589
+      },
+      "maxgrd_v_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 8.241
+      },
+      "tstep_grid_hgt": {
+        "calls": 54003,
+        "elapsed_s": 4.865
+      },
+      "- hxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.67
+      },
+      "- mapgrids_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.093
+      },
+      "- outsea_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.005
+      },
+      "- exch_edges_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.487
+      },
+      "- recheck_wod": {
+        "calls": 54003,
+        "elapsed_s": 1.115
+      },
+      "maxgrd_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 0.895
+      },
+      "error_check": {
+        "calls": 54003,
+        "elapsed_s": 1.08
+      },
+      "dump_gmt_nl_hgt": {
+        "calls": 1443,
+        "elapsed_s": 14.093
+      },
+      "dump_gmt_nl_vel": {
+        "calls": 1441,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      },
+      "maxgrd_v_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      }
+    },
+    "stdout.000022": {
+      "All": {
+        "calls": 1,
+        "elapsed_s": 96.907
+      },
+      "getpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "read_grid_info": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "displacement_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.001
+      },
+      "interpolation_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.006
+      },
+      "putpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_setparams": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "make_abc": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "allocate_edges": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "read_bathymetry_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.01
+      },
+      "read_friction_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_wfld": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "wet_or_dry": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_v_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_gridmap": {
+        "calls": 2,
+        "elapsed_s": 0.004
+      },
+      "initl_gridmap_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "interp2fine_dz": {
+        "calls": 3278,
+        "elapsed_s": 0.109
+      },
+      "exchange_edges_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "boundary_rwg": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "tgs_open_ct": {
+        "calls": 1,
+        "elapsed_s": 0.005
+      },
+      "read_rupture": {
+        "calls": 546,
+        "elapsed_s": 2.51
+      },
+      "displacement_calc_h0_lat1": {
+        "calls": 182,
+        "elapsed_s": 0.035
+      },
+      "displacement_apply_kj_filter": {
+        "calls": 546,
+        "elapsed_s": 1.238
+      },
+      "maxgrd_write_gmt_init": {
+        "calls": 546,
+        "elapsed_s": 0.043
+      },
+      "hrise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.021
+      },
+      "drise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.176
+      },
+      "tstep_grid_vel": {
+        "calls": 54003,
+        "elapsed_s": 61.193
+      },
+      "- fxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 34.049
+      },
+      "- mapgrids_vel": {
+        "calls": 54003,
+        "elapsed_s": 0.041
+      },
+      "- exch_edges_vel": {
+        "calls": 54003,
+        "elapsed_s": 11.445
+      },
+      "- exch_edges_wod": {
+        "calls": 54003,
+        "elapsed_s": 5.425
+      },
+      "maxgrd_v_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 8.18
+      },
+      "tstep_grid_hgt": {
+        "calls": 54003,
+        "elapsed_s": 4.872
+      },
+      "- hxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.658
+      },
+      "- mapgrids_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.065
+      },
+      "- outsea_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.005
+      },
+      "- exch_edges_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.473
+      },
+      "- recheck_wod": {
+        "calls": 54003,
+        "elapsed_s": 1.183
+      },
+      "maxgrd_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 0.872
+      },
+      "error_check": {
+        "calls": 54003,
+        "elapsed_s": 1.123
+      },
+      "dump_gmt_nl_hgt": {
+        "calls": 1443,
+        "elapsed_s": 14.093
+      },
+      "dump_gmt_nl_vel": {
+        "calls": 1441,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.001
+      },
+      "maxgrd_v_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      }
+    },
+    "stdout.000023": {
+      "All": {
+        "calls": 1,
+        "elapsed_s": 96.907
+      },
+      "getpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "read_grid_info": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "displacement_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.001
+      },
+      "interpolation_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.006
+      },
+      "putpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_setparams": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "make_abc": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "allocate_edges": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "read_bathymetry_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.01
+      },
+      "read_friction_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_wfld": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "wet_or_dry": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_v_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_gridmap": {
+        "calls": 2,
+        "elapsed_s": 0.004
+      },
+      "initl_gridmap_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "interp2fine_dz": {
+        "calls": 3278,
+        "elapsed_s": 0.135
+      },
+      "exchange_edges_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "boundary_rwg": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "tgs_open_ct": {
+        "calls": 1,
+        "elapsed_s": 0.004
+      },
+      "read_rupture": {
+        "calls": 546,
+        "elapsed_s": 2.589
+      },
+      "displacement_calc_h0_lat1": {
+        "calls": 182,
+        "elapsed_s": 0.036
+      },
+      "displacement_apply_kj_filter": {
+        "calls": 546,
+        "elapsed_s": 1.232
+      },
+      "maxgrd_write_gmt_init": {
+        "calls": 546,
+        "elapsed_s": 0.044
+      },
+      "hrise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.018
+      },
+      "drise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.164
+      },
+      "tstep_grid_vel": {
+        "calls": 54003,
+        "elapsed_s": 60.848
+      },
+      "- fxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 35.76
+      },
+      "- mapgrids_vel": {
+        "calls": 54003,
+        "elapsed_s": 0.277
+      },
+      "- exch_edges_vel": {
+        "calls": 54003,
+        "elapsed_s": 9.795
+      },
+      "- exch_edges_wod": {
+        "calls": 54003,
+        "elapsed_s": 2.231
+      },
+      "maxgrd_v_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 7.593
+      },
+      "tstep_grid_hgt": {
+        "calls": 54003,
+        "elapsed_s": 4.987
+      },
+      "- hxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.624
+      },
+      "- mapgrids_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.232
+      },
+      "- outsea_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.01
+      },
+      "- exch_edges_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.6
+      },
+      "- recheck_wod": {
+        "calls": 54003,
+        "elapsed_s": 1.309
+      },
+      "maxgrd_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 0.817
+      },
+      "error_check": {
+        "calls": 54003,
+        "elapsed_s": 1.225
+      },
+      "dump_gmt_nl_hgt": {
+        "calls": 1443,
+        "elapsed_s": 14.093
+      },
+      "dump_gmt_nl_vel": {
+        "calls": 1441,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      },
+      "maxgrd_v_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      }
+    },
+    "stdout.000024": {
+      "All": {
+        "calls": 1,
+        "elapsed_s": 96.905
+      },
+      "getpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "read_grid_info": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "displacement_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.001
+      },
+      "interpolation_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.003
+      },
+      "putpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_setparams": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "make_abc": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "allocate_edges": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "read_bathymetry_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.01
+      },
+      "read_friction_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_wfld": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "wet_or_dry": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_v_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_gridmap": {
+        "calls": 2,
+        "elapsed_s": 0.004
+      },
+      "initl_gridmap_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "interp2fine_dz": {
+        "calls": 3278,
+        "elapsed_s": 0.175
+      },
+      "exchange_edges_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "boundary_rwg": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "tgs_open_ct": {
+        "calls": 1,
+        "elapsed_s": 0.005
+      },
+      "read_rupture": {
+        "calls": 546,
+        "elapsed_s": 2.359
+      },
+      "displacement_calc_h0_lat1": {
+        "calls": 182,
+        "elapsed_s": 0.035
+      },
+      "displacement_apply_kj_filter": {
+        "calls": 546,
+        "elapsed_s": 0.955
+      },
+      "maxgrd_write_gmt_init": {
+        "calls": 546,
+        "elapsed_s": 0.058
+      },
+      "hrise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.015
+      },
+      "drise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.126
+      },
+      "tstep_grid_vel": {
+        "calls": 54003,
+        "elapsed_s": 51.276
+      },
+      "- fxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 38.107
+      },
+      "- mapgrids_vel": {
+        "calls": 54003,
+        "elapsed_s": 0.602
+      },
+      "- exch_edges_vel": {
+        "calls": 54003,
+        "elapsed_s": 10.168
+      },
+      "- exch_edges_wod": {
+        "calls": 54003,
+        "elapsed_s": 0.353
+      },
+      "maxgrd_v_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 4.9
+      },
+      "tstep_grid_hgt": {
+        "calls": 54003,
+        "elapsed_s": 5.647
+      },
+      "- hxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.63
+      },
+      "- mapgrids_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.237
+      },
+      "- outsea_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.012
+      },
+      "- exch_edges_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.966
+      },
+      "- recheck_wod": {
+        "calls": 54003,
+        "elapsed_s": 1.507
+      },
+      "maxgrd_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 0.889
+      },
+      "error_check": {
+        "calls": 54003,
+        "elapsed_s": 0.983
+      },
+      "dump_gmt_nl_hgt": {
+        "calls": 1443,
+        "elapsed_s": 14.094
+      },
+      "dump_gmt_nl_vel": {
+        "calls": 1441,
+        "elapsed_s": 0.001
+      },
+      "maxgrd_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.001
+      },
+      "maxgrd_v_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      }
+    },
+    "stdout.000025": {
+      "All": {
+        "calls": 1,
+        "elapsed_s": 96.905
+      },
+      "getpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "read_grid_info": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "displacement_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.001
+      },
+      "interpolation_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.006
+      },
+      "putpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_setparams": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "make_abc": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "allocate_edges": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "read_bathymetry_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.01
+      },
+      "read_friction_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_wfld": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "wet_or_dry": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_v_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_gridmap": {
+        "calls": 2,
+        "elapsed_s": 0.004
+      },
+      "initl_gridmap_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "interp2fine_dz": {
+        "calls": 3278,
+        "elapsed_s": 0.124
+      },
+      "exchange_edges_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "boundary_rwg": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "tgs_open_ct": {
+        "calls": 1,
+        "elapsed_s": 0.005
+      },
+      "read_rupture": {
+        "calls": 546,
+        "elapsed_s": 2.513
+      },
+      "displacement_calc_h0_lat1": {
+        "calls": 182,
+        "elapsed_s": 0.035
+      },
+      "displacement_apply_kj_filter": {
+        "calls": 546,
+        "elapsed_s": 1.206
+      },
+      "maxgrd_write_gmt_init": {
+        "calls": 546,
+        "elapsed_s": 0.054
+      },
+      "hrise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.016
+      },
+      "drise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.141
+      },
+      "tstep_grid_vel": {
+        "calls": 54003,
+        "elapsed_s": 60.068
+      },
+      "- fxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 47.896
+      },
+      "- mapgrids_vel": {
+        "calls": 54003,
+        "elapsed_s": 0.239
+      },
+      "- exch_edges_vel": {
+        "calls": 54003,
+        "elapsed_s": 10.18
+      },
+      "- exch_edges_wod": {
+        "calls": 54003,
+        "elapsed_s": 0.309
+      },
+      "maxgrd_v_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 7.964
+      },
+      "tstep_grid_hgt": {
+        "calls": 54003,
+        "elapsed_s": 5.077
+      },
+      "- hxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.678
+      },
+      "- mapgrids_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.144
+      },
+      "- outsea_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.007
+      },
+      "- exch_edges_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.42
+      },
+      "- recheck_wod": {
+        "calls": 54003,
+        "elapsed_s": 1.35
+      },
+      "maxgrd_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 0.883
+      },
+      "error_check": {
+        "calls": 54003,
+        "elapsed_s": 0.982
+      },
+      "dump_gmt_nl_hgt": {
+        "calls": 1443,
+        "elapsed_s": 14.093
+      },
+      "dump_gmt_nl_vel": {
+        "calls": 1441,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.001
+      },
+      "maxgrd_v_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      }
+    },
+    "stdout.000026": {
+      "All": {
+        "calls": 1,
+        "elapsed_s": 96.905
+      },
+      "getpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "read_grid_info": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "displacement_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "interpolation_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.006
+      },
+      "putpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_setparams": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "make_abc": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "allocate_edges": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "read_bathymetry_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.01
+      },
+      "read_friction_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_wfld": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "wet_or_dry": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_v_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_gridmap": {
+        "calls": 2,
+        "elapsed_s": 0.004
+      },
+      "initl_gridmap_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "interp2fine_dz": {
+        "calls": 3278,
+        "elapsed_s": 0.109
+      },
+      "exchange_edges_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "boundary_rwg": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "tgs_open_ct": {
+        "calls": 1,
+        "elapsed_s": 0.004
+      },
+      "read_rupture": {
+        "calls": 546,
+        "elapsed_s": 2.589
+      },
+      "displacement_calc_h0_lat1": {
+        "calls": 182,
+        "elapsed_s": 0.035
+      },
+      "displacement_apply_kj_filter": {
+        "calls": 546,
+        "elapsed_s": 1.202
+      },
+      "maxgrd_write_gmt_init": {
+        "calls": 546,
+        "elapsed_s": 0.056
+      },
+      "hrise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.02
+      },
+      "drise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.161
+      },
+      "tstep_grid_vel": {
+        "calls": 54003,
+        "elapsed_s": 60.441
+      },
+      "- fxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 31.44
+      },
+      "- mapgrids_vel": {
+        "calls": 54003,
+        "elapsed_s": 0.192
+      },
+      "- exch_edges_vel": {
+        "calls": 54003,
+        "elapsed_s": 27.028
+      },
+      "- exch_edges_wod": {
+        "calls": 54003,
+        "elapsed_s": 0.306
+      },
+      "maxgrd_v_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 8.064
+      },
+      "tstep_grid_hgt": {
+        "calls": 54003,
+        "elapsed_s": 5.029
+      },
+      "- hxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.659
+      },
+      "- mapgrids_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.146
+      },
+      "- outsea_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.007
+      },
+      "- exch_edges_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.488
+      },
+      "- recheck_wod": {
+        "calls": 54003,
+        "elapsed_s": 1.259
+      },
+      "maxgrd_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 0.883
+      },
+      "error_check": {
+        "calls": 54003,
+        "elapsed_s": 1.003
+      },
+      "dump_gmt_nl_hgt": {
+        "calls": 1443,
+        "elapsed_s": 14.094
+      },
+      "dump_gmt_nl_vel": {
+        "calls": 1441,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      },
+      "maxgrd_v_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      }
+    },
+    "stdout.000027": {
+      "All": {
+        "calls": 1,
+        "elapsed_s": 96.905
+      },
+      "getpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "read_grid_info": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "displacement_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.001
+      },
+      "interpolation_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.006
+      },
+      "putpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_setparams": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "make_abc": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "allocate_edges": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "read_bathymetry_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.01
+      },
+      "read_friction_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_wfld": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "wet_or_dry": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_v_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_gridmap": {
+        "calls": 2,
+        "elapsed_s": 0.004
+      },
+      "initl_gridmap_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "interp2fine_dz": {
+        "calls": 3278,
+        "elapsed_s": 0.101
+      },
+      "exchange_edges_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "boundary_rwg": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "tgs_open_ct": {
+        "calls": 1,
+        "elapsed_s": 0.004
+      },
+      "read_rupture": {
+        "calls": 546,
+        "elapsed_s": 2.588
+      },
+      "displacement_calc_h0_lat1": {
+        "calls": 182,
+        "elapsed_s": 0.035
+      },
+      "displacement_apply_kj_filter": {
+        "calls": 546,
+        "elapsed_s": 1.203
+      },
+      "maxgrd_write_gmt_init": {
+        "calls": 546,
+        "elapsed_s": 0.062
+      },
+      "hrise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.021
+      },
+      "drise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.162
+      },
+      "tstep_grid_vel": {
+        "calls": 54003,
+        "elapsed_s": 62.615
+      },
+      "- fxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 33.278
+      },
+      "- mapgrids_vel": {
+        "calls": 54003,
+        "elapsed_s": 0.19
+      },
+      "- exch_edges_vel": {
+        "calls": 54003,
+        "elapsed_s": 27.378
+      },
+      "- exch_edges_wod": {
+        "calls": 54003,
+        "elapsed_s": 0.3
+      },
+      "maxgrd_v_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 7.983
+      },
+      "tstep_grid_hgt": {
+        "calls": 54003,
+        "elapsed_s": 4.959
+      },
+      "- hxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.665
+      },
+      "- mapgrids_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.153
+      },
+      "- outsea_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.007
+      },
+      "- exch_edges_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.524
+      },
+      "- recheck_wod": {
+        "calls": 54003,
+        "elapsed_s": 1.13
+      },
+      "maxgrd_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 0.915
+      },
+      "error_check": {
+        "calls": 54003,
+        "elapsed_s": 1.052
+      },
+      "dump_gmt_nl_hgt": {
+        "calls": 1443,
+        "elapsed_s": 14.094
+      },
+      "dump_gmt_nl_vel": {
+        "calls": 1441,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      },
+      "maxgrd_v_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      }
+    },
+    "stdout.000028": {
+      "All": {
+        "calls": 1,
+        "elapsed_s": 96.905
+      },
+      "getpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "read_grid_info": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "displacement_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "interpolation_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.006
+      },
+      "putpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_setparams": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "make_abc": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "allocate_edges": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "read_bathymetry_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.01
+      },
+      "read_friction_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_wfld": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "wet_or_dry": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_v_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_gridmap": {
+        "calls": 2,
+        "elapsed_s": 0.004
+      },
+      "initl_gridmap_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "interp2fine_dz": {
+        "calls": 3278,
+        "elapsed_s": 0.104
+      },
+      "exchange_edges_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "boundary_rwg": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "tgs_open_ct": {
+        "calls": 1,
+        "elapsed_s": 0.005
+      },
+      "read_rupture": {
+        "calls": 546,
+        "elapsed_s": 2.588
+      },
+      "displacement_calc_h0_lat1": {
+        "calls": 182,
+        "elapsed_s": 0.035
+      },
+      "displacement_apply_kj_filter": {
+        "calls": 546,
+        "elapsed_s": 1.193
+      },
+      "maxgrd_write_gmt_init": {
+        "calls": 546,
+        "elapsed_s": 0.047
+      },
+      "hrise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.021
+      },
+      "drise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.162
+      },
+      "tstep_grid_vel": {
+        "calls": 54003,
+        "elapsed_s": 62.639
+      },
+      "- fxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 32.016
+      },
+      "- mapgrids_vel": {
+        "calls": 54003,
+        "elapsed_s": 0.179
+      },
+      "- exch_edges_vel": {
+        "calls": 54003,
+        "elapsed_s": 17.264
+      },
+      "- exch_edges_wod": {
+        "calls": 54003,
+        "elapsed_s": 11.625
+      },
+      "maxgrd_v_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 7.971
+      },
+      "tstep_grid_hgt": {
+        "calls": 54003,
+        "elapsed_s": 4.934
+      },
+      "- hxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.669
+      },
+      "- mapgrids_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.159
+      },
+      "- outsea_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.007
+      },
+      "- exch_edges_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.544
+      },
+      "- recheck_wod": {
+        "calls": 54003,
+        "elapsed_s": 1.079
+      },
+      "maxgrd_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 0.926
+      },
+      "error_check": {
+        "calls": 54003,
+        "elapsed_s": 1.072
+      },
+      "dump_gmt_nl_hgt": {
+        "calls": 1443,
+        "elapsed_s": 14.094
+      },
+      "dump_gmt_nl_vel": {
+        "calls": 1441,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      },
+      "maxgrd_v_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      }
+    },
+    "stdout.000029": {
+      "All": {
+        "calls": 1,
+        "elapsed_s": 96.905
+      },
+      "getpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "read_grid_info": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "displacement_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.001
+      },
+      "interpolation_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.006
+      },
+      "putpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_setparams": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "make_abc": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "allocate_edges": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "read_bathymetry_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.01
+      },
+      "read_friction_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_wfld": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "wet_or_dry": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_v_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_gridmap": {
+        "calls": 2,
+        "elapsed_s": 0.004
+      },
+      "initl_gridmap_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "interp2fine_dz": {
+        "calls": 3278,
+        "elapsed_s": 0.104
+      },
+      "exchange_edges_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "boundary_rwg": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "tgs_open_ct": {
+        "calls": 1,
+        "elapsed_s": 0.004
+      },
+      "read_rupture": {
+        "calls": 546,
+        "elapsed_s": 2.589
+      },
+      "displacement_calc_h0_lat1": {
+        "calls": 182,
+        "elapsed_s": 0.035
+      },
+      "displacement_apply_kj_filter": {
+        "calls": 546,
+        "elapsed_s": 1.189
+      },
+      "maxgrd_write_gmt_init": {
+        "calls": 546,
+        "elapsed_s": 0.045
+      },
+      "hrise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.021
+      },
+      "drise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.167
+      },
+      "tstep_grid_vel": {
+        "calls": 54003,
+        "elapsed_s": 62.623
+      },
+      "- fxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 43.263
+      },
+      "- mapgrids_vel": {
+        "calls": 54003,
+        "elapsed_s": 0.181
+      },
+      "- exch_edges_vel": {
+        "calls": 54003,
+        "elapsed_s": 17.019
+      },
+      "- exch_edges_wod": {
+        "calls": 54003,
+        "elapsed_s": 0.589
+      },
+      "maxgrd_v_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 7.992
+      },
+      "tstep_grid_hgt": {
+        "calls": 54003,
+        "elapsed_s": 4.923
+      },
+      "- hxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.664
+      },
+      "- mapgrids_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.172
+      },
+      "- outsea_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.007
+      },
+      "- exch_edges_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.53
+      },
+      "- recheck_wod": {
+        "calls": 54003,
+        "elapsed_s": 1.074
+      },
+      "maxgrd_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 0.934
+      },
+      "error_check": {
+        "calls": 54003,
+        "elapsed_s": 1.072
+      },
+      "dump_gmt_nl_hgt": {
+        "calls": 1443,
+        "elapsed_s": 14.094
+      },
+      "dump_gmt_nl_vel": {
+        "calls": 1441,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      },
+      "maxgrd_v_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      }
+    },
+    "stdout.000030": {
+      "All": {
+        "calls": 1,
+        "elapsed_s": 96.905
+      },
+      "getpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "read_grid_info": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "displacement_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.001
+      },
+      "interpolation_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.006
+      },
+      "putpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_setparams": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "make_abc": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "allocate_edges": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "read_bathymetry_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.01
+      },
+      "read_friction_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_wfld": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "wet_or_dry": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_v_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_gridmap": {
+        "calls": 2,
+        "elapsed_s": 0.004
+      },
+      "initl_gridmap_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "interp2fine_dz": {
+        "calls": 3278,
+        "elapsed_s": 0.12
+      },
+      "exchange_edges_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "boundary_rwg": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "tgs_open_ct": {
+        "calls": 1,
+        "elapsed_s": 0.004
+      },
+      "read_rupture": {
+        "calls": 546,
+        "elapsed_s": 2.589
+      },
+      "displacement_calc_h0_lat1": {
+        "calls": 182,
+        "elapsed_s": 0.035
+      },
+      "displacement_apply_kj_filter": {
+        "calls": 546,
+        "elapsed_s": 1.162
+      },
+      "maxgrd_write_gmt_init": {
+        "calls": 546,
+        "elapsed_s": 0.045
+      },
+      "hrise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.022
+      },
+      "drise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.165
+      },
+      "tstep_grid_vel": {
+        "calls": 54003,
+        "elapsed_s": 62.57
+      },
+      "- fxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 34.557
+      },
+      "- mapgrids_vel": {
+        "calls": 54003,
+        "elapsed_s": 0.24
+      },
+      "- exch_edges_vel": {
+        "calls": 54003,
+        "elapsed_s": 12.299
+      },
+      "- exch_edges_wod": {
+        "calls": 54003,
+        "elapsed_s": 5.429
+      },
+      "maxgrd_v_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 8.033
+      },
+      "tstep_grid_hgt": {
+        "calls": 54003,
+        "elapsed_s": 4.916
+      },
+      "- hxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.661
+      },
+      "- mapgrids_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.177
+      },
+      "- outsea_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.007
+      },
+      "- exch_edges_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.5
+      },
+      "- recheck_wod": {
+        "calls": 54003,
+        "elapsed_s": 1.169
+      },
+      "maxgrd_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 0.914
+      },
+      "error_check": {
+        "calls": 54003,
+        "elapsed_s": 1.106
+      },
+      "dump_gmt_nl_hgt": {
+        "calls": 1443,
+        "elapsed_s": 14.094
+      },
+      "dump_gmt_nl_vel": {
+        "calls": 1441,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      },
+      "maxgrd_v_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      }
+    },
+    "stdout.000031": {
+      "All": {
+        "calls": 1,
+        "elapsed_s": 96.905
+      },
+      "getpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "read_grid_info": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "displacement_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.001
+      },
+      "interpolation_mpi_initialize": {
+        "calls": 1,
+        "elapsed_s": 0.006
+      },
+      "putpar": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "onefile_setparams": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "make_abc": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "allocate_edges": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "read_bathymetry_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.01
+      },
+      "read_friction_gmt_grd": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_wfld": {
+        "calls": 3,
+        "elapsed_s": 0.001
+      },
+      "wet_or_dry": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_v_init_rwg": {
+        "calls": 3,
+        "elapsed_s": 0.0
+      },
+      "initl_gridmap": {
+        "calls": 2,
+        "elapsed_s": 0.004
+      },
+      "initl_gridmap_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "interp2fine_dz": {
+        "calls": 3278,
+        "elapsed_s": 0.141
+      },
+      "exchange_edges_dz": {
+        "calls": 2,
+        "elapsed_s": 0.0
+      },
+      "boundary_rwg": {
+        "calls": 1,
+        "elapsed_s": 0.0
+      },
+      "tgs_open_ct": {
+        "calls": 1,
+        "elapsed_s": 0.004
+      },
+      "read_rupture": {
+        "calls": 546,
+        "elapsed_s": 2.588
+      },
+      "displacement_calc_h0_lat1": {
+        "calls": 182,
+        "elapsed_s": 0.035
+      },
+      "displacement_apply_kj_filter": {
+        "calls": 546,
+        "elapsed_s": 1.194
+      },
+      "maxgrd_write_gmt_init": {
+        "calls": 546,
+        "elapsed_s": 0.063
+      },
+      "hrise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.017
+      },
+      "drise_rwg": {
+        "calls": 4914,
+        "elapsed_s": 0.156
+      },
+      "tstep_grid_vel": {
+        "calls": 54003,
+        "elapsed_s": 61.772
+      },
+      "- fxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 35.762
+      },
+      "- mapgrids_vel": {
+        "calls": 54003,
+        "elapsed_s": 0.306
+      },
+      "- exch_edges_vel": {
+        "calls": 54003,
+        "elapsed_s": 10.706
+      },
+      "- exch_edges_wod": {
+        "calls": 54003,
+        "elapsed_s": 2.215
+      },
+      "maxgrd_v_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 7.412
+      },
+      "tstep_grid_hgt": {
+        "calls": 54003,
+        "elapsed_s": 5.046
+      },
+      "- hxynl_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.619
+      },
+      "- mapgrids_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.26
+      },
+      "- outsea_rwg": {
+        "calls": 54003,
+        "elapsed_s": 0.011
+      },
+      "- exch_edges_hgt": {
+        "calls": 54003,
+        "elapsed_s": 0.609
+      },
+      "- recheck_wod": {
+        "calls": 54003,
+        "elapsed_s": 1.269
+      },
+      "maxgrd_check_nl": {
+        "calls": 54003,
+        "elapsed_s": 0.851
+      },
+      "error_check": {
+        "calls": 54003,
+        "elapsed_s": 1.199
+      },
+      "dump_gmt_nl_hgt": {
+        "calls": 1443,
+        "elapsed_s": 14.095
+      },
+      "dump_gmt_nl_vel": {
+        "calls": 1441,
+        "elapsed_s": 0.0
+      },
+      "maxgrd_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.001
+      },
+      "maxgrd_v_write_gmt": {
+        "calls": 1,
+        "elapsed_s": 0.002
+      }
+    }
+  },
+  "rank0_comparison_to_historical_full_run": {
+    "All": {
+      "short_elapsed_s": 96.91,
+      "short_percent_of_all": 100.0,
+      "historical_full_percent_of_all": 100.0
+    },
+    "- fxynl_rwg": {
+      "short_elapsed_s": 27.603,
+      "short_percent_of_all": 28.483128676091223,
+      "historical_full_percent_of_all": 34.95839579200589
+    },
+    "tstep_grid_vel": {
+      "short_elapsed_s": 34.549,
+      "short_percent_of_all": 35.650603652873805,
+      "historical_full_percent_of_all": 38.382148338973316
+    },
+    "tstep_grid_hgt": {
+      "short_elapsed_s": 6.638,
+      "short_percent_of_all": 6.849654318439789,
+      "historical_full_percent_of_all": 8.260342707370274
+    },
+    "- hxynl_rwg": {
+      "short_elapsed_s": 0.726,
+      "short_percent_of_all": 0.7491486946651532,
+      "historical_full_percent_of_all": 0.8617950398089889
+    },
+    "- mapgrids_vel": {
+      "short_elapsed_s": 1.104,
+      "short_percent_of_all": 1.1392013208131258,
+      "historical_full_percent_of_all": 0.31793334350624286
+    },
+    "- mapgrids_hgt": {
+      "short_elapsed_s": 0.231,
+      "short_percent_of_all": 0.23836549375709423,
+      "historical_full_percent_of_all": 0.21129731524949064
+    },
+    "- exch_edges_vel": {
+      "short_elapsed_s": 1.042,
+      "short_percent_of_all": 1.0752244350428233,
+      "historical_full_percent_of_all": 1.237534445770912
+    },
+    "- exch_edges_hgt": {
+      "short_elapsed_s": 0.874,
+      "short_percent_of_all": 0.9018677123103912,
+      "historical_full_percent_of_all": 1.4946996149254537
+    },
+    "- exch_edges_wod": {
+      "short_elapsed_s": 0.356,
+      "short_percent_of_all": 0.36735115055205864,
+      "historical_full_percent_of_all": 0.42717243979283176
+    },
+    "- recheck_wod": {
+      "short_elapsed_s": 1.819,
+      "short_percent_of_all": 1.8769992776803222,
+      "historical_full_percent_of_all": 2.0138770454280253
+    },
+    "maxgrd_v_check_nl": {
+      "short_elapsed_s": 2.763,
+      "short_percent_of_all": 2.851098957795893,
+      "historical_full_percent_of_all": 3.5246438733652288
+    },
+    "maxgrd_check_nl": {
+      "short_elapsed_s": 0.642,
+      "short_percent_of_all": 0.6624703332989372,
+      "historical_full_percent_of_all": 0.945003455797212
+    },
+    "error_check": {
+      "short_elapsed_s": 1.246,
+      "short_percent_of_all": 1.285729026932205,
+      "historical_full_percent_of_all": 1.8479987792508552
+    },
+    "dump_gmt_nl_hgt": {
+      "short_elapsed_s": 17.169,
+      "short_percent_of_all": 17.71643793210195,
+      "historical_full_percent_of_all": 16.481818916226093
+    },
+    "displacement_apply_kj_filter": {
+      "short_elapsed_s": 0.955,
+      "short_percent_of_all": 0.985450417913528,
+      "historical_full_percent_of_all": 0.1937041658064574
+    },
+    "read_rupture": {
+      "short_elapsed_s": 0.971,
+      "short_percent_of_all": 1.0019605819832835,
+      "historical_full_percent_of_all": 0.10690531115639054
+    },
+    "maxgrd_write_gmt_init": {
+      "short_elapsed_s": 1.724,
+      "short_percent_of_all": 1.7789701785161491,
+      "historical_full_percent_of_all": 0.1747646018652329
+    }
+  },
+  "note": "Timer regions overlap: parent tstep regions include nested kernel regions. Percentages must not be summed. Source initialization is proportionally larger in a short prefix.",
+  "all_rank_summary": {
+    "ranks_with_timer": 32,
+    "max_s": 96.91,
+    "mean_s": 96.9075,
+    "min_s": 96.905,
+    "max_over_mean": 1.000025797796868
+  },
+  "all_rank_comparison_to_historical_full_run": {
+    "- exch_edges_hgt": {
+      "observed_ranks": 32,
+      "short_seconds_min": 0.42,
+      "short_seconds_max": 1.833,
+      "short_seconds_mean": 0.8570937500000001,
+      "short_percent_of_all_mean": 0.8844452183783506,
+      "historical_full_percent_of_all_mean": 0.9058005061060749,
+      "historical_full_seconds_mean": 10.091249999999999,
+      "historical_full_seconds_max": 20.308
+    },
+    "- exch_edges_vel": {
+      "observed_ranks": 32,
+      "short_seconds_min": 1.042,
+      "short_seconds_max": 27.378,
+      "short_seconds_mean": 11.13928125,
+      "short_percent_of_all_mean": 11.494756597786548,
+      "historical_full_percent_of_all_mean": 14.932670568165134,
+      "historical_full_seconds_mean": 166.36037499999998,
+      "historical_full_seconds_max": 334.04
+    },
+    "- exch_edges_wod": {
+      "observed_ranks": 32,
+      "short_seconds_min": 0.297,
+      "short_seconds_max": 11.629,
+      "short_seconds_mean": 2.6428125000000002,
+      "short_percent_of_all_mean": 2.7271496014240384,
+      "historical_full_percent_of_all_mean": 0.35382095949215936,
+      "historical_full_seconds_mean": 3.9418125,
+      "historical_full_seconds_max": 4.759
+    },
+    "- fxynl_rwg": {
+      "observed_ranks": 32,
+      "short_seconds_min": 27.603,
+      "short_seconds_max": 60.715,
+      "short_seconds_mean": 38.83246875,
+      "short_percent_of_all_mean": 40.07168562804736,
+      "historical_full_percent_of_all_mean": 43.820800727423,
+      "historical_full_seconds_mean": 488.1943125,
+      "historical_full_seconds_max": 711.988
+    },
+    "- hxynl_rwg": {
+      "observed_ranks": 32,
+      "short_seconds_min": 0.619,
+      "short_seconds_max": 0.787,
+      "short_seconds_mean": 0.68290625,
+      "short_percent_of_all_mean": 0.7046990686995331,
+      "historical_full_percent_of_all_mean": 0.9254301107813208,
+      "historical_full_seconds_mean": 10.3099375,
+      "historical_full_seconds_max": 11.257
+    },
+    "- mapgrids_hgt": {
+      "observed_ranks": 32,
+      "short_seconds_min": 0.054,
+      "short_seconds_max": 0.281,
+      "short_seconds_mean": 0.14740625000000002,
+      "short_percent_of_all_mean": 0.15211025978381448,
+      "historical_full_percent_of_all_mean": 0.1708880788832971,
+      "historical_full_seconds_mean": 1.9038125,
+      "historical_full_seconds_max": 2.869
+    },
+    "- mapgrids_vel": {
+      "observed_ranks": 32,
+      "short_seconds_min": 0.037,
+      "short_seconds_max": 1.104,
+      "short_seconds_mean": 0.23615624999999998,
+      "short_percent_of_all_mean": 0.24369243866573792,
+      "historical_full_percent_of_all_mean": 0.23001251548587312,
+      "historical_full_seconds_mean": 2.5625,
+      "historical_full_seconds_max": 3.741
+    },
+    "- outsea_rwg": {
+      "observed_ranks": 32,
+      "short_seconds_min": 0.005,
+      "short_seconds_max": 0.012,
+      "short_seconds_mean": 0.006781250000000001,
+      "short_percent_of_all_mean": 0.006997652400484999,
+      "historical_full_percent_of_all_mean": 0.006356199513304738,
+      "historical_full_seconds_mean": 0.0708125,
+      "historical_full_seconds_max": 0.113
+    },
+    "- recheck_wod": {
+      "observed_ranks": 32,
+      "short_seconds_min": 1.074,
+      "short_seconds_max": 1.819,
+      "short_seconds_mean": 1.32109375,
+      "short_percent_of_all_mean": 1.3632523282511673,
+      "historical_full_percent_of_all_mean": 1.7941929918328168,
+      "historical_full_seconds_mean": 19.9885625,
+      "historical_full_seconds_max": 22.436
+    },
+    "All": {
+      "observed_ranks": 32,
+      "short_seconds_min": 96.905,
+      "short_seconds_max": 96.91,
+      "short_seconds_mean": 96.9075,
+      "short_percent_of_all_mean": 100.0,
+      "historical_full_percent_of_all_mean": 100.0,
+      "historical_full_seconds_mean": 1114.0698125,
+      "historical_full_seconds_max": 1114.07
+    },
+    "allocate_edges": {
+      "observed_ranks": 32,
+      "short_seconds_min": 0.0,
+      "short_seconds_max": 0.0,
+      "short_seconds_mean": 0.0,
+      "short_percent_of_all_mean": 0.0,
+      "historical_full_percent_of_all_mean": 0.0,
+      "historical_full_seconds_mean": 0.0,
+      "historical_full_seconds_max": 0.0
+    },
+    "boundary_rwg": {
+      "observed_ranks": 32,
+      "short_seconds_min": 0.0,
+      "short_seconds_max": 0.0,
+      "short_seconds_mean": 0.0,
+      "short_percent_of_all_mean": 0.0,
+      "historical_full_percent_of_all_mean": 0.0,
+      "historical_full_seconds_mean": 0.0,
+      "historical_full_seconds_max": 0.0
+    },
+    "displacement_apply_kj_filter": {
+      "observed_ranks": 32,
+      "short_seconds_min": 0.955,
+      "short_seconds_max": 1.26,
+      "short_seconds_mean": 1.19259375,
+      "short_percent_of_all_mean": 1.2306516523488893,
+      "historical_full_percent_of_all_mean": 0.21010801780431512,
+      "historical_full_seconds_mean": 2.34075,
+      "historical_full_seconds_max": 2.416
+    },
+    "displacement_calc_h0_lat1": {
+      "observed_ranks": 32,
+      "short_seconds_min": 0.032,
+      "short_seconds_max": 0.036,
+      "short_seconds_mean": 0.0343125,
+      "short_percent_of_all_mean": 0.035407476201532395,
+      "historical_full_percent_of_all_mean": 0.03185392836411677,
+      "historical_full_seconds_mean": 0.354875,
+      "historical_full_seconds_max": 0.36
+    },
+    "displacement_mpi_initialize": {
+      "observed_ranks": 32,
+      "short_seconds_min": 0.0,
+      "short_seconds_max": 0.001,
+      "short_seconds_mean": 0.00071875,
+      "short_percent_of_all_mean": 0.0007416866599592395,
+      "historical_full_percent_of_all_mean": 0.0032482255235687938,
+      "historical_full_seconds_mean": 0.0361875,
+      "historical_full_seconds_max": 0.045
+    },
+    "drise_rwg": {
+      "observed_ranks": 32,
+      "short_seconds_min": 0.106,
+      "short_seconds_max": 0.181,
+      "short_seconds_mean": 0.1484375,
+      "short_percent_of_all_mean": 0.15317441890462555,
+      "historical_full_percent_of_all_mean": 0.04612031438559422,
+      "historical_full_seconds_mean": 0.5138125,
+      "historical_full_seconds_max": 0.622
+    },
+    "dump_gmt_nl_hgt": {
+      "observed_ranks": 32,
+      "short_seconds_min": 14.091,
+      "short_seconds_max": 17.169,
+      "short_seconds_mean": 14.1890625,
+      "short_percent_of_all_mean": 14.641862084977943,
+      "historical_full_percent_of_all_mean": 13.965978456130191,
+      "historical_full_seconds_mean": 155.59075,
+      "historical_full_seconds_max": 183.619
+    },
+    "dump_gmt_nl_vel": {
+      "observed_ranks": 32,
+      "short_seconds_min": 0.0,
+      "short_seconds_max": 0.001,
+      "short_seconds_mean": 9.375e-05,
+      "short_percent_of_all_mean": 9.674173825555298e-05,
+      "historical_full_percent_of_all_mean": 0.0003814841720253506,
+      "historical_full_seconds_mean": 0.00425,
+      "historical_full_seconds_max": 0.006
+    },
+    "error_check": {
+      "observed_ranks": 32,
+      "short_seconds_min": 0.93,
+      "short_seconds_max": 1.482,
+      "short_seconds_mean": 1.0810625,
+      "short_percent_of_all_mean": 1.1155612310708667,
+      "historical_full_percent_of_all_mean": 1.5602478233382704,
+      "historical_full_seconds_mean": 17.38225,
+      "historical_full_seconds_max": 20.588
+    },
+    "exchange_edges_dz": {
+      "observed_ranks": 32,
+      "short_seconds_min": 0.0,
+      "short_seconds_max": 0.0,
+      "short_seconds_mean": 0.0,
+      "short_percent_of_all_mean": 0.0,
+      "historical_full_percent_of_all_mean": 8.415092029970967e-05,
+      "historical_full_seconds_mean": 0.0009375,
+      "historical_full_seconds_max": 0.005
+    },
+    "getpar": {
+      "observed_ranks": 32,
+      "short_seconds_min": 0.0,
+      "short_seconds_max": 0.0,
+      "short_seconds_mean": 0.0,
+      "short_percent_of_all_mean": 0.0,
+      "historical_full_percent_of_all_mean": 0.0,
+      "historical_full_seconds_mean": 0.0,
+      "historical_full_seconds_max": 0.0
+    },
+    "hrise_rwg": {
+      "observed_ranks": 32,
+      "short_seconds_min": 0.015,
+      "short_seconds_max": 0.026,
+      "short_seconds_mean": 0.01959375,
+      "short_percent_of_all_mean": 0.020219023295410574,
+      "historical_full_percent_of_all_mean": 0.006586212028790612,
+      "historical_full_seconds_mean": 0.07337500000000001,
+      "historical_full_seconds_max": 0.083
+    },
+    "initl_gridmap": {
+      "observed_ranks": 32,
+      "short_seconds_min": 0.004,
+      "short_seconds_max": 0.004,
+      "short_seconds_mean": 0.004,
+      "short_percent_of_all_mean": 0.004127647498903594,
+      "historical_full_percent_of_all_mean": 0.016112096206717746,
+      "historical_full_seconds_mean": 0.1795,
+      "historical_full_seconds_max": 0.186
+    },
+    "initl_gridmap_dz": {
+      "observed_ranks": 32,
+      "short_seconds_min": 0.0,
+      "short_seconds_max": 0.0,
+      "short_seconds_mean": 0.0,
+      "short_percent_of_all_mean": 0.0,
+      "historical_full_percent_of_all_mean": 0.0,
+      "historical_full_seconds_mean": 0.0,
+      "historical_full_seconds_max": 0.0
+    },
+    "initl_wfld": {
+      "observed_ranks": 32,
+      "short_seconds_min": 0.0,
+      "short_seconds_max": 0.001,
+      "short_seconds_mean": 0.00096875,
+      "short_percent_of_all_mean": 0.000999664628640714,
+      "historical_full_percent_of_all_mean": 0.000269282944959071,
+      "historical_full_seconds_mean": 0.003,
+      "historical_full_seconds_max": 0.003
+    },
+    "interp2fine_dz": {
+      "observed_ranks": 32,
+      "short_seconds_min": 0.093,
+      "short_seconds_max": 0.441,
+      "short_seconds_mean": 0.13734375,
+      "short_percent_of_all_mean": 0.1417266465443851,
+      "historical_full_percent_of_all_mean": 0.020207440994636953,
+      "historical_full_seconds_mean": 0.22512500000000002,
+      "historical_full_seconds_max": 0.422
+    },
+    "interpolation_mpi_initialize": {
+      "observed_ranks": 32,
+      "short_seconds_min": 0.002,
+      "short_seconds_max": 0.006,
+      "short_seconds_mean": 0.004937500000000001,
+      "short_percent_of_all_mean": 0.005095064881459124,
+      "historical_full_percent_of_all_mean": 0.00031416343578558287,
+      "historical_full_seconds_mean": 0.0035,
+      "historical_full_seconds_max": 0.004
+    },
+    "make_abc": {
+      "observed_ranks": 32,
+      "short_seconds_min": 0.0,
+      "short_seconds_max": 0.0,
+      "short_seconds_mean": 0.0,
+      "short_percent_of_all_mean": 0.0,
+      "historical_full_percent_of_all_mean": 0.0,
+      "historical_full_seconds_mean": 0.0,
+      "historical_full_seconds_max": 0.0
+    },
+    "maxgrd_check_nl": {
+      "observed_ranks": 32,
+      "short_seconds_min": 0.418,
+      "short_seconds_max": 0.958,
+      "short_seconds_mean": 0.84846875,
+      "short_percent_of_all_mean": 0.8755449784588396,
+      "historical_full_percent_of_all_mean": 1.2484911038732593,
+      "historical_full_seconds_mean": 13.909062500000001,
+      "historical_full_seconds_max": 17.424
+    },
+    "maxgrd_init_rwg": {
+      "observed_ranks": 32,
+      "short_seconds_min": 0.0,
+      "short_seconds_max": 0.0,
+      "short_seconds_mean": 0.0,
+      "short_percent_of_all_mean": 0.0,
+      "historical_full_percent_of_all_mean": 8.976098165302366e-05,
+      "historical_full_seconds_mean": 0.001,
+      "historical_full_seconds_max": 0.001
+    },
+    "maxgrd_v_check_nl": {
+      "observed_ranks": 32,
+      "short_seconds_min": 1.671,
+      "short_seconds_max": 8.259,
+      "short_seconds_mean": 6.69859375,
+      "short_percent_of_all_mean": 6.912358434589686,
+      "historical_full_percent_of_all_mean": 7.174584043403474,
+      "historical_full_seconds_mean": 79.929875,
+      "historical_full_seconds_max": 97.056
+    },
+    "maxgrd_v_init_rwg": {
+      "observed_ranks": 32,
+      "short_seconds_min": 0.0,
+      "short_seconds_max": 0.0,
+      "short_seconds_mean": 0.0,
+      "short_percent_of_all_mean": 0.0,
+      "historical_full_percent_of_all_mean": 8.976098165302366e-05,
+      "historical_full_seconds_mean": 0.001,
+      "historical_full_seconds_max": 0.001
+    },
+    "maxgrd_v_write_gmt": {
+      "observed_ranks": 32,
+      "short_seconds_min": 0.002,
+      "short_seconds_max": 0.002,
+      "short_seconds_mean": 0.002,
+      "short_percent_of_all_mean": 0.002063823749451797,
+      "historical_full_percent_of_all_mean": 0.000269282944959071,
+      "historical_full_seconds_mean": 0.003,
+      "historical_full_seconds_max": 0.003
+    },
+    "maxgrd_write_gmt": {
+      "observed_ranks": 32,
+      "short_seconds_min": 0.0,
+      "short_seconds_max": 0.002,
+      "short_seconds_mean": 0.001375,
+      "short_percent_of_all_mean": 0.0014188788277481102,
+      "historical_full_percent_of_all_mean": 0.00021318233142593123,
+      "historical_full_seconds_mean": 0.0023750000000000004,
+      "historical_full_seconds_max": 0.003
+    },
+    "maxgrd_write_gmt_init": {
+      "observed_ranks": 32,
+      "short_seconds_min": 0.034,
+      "short_seconds_max": 1.724,
+      "short_seconds_mean": 0.09646874999999999,
+      "short_percent_of_all_mean": 0.099547248664964,
+      "historical_full_percent_of_all_mean": 0.01808683780308427,
+      "historical_full_seconds_mean": 0.2015,
+      "historical_full_seconds_max": 1.947
+    },
+    "onefile_initialize": {
+      "observed_ranks": 32,
+      "short_seconds_min": 0.0,
+      "short_seconds_max": 0.0,
+      "short_seconds_mean": 0.0,
+      "short_percent_of_all_mean": 0.0,
+      "historical_full_percent_of_all_mean": 0.0,
+      "historical_full_seconds_mean": 0.0,
+      "historical_full_seconds_max": 0.0
+    },
+    "onefile_setparams": {
+      "observed_ranks": 32,
+      "short_seconds_min": 0.001,
+      "short_seconds_max": 0.001,
+      "short_seconds_mean": 0.001,
+      "short_percent_of_all_mean": 0.0010319118747258984,
+      "historical_full_percent_of_all_mean": 0.0014081253996818088,
+      "historical_full_seconds_mean": 0.0156875,
+      "historical_full_seconds_max": 0.026
+    },
+    "putpar": {
+      "observed_ranks": 32,
+      "short_seconds_min": 0.0,
+      "short_seconds_max": 0.0,
+      "short_seconds_mean": 0.0,
+      "short_percent_of_all_mean": 0.0,
+      "historical_full_percent_of_all_mean": 0.0,
+      "historical_full_seconds_mean": 0.0,
+      "historical_full_seconds_max": 0.0
+    },
+    "read_bathymetry_gmt_grd": {
+      "observed_ranks": 32,
+      "short_seconds_min": 0.01,
+      "short_seconds_max": 0.013,
+      "short_seconds_mean": 0.01009375,
+      "short_percent_of_all_mean": 0.010415860485514539,
+      "historical_full_percent_of_all_mean": 0.002877961474250071,
+      "historical_full_seconds_mean": 0.0320625,
+      "historical_full_seconds_max": 0.033
+    },
+    "read_bathymetry_gmt_grdhdr": {
+      "observed_ranks": 1,
+      "short_seconds_min": 0.002,
+      "short_seconds_max": 0.002,
+      "short_seconds_mean": 0.002,
+      "short_percent_of_all_mean": 0.002063823749451797,
+      "historical_full_percent_of_all_mean": 0.00017952196330604732,
+      "historical_full_seconds_mean": 0.002,
+      "historical_full_seconds_max": 0.002
+    },
+    "read_friction_gmt_grd": {
+      "observed_ranks": 32,
+      "short_seconds_min": 0.0,
+      "short_seconds_max": 0.0,
+      "short_seconds_mean": 0.0,
+      "short_percent_of_all_mean": 0.0,
+      "historical_full_percent_of_all_mean": 0.0,
+      "historical_full_seconds_mean": 0.0,
+      "historical_full_seconds_max": 0.0
+    },
+    "read_grid_info": {
+      "observed_ranks": 32,
+      "short_seconds_min": 0.0,
+      "short_seconds_max": 0.0,
+      "short_seconds_mean": 0.0,
+      "short_percent_of_all_mean": 0.0,
+      "historical_full_percent_of_all_mean": 0.0,
+      "historical_full_seconds_mean": 0.0,
+      "historical_full_seconds_max": 0.0
+    },
+    "read_rupture": {
+      "observed_ranks": 32,
+      "short_seconds_min": 0.971,
+      "short_seconds_max": 2.59,
+      "short_seconds_mean": 2.45515625,
+      "short_percent_of_all_mean": 2.5335048886825065,
+      "historical_full_percent_of_all_mean": 0.25562805562510477,
+      "historical_full_seconds_mean": 2.847875,
+      "historical_full_seconds_max": 3.109
+    },
+    "tgs_open_ct": {
+      "observed_ranks": 32,
+      "short_seconds_min": 0.004,
+      "short_seconds_max": 0.005,
+      "short_seconds_mean": 0.00434375,
+      "short_percent_of_all_mean": 0.004482367205840622,
+      "historical_full_percent_of_all_mean": 0.0004319747242051764,
+      "historical_full_seconds_mean": 0.004812500000000001,
+      "historical_full_seconds_max": 0.005
+    },
+    "tstep_grid_hgt": {
+      "observed_ranks": 32,
+      "short_seconds_min": 4.865,
+      "short_seconds_max": 6.649,
+      "short_seconds_mean": 5.499281249999999,
+      "short_percent_of_all_mean": 5.674773624332481,
+      "historical_full_percent_of_all_mean": 7.1055297982055325,
+      "historical_full_seconds_mean": 79.1605625,
+      "historical_full_seconds_max": 92.026
+    },
+    "tstep_grid_vel": {
+      "observed_ranks": 32,
+      "short_seconds_min": 34.549,
+      "short_seconds_max": 63.762,
+      "short_seconds_mean": 57.00028125,
+      "short_percent_of_all_mean": 58.819267084590976,
+      "historical_full_percent_of_all_mean": 60.83580825864986,
+      "historical_full_seconds_mean": 677.753375,
+      "historical_full_seconds_max": 753.415
+    },
+    "wet_or_dry": {
+      "observed_ranks": 32,
+      "short_seconds_min": 0.0,
+      "short_seconds_max": 0.0,
+      "short_seconds_mean": 0.0,
+      "short_percent_of_all_mean": 0.0,
+      "historical_full_percent_of_all_mean": 0.0,
+      "historical_full_seconds_mean": 0.0,
+      "historical_full_seconds_max": 0.0
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "command": [
+    "taskset",
+    "-c",
+    "0-15",
+    "mpiexec",
+    "-n",
+    "16",
+    "/home/user_home/ylf/jagurs-v0701-hirota-hpc-20261013/build/gnu/jagurs",
+    "par=tsun.par"
+  ],
+  "returncode": 0,
+  "wall_s": 161.8145987102762,
+  "ranks": 16,
+  "threads_per_rank": 1,
+  "executable_sha256": "b23a757f62c1505755818201bb623be98afef153331e478c9c1af3a0882fcd79",
+  "environment": {
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "MKL_CBWR": "COMPATIBLE",
+    "MKL_DYNAMIC": "FALSE",
+    "OPENBLAS_NUM_THREADS": "1",
+    "I_MPI_PIN_PROCESSOR_LIST": "0-15",
+    "I_MPI_FABRICS": "shm:tcp"
+  }
+}

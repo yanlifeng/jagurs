@@ -1,0 +1,89 @@
+{
+  "passed": true,
+  "original_run": "/home/user_home/ylf/jagurs-v0701-hirota-hpc-20261013/runs/hirota16",
+  "baseline_report_sha256": "b9b57bebf0715dec2b47e1de174f6de31d8834d26a8b574cc3f5c64210e8db82",
+  "verifier_sha256": "e6d6f3dd6e3c2b3cc5795652f6713fb4015abf09f5542595225968e8fc716589",
+  "original_files_unchanged": true,
+  "original_file_sha256": {
+    "SD03.eta_raw.00018000.grd": "069dded327a806633d1162069ee1cdc434f155e1fe47478c61137678eb2d3565",
+    "SD03.qy_south_raw.00018000.grd": "d81bb982cc3a9a538fe2dbf0470caba7b2736d964b268b726e2218c452bd68cc",
+    "tgs000001": "5a329a6a3d301e792d3a939afc564da72c42357c1abf57306ce72998a3fc9866",
+    "tsun.par": "67ade45d275b2f472ca0e0cc393def8e1df6d611b40773be09dcc1122586babf"
+  },
+  "negative_controls": {
+    "water_level_plus_1m": {
+      "mutation": {
+        "file": "SD03.eta_raw.00018000.grd",
+        "flat_index": 21627,
+        "original_eta_m": 18.1854305267334,
+        "deliberately_added_m": 1.0
+      },
+      "passed": true,
+      "rejection": "field mismatch",
+      "verification_passed": false,
+      "field_comparison": {
+        "passed": false,
+        "finite": true,
+        "samples": 230065,
+        "max_abs_error": 1.0,
+        "relative_L2": 0.0005202354658308866,
+        "max_tolerance_ratio": 26187.99856924242,
+        "failing_samples": 1,
+        "atol": 2e-05,
+        "rtol": 1e-06,
+        "dimensions_passed": true,
+        "spacing_passed": true,
+        "coordinates_passed": true
+      },
+      "wall_s": 4.510253661312163
+    },
+    "southward_flux_sign_reversal": {
+      "mutation": {
+        "file": "SD03.qy_south_raw.00018000.grd",
+        "deliberately_multiplied_by": -1
+      },
+      "passed": true,
+      "rejection": "field mismatch",
+      "verification_passed": false,
+      "field_comparison": {
+        "passed": false,
+        "finite": true,
+        "samples": 230065,
+        "max_abs_error": 293.7514343261719,
+        "relative_L2": 2.0,
+        "max_tolerance_ratio": 1189875.7711035626,
+        "failing_samples": 150654,
+        "atol": 0.0001,
+        "rtol": 1e-06,
+        "dimensions_passed": true,
+        "spacing_passed": true,
+        "coordinates_passed": true
+      },
+      "wall_s": 4.475017927587032
+    },
+    "missing_native_0_2s_sample": {
+      "mutation": {
+        "file": "tgs000001",
+        "deliberately_removed_native_time_s": 0.2,
+        "note": "This native sample is not part of the 1 Hz frozen reference."
+      },
+      "passed": true,
+      "rejection": "expected ValueError",
+      "reason": "Missing or shifted native gauge sample: /tmp/jagurs-verifier-control-dwq16_6k/tgs000001 at 0.3 s",
+      "wall_s": 0.5330851320177317
+    },
+    "changed_ocean_friction": {
+      "mutation": {
+        "file": "tsun.par",
+        "deliberately_changed_parameter": "cf",
+        "changed_value": -0.03
+      },
+      "passed": true,
+      "rejection": "expected ValueError",
+      "reason": "Simulation namelist changed beyond procx/procy",
+      "wall_s": 0.023601367138326168
+    }
+  },
+  "wall_s": 9.551972296088934,
+  "scope": "Checks that the actual frozen-case verifier rejects meaningful numerical, time-axis and physical-input errors. No simulation or original output was modified."
+}

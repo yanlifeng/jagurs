@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-13",
+  "cpu": "AMD EPYC 7T83 64-Core Processor",
+  "physical_cores": 128,
+  "sockets": 2,
+  "numa_nodes": 2,
+  "threads_per_core": 1,
+  "tested_cores_16": "0-15",
+  "tested_cores_32": "0-31",
+  "compiler": "GNU Fortran 8.5.0",
+  "mpi": "Intel MPI 2021.12",
+  "fft_backend": "Intel oneMKL 2023.2 FFTW compatibility",
+  "omp_threads_per_rank": 1,
+  "source_fix_commit": "24bc4dcdd96525e7f9fee3d7696ad0ece6011420",
+  "frozen_base_commit": "9934f8970f545deda2cdf4f1bc18f763e191b3cd",
+  "validation_tools_sha256": {
+    "benchmarks/build_gnu.py": "2217673cb58852b5728bab7c843cf0f58263801812d0982ae69f4a5f4d706877",
+    "benchmarks/hirota_quick/run.py": "e6d6f3dd6e3c2b3cc5795652f6713fb4015abf09f5542595225968e8fc716589",
+    "benchmarks/hirota_quick/check_verifier.py": "66e38084c0eed6ddfff01a2b2e35e91c8c3c4d294d4dcd5389d58fff7ade33d4"
+  },
+  "note": "Sequential tests without overlapping simulations. One-time build/prepare excluded; input checks, MPI, verification, profiling and analytic check included. ARM/Kunpeng execution has not been measured."
+}
