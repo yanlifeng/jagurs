@@ -659,6 +659,9 @@ contains
 #endif
 ! ==============================================================================
          if(timenest == 1) then
+            ! Jacobi scratch now holds the converged new solution, not old time.
+            fx_old => wfld%fx_a
+            fy_old => wfld%fy_a
             fx     => wfld%fx
             fx_new => wfld%fx_b
             fy     => wfld%fy
@@ -2380,8 +2383,14 @@ TIMER_STOP('___nld:reg03')
 #ifndef USE_GPU
 !$omp single
 #endif
-         fx => wfld%fx
-         fy => wfld%fy
+         ! Root-edge momentum belongs to the new physical time buffer.
+         if(timenest == 1) then
+            fx => wfld%fx_b
+            fy => wfld%fy_b
+         else
+            fx => wfld%fx
+            fy => wfld%fy
+         end if
 #ifndef USE_GPU
 !$omp end single
 #endif
@@ -3604,6 +3613,9 @@ TIMER_STOP('___nld:reg03')
 !$omp end parallel
 #endif
          if(timenest == 1) then
+            ! Jacobi scratch now holds the converged new solution, not old time.
+            fx_old => wfld%fx_a
+            fy_old => wfld%fy_a
             fx     => wfld%fx
             fx_new => wfld%fx_b
             fy     => wfld%fy

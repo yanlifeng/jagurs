@@ -137,6 +137,10 @@ program JAGURS
    integer(kind=4) :: linear_flag ! do linear calculation for any nonzero number else 0 gives nonlinear
 
    integer(kind=4) :: istep, nstep
+   ! A commensurate source interval is indexed by integer global steps.
+   integer(kind=8) :: source_clock_steps
+   logical :: source_integer_clock, source_active
+
    integer(kind=4) :: nsta ! total number of tide gauge stations
    type(tgsrwg), allocatable, dimension(:) :: mytgs ! tide gauge data structure see "mod_grid.f90"
    real(kind=REAL_BYTE) :: radmin
@@ -923,6 +927,8 @@ program JAGURS
       allocate(dgrid(ig)%bcf_field(niz,njz))
       allocate(dgrid(ig)%ts_field(niz,njz))
       allocate(dgrid(ig)%zz(niz,njz))
+      allocate(dgrid(ig)%zz_bed(niz,njz))
+      dgrid(ig)%zz_bed = 0.0d0
 #ifndef REAL_DBLE
       allocate(dgrid(ig)%zz_dp(niz,njz))
 #endif
@@ -1908,6 +1914,30 @@ program JAGURS
       end if
    end do
 
+   ! Synchronize time-nesting buffers AFTER custom initial hz/fx/fy import.
+   ! The upstream copy above the import otherwise silently discards custom data.
+   if(timenest == 1) then
+      do ig = 1, ngrid
+         dgrid(ig)%wave_field%hz_a = dgrid(ig)%wave_field%hz
+         dgrid(ig)%wave_field%hz_b = dgrid(ig)%wave_field%hz
+         dgrid(ig)%wave_field%fx_a = dgrid(ig)%wave_field%fx
+         dgrid(ig)%wave_field%fx_b = dgrid(ig)%wave_field%fx
+         dgrid(ig)%wave_field%fy_a = dgrid(ig)%wave_field%fy
+         dgrid(ig)%wave_field%fy_b = dgrid(ig)%wave_field%fy
+      end do
+   end if
+
+   source_integer_clock = .false.
+   source_clock_steps = 0_8
+   if(dt > 0.0d0 .and. tau > 0.0d0) then
+      source_clock_steps = nint(tau/dt,kind=8)
+      if(source_clock_steps >= 1_8) then
+         source_integer_clock = abs(tau-real(source_clock_steps,kind=kind(dt))*dt) &
+              <= 64.0d0*epsilon(dt)*max(abs(tau),abs(dt))
+      end if
+   end if
+   write(6,*) 'SOURCE_CLOCK integer=',source_integer_clock,' steps_per_frame=',source_clock_steps
+   ! Noncommensurate intervals retain the legacy floating-time algorithm.
    do istep = istart, nstep
       do ig = 1, ngrid
          dgrid(ig)%my%numneststeps = 3**(dgrid(ig)%my%maxnl - dgrid(ig)%my%nl)
@@ -1952,12 +1982,18 @@ program JAGURS
          irupt   => dgrid(ig)%irupt
          jrupt   => dgrid(ig)%jrupt
          ruptgrd => dgrid(ig)%ruptgrd
-         if(t <= nrupt*tau) then
-            irupt = -1
-            do while((irupt+1)*tau < t)
+         source_active = t <= nrupt*tau
+         if(source_integer_clock) source_active = int(istep,kind=8) <= int(nrupt,kind=8)*source_clock_steps
+         if(source_active) then
+            if(source_integer_clock) then
+               irupt = int((int(istep,kind=8)-1_8)/source_clock_steps + 1_8,kind=4)
+            else
+               irupt = -1
+               do while((irupt+1)*tau < t)
+                  irupt = irupt + 1
+               end do
                irupt = irupt + 1
-            end do
-            irupt = irupt + 1
+            end if
 
             if(irupt > jrupt) then
 ! === For MRI ==================================================================
@@ -1992,6 +2028,8 @@ program JAGURS
 #endif
 #endif
                TIMER_STOP('read_rupture')
+               ! Preserve Eulerian bed displacement before water-column Kajiura filtering.
+               dgrid(ig)%zz_bed = dgrid(ig)%zz
 ! === Displacement =============================================================
                else
                   if(ig == 1) then
@@ -2070,6 +2108,7 @@ program JAGURS
                   pid = dgrid(ig)%parent%id
                   TIMER_START('interp2fine_init_disp')
                   call interp2fine_init_disp(dgrid(pid),dgrid(ig))
+                  if(init_disp_fault == 0) call interp2fine_init_disp(dgrid(pid),dgrid(ig),.true.)
                   TIMER_STOP('interp2fine_init_disp')
 #ifdef MPI
                   call exchange_edges_zz(dgrid(ig))
@@ -2194,7 +2233,9 @@ program JAGURS
          jrupt   => dgrid(ig)%jrupt
          ruptgrd => dgrid(ig)%ruptgrd
 ! ==============================================================================
-         if(t <= nrupt*tau) then
+         source_active = t <= nrupt*tau
+         if(source_integer_clock) source_active = int(istep,kind=8) <= int(nrupt,kind=8)*source_clock_steps
+         if(source_active) then
 ! === SINWAVE ==================================================================
 ! === Displacement =============================================================
 !           if(init_disp_sinwave == 0) then
@@ -2261,8 +2302,13 @@ program JAGURS
             end if
 #endif
             TIMER_START('drise_rwg')
+            if((init_disp_fault == 0) .and. (init_disp_gaussian == 0) .and. (init_disp_pointsource == 0)) then
+               call drise_rwg(dgrid(ig)%depth_field,dgrid(ig)%zz_bed,dt,tau,dgrid(ig)%my%nx,dgrid(ig)%my%ny, &
+                              dgrid(ig)%my%linear_flag,defbathy_flag)
+            else
             call drise_rwg(dgrid(ig)%depth_field,dgrid(ig)%zz,dt,tau,dgrid(ig)%my%nx,dgrid(ig)%my%ny, &
                            dgrid(ig)%my%linear_flag,defbathy_flag)
+            end if
             TIMER_STOP('drise_rwg')
             if(ig /= 1) then
                pid = dgrid(ig)%parent%id
@@ -2646,11 +2692,30 @@ program JAGURS
          TIMER_STOP('error_check')
 
          if(plotgrd(1) < 0 .or. plotgrd_num(ig)) then
-            if(mod(istep,itmap) == 0 .and. istep >= itmap_start .and. istep <= itmap_end) then
+            ! Output-only: native neighbors of the fixed360s child handoff.
+            if((mod(istep,itmap) == 0 .and. istep >= itmap_start .and. istep <= itmap_end) .or. &
+               (velgrd == 2 .and. (istep == 3599 .or. istep == 3601))) then
 #ifndef NCDIO
 ! === Conversion from flux to velocity should be done right after calc. ========
 !              TIMER_START('dump_gmt_nl')
                TIMER_START('dump_gmt_nl_hgt')
+#if defined(MPI) && defined(ONEFILE) && !defined(PIXELOUT) && !defined(DIROUT)
+               if(velgrd == 2) then
+                  write(str,'(a,a,i8.8,a)') trim(dgrid(ig)%my%base_name),'.eta_raw.',istep,'.grd'
+                  call maxgrd_write_gmt(dgrid(ig)%wave_field%hz(1:niz,1:njz),dgrid(ig)%my%nx,dgrid(ig)%my%ny, &
+                     dgrid(ig)%my%mlon0,dgrid(ig)%my%mlat0,dgrid(ig)%my%dh,str,.false.,dgrid(ig),myrank)
+                  write(str,'(a,a,i8.8,a)') trim(dgrid(ig)%my%base_name),'.qx_raw.',istep,'.grd'
+                  call maxgrd_write_gmt(dgrid(ig)%wave_field%fx(1:niz,1:njz),dgrid(ig)%my%nx,dgrid(ig)%my%ny, &
+                     dgrid(ig)%my%mlon0,dgrid(ig)%my%mlat0,dgrid(ig)%my%dh,str,.false.,dgrid(ig),myrank)
+                  write(str,'(a,a,i8.8,a)') trim(dgrid(ig)%my%base_name),'.qy_south_raw.',istep,'.grd'
+                  call maxgrd_write_gmt(dgrid(ig)%wave_field%fy(1:niz,1:njz),dgrid(ig)%my%nx,dgrid(ig)%my%ny, &
+                     dgrid(ig)%my%mlon0,dgrid(ig)%my%mlat0,dgrid(ig)%my%dh,str,.false.,dgrid(ig),myrank)
+                  write(str,'(a,a,i8.8,a)') trim(dgrid(ig)%my%base_name),'.depth_raw.',istep,'.grd'
+                  call maxgrd_write_gmt(dgrid(ig)%depth_field%dz(1:niz,1:njz),dgrid(ig)%my%nx,dgrid(ig)%my%ny, &
+                     dgrid(ig)%my%mlon0,dgrid(ig)%my%mlat0,dgrid(ig)%my%dh,str,.false.,dgrid(ig),myrank)
+               end if
+#endif
+
 ! ==============================================================================
 #ifndef MPI
                call dump_gmt_nl(wave_field,depth_field,ts_field,niz,njz,wod_flags, &

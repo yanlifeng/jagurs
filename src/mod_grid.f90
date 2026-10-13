@@ -288,6 +288,7 @@ type data_grids
    type(depth_arrays) :: depth_field
    real(kind=REAL_BYTE), allocatable, dimension(:,:) :: ts_field
    real(kind=REAL_BYTE), allocatable, dimension(:,:) :: zz
+   real(kind=REAL_BYTE), allocatable, dimension(:,:) :: zz_bed
 #ifndef REAL_DBLE
    real(kind=8), allocatable, dimension(:,:) :: zz_dp
 #endif

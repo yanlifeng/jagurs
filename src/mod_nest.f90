@@ -26,7 +26,7 @@ use mod_params, only : VEL, HGT, nest_1way
 use mod_params, only : VEL, HGT, nest_1way, RUDEF
 #endif
 ! ==============================================================================
-use mod_params, only : timenest
+use mod_params, only : timenest, with_disp
 #ifdef TIMER
 use mod_timer
 #endif
@@ -51,7 +51,9 @@ contains
             neststep = cg%my%neststephgt / fg%my%numneststeps
             call interp2fine(mode,cg,fg,neststep)
          end if
-         if((mode == VEL) .and. (fg%my%calcvel == 1)) then
+         ! Dispersive solver already interpolated these boundaries before its implicit solve.
+         if((mode == VEL) .and. (fg%my%calcvel == 1) .and. &
+             ((with_disp == 0) .or. (cg%my%numneststeps == fg%my%numneststeps))) then
             neststep = cg%my%neststepvel / fg%my%numneststeps
             call interp2fine(mode,cg,fg,neststep)
          end if
@@ -2302,7 +2304,7 @@ TIMER_STOP('___cc:reg07')
       if(mode == VEL) then
 #ifndef MPI
          if(neststep == 0) then
-            if(timenest == 1) then
+            if(timenest == 1 .and. cg%my%numneststeps > fg%my%numneststeps) then
 #ifdef USE_GPU
 !$omp target teams distribute parallel do collapse(2) private(i)
 #endif
@@ -2530,7 +2532,7 @@ TIMER_STOP('___cc:reg07')
                fyf(i,-2) = fyf(ind0,-2)*fac0 + fyf(ind1,-2)*fac1
             end do
 ! ==============================================================================
-            if(timenest == 1) then
+            if(timenest == 1 .and. cg%my%numneststeps > fg%my%numneststeps) then
 #ifdef USE_GPU
 !$omp target teams distribute parallel do collapse(2) private(i)
 #endif
@@ -2758,7 +2760,7 @@ TIMER_STOP('___cc:reg07')
          end if
 #else
          if(neststep == 0) then
-            if(timenest == 1) then
+            if(timenest == 1 .and. cg%my%numneststeps > fg%my%numneststeps) then
 TIMER_START('___if:reg01')
                ist = -1
                if(iand(fg%my%has_boundary, WEST_BOUND) /= 0) ist = -2
@@ -3976,7 +3978,7 @@ TIMER_START('___if:reg06')
             end if
 TIMER_STOP('___if:reg06')
 ! ==============================================================================
-            if(timenest == 1) then
+            if(timenest == 1 .and. cg%my%numneststeps > fg%my%numneststeps) then
 TIMER_START('___if:reg07')
                ist = -1
                if(iand(fg%my%has_boundary, WEST_BOUND) /= 0) ist = -2
@@ -4314,7 +4316,7 @@ TIMER_STOP('___if:reg09')
       else if(mode == HGT) then
 #ifndef MPI
          if(neststep == 0) then
-            if(timenest == 1) then
+            if(timenest == 1 .and. cg%my%numneststeps > fg%my%numneststeps) then
 #ifdef USE_GPU
 !$omp target teams distribute parallel do collapse(2) private(i)
 #endif
@@ -4397,7 +4399,7 @@ TIMER_STOP('___if:reg09')
                hzf(0,         j) = hzf(0,         j)*t0 + hzf(1,       j)*t1
                hzf(fg%my%nx+1,j) = hzf(fg%my%nx+1,j)*t0 + hzf(fg%my%nx,j)*t1
             end do
-            if(timenest == 1) then
+            if(timenest == 1 .and. cg%my%numneststeps > fg%my%numneststeps) then
 #ifdef USE_GPU
 !$omp target teams distribute parallel do collapse(2) private(i)
 #endif
@@ -4513,7 +4515,7 @@ TIMER_STOP('___if:reg09')
          end if
 #else
          if(neststep == 0) then
-            if(timenest == 1) then
+            if(timenest == 1 .and. cg%my%numneststeps > fg%my%numneststeps) then
 TIMER_START('___if:reg10')
                ist = 0
                if(iand(fg%my%has_boundary, WEST_BOUND) /= 0) ist = -1
@@ -4967,7 +4969,7 @@ TIMER_START('___if:reg13')
                end do
             end if
 TIMER_STOP('___if:reg13')
-            if(timenest == 1) then
+            if(timenest == 1 .and. cg%my%numneststeps > fg%my%numneststeps) then
 TIMER_START('___if:reg14')
                ist = 0
                if(iand(fg%my%has_boundary, WEST_BOUND) /= 0) ist = -1
