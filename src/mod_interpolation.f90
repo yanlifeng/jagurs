@@ -58,9 +58,11 @@ contains
    end subroutine interpolation_mpi_initialize
 #endif
 
-   subroutine interp2fine_init_disp(cg,fg)
+   subroutine interp2fine_init_disp(cg,fg,raw_bed)
       use mod_params, only : use_linear
       type(data_grids), target, intent(inout) :: cg, fg
+      logical, optional, intent(in) :: raw_bed
+      real(kind=REAL_BYTE), pointer, dimension(:,:) :: coarse_disp, fine_disp
       real(kind=REAL_BYTE), allocatable, dimension(:,:) :: buf0, buf1, buf2
       integer(kind=4) :: bigNX, bigNY, zeroIX, zeroIY, nx, ny
       integer(kind=4) :: i, j
@@ -80,6 +82,14 @@ contains
 ! ==============================================================================
 #endif
 
+      coarse_disp => cg%zz
+      fine_disp => fg%zz
+      if(present(raw_bed)) then
+         if(raw_bed) then
+            coarse_disp => cg%zz_bed
+            fine_disp => fg%zz_bed
+         end if
+      end if
       bigNX = fg%my%bigNX
       bigNY = fg%my%bigNY
       zeroIX = fg%my%zeroIX
@@ -172,7 +182,7 @@ contains
 !$omp do private(j)
       do i = 1, bigNX
          do j = 1, bigNY
-            buf0(j,i) = cg%zz(i+zeroIX-1,j+zeroIY-1)
+            buf0(j,i) = coarse_disp(i+zeroIX-1,j+zeroIY-1)
          end do
       end do
 
@@ -198,12 +208,12 @@ contains
       if(use_linear == 1) then
 !$omp do
          do j = 1, ny
-            call linear_interpolation(fg%my%nr, bigNX, buf2(1,j), nx, fg%zz(1,j))
+            call linear_interpolation(fg%my%nr, bigNX, buf2(1,j), nx, fine_disp(1,j))
          end do
       else
 !$omp do
          do j = 1, ny
-            call spline_interpolation(fg%my%nr, bigNX, buf2(1,j), nx, fg%zz(1,j))
+            call spline_interpolation(fg%my%nr, bigNX, buf2(1,j), nx, fine_disp(1,j))
          end do
       end if
 
@@ -237,8 +247,8 @@ contains
                jc = j + zeroIY - 1
                if((jc >= cg%my%iy) .and. (jc <= cg%my%iyend)) then
 ! === MPI_IN_PLACE cannot be utilized with MPI_Reduce on SX. ===================
-!                 tmp2d(j,i) = cg%zz(ic-cg%my%kx+1,jc-cg%my%ky+1)
-                  commbuf(j,i) = cg%zz(ic-cg%my%kx+1,jc-cg%my%ky+1)
+!                 tmp2d(j,i) = coarse_disp(ic-cg%my%kx+1,jc-cg%my%ky+1)
+                  commbuf(j,i) = coarse_disp(ic-cg%my%kx+1,jc-cg%my%ky+1)
 ! ==============================================================================
                end if
             end do
@@ -345,7 +355,7 @@ contains
       deallocate(tmp2d)
 !$omp end single
 
-      ! Finally, rearrange tmp1d(nby*nbx) -> fg%zz(nx,ny)
+      ! Finally, rearrange tmp1d(nby*nbx) -> fine_disp(nx,ny)
       ib = ix - kx
       jb = iy - ky
       do p = 0, npx-1
@@ -355,7 +365,7 @@ contains
          do i = 1, nbx
             do j = jst, jen
                ind = rdispls2(p) + (jen - jst + 1)*(i - 1) + j - jst + 1
-               fg%zz(i+ib,j+jb) = tmp1d(ind)
+               fine_disp(i+ib,j+jb) = tmp1d(ind)
             end do
          end do
       end do

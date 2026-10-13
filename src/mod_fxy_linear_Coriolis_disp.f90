@@ -873,6 +873,9 @@ TIMER_STOP('___ld:reg03')
 #endif
 ! ==============================================================================
          if(timenest == 1) then
+            ! Jacobi scratch now holds the converged new solution, not old time.
+            fx_old => wfld%fx_a
+            fy_old => wfld%fy_a
             fx     => wfld%fx
             fx_new => wfld%fx_b
             fy     => wfld%fy

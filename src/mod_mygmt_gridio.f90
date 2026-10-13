@@ -423,7 +423,11 @@ contains
       err = nf_close(ncid)
 
       !*** move values into return variables ***
-#ifndef REAL_DBLE
+! Preserve the precision of netCDF double coordinate metadata.
+! MPI ONEFILE reads the header on rank zero and broadcasts REAL_MPI values;
+! JAGURS builds local origins from global origins plus integer kx/ky offsets.
+! Quantizing coordinates to default REAL moves the physical grid, and is not
+! a substitute for nearest-integer index arithmetic at aligned grid offsets.
       west  = x_range(1)
       east  = x_range(2)
       south = y_range(1)
@@ -434,20 +438,6 @@ contains
       dy = spacing(2)
       nx = dimension(1)
       ny = dimension(2)
-#else
-! === To avoid numerical error on MPI decomposition. ===========================
-      west  = real(x_range(1))
-      east  = real(x_range(2))
-      south = real(y_range(1))
-      north = real(y_range(2))
-      zmin  = real(z_range(1))
-      zmax  = real(z_range(2))
-      dx = real(spacing(1))
-      dy = real(spacing(2))
-      nx = real(dimension(1))
-      ny = real(dimension(2))
-! ==============================================================================
-#endif
 
       !*** free space ***/
       deallocate(x_range)

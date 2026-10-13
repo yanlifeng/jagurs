@@ -1763,6 +1763,7 @@ contains
 #ifdef MPI
       call MPI_Bcast(x_inc, 1, REAL_MPI, 0, __MPICOMM__, ierr)
       call MPI_Bcast(y_inc, 1, REAL_MPI, 0, __MPICOMM__, ierr)
+      call MPI_Bcast(y_max, 1, REAL_MPI, 0, __MPICOMM__, ierr)
 #endif
 
 ! === get-large-area.f90 2015/06/19 ============================================
@@ -1858,7 +1859,7 @@ contains
 #ifndef MPI
 #ifndef CARTESIAN
       lat1 = (dble(jmax) + dble(jmin))/2.0d0
-      lat1 = y_min + y_inc*(lat1 - 1.0d0)
+      lat1 = y_max - y_inc*(lat1 - 1.0d0)
 #endif
 #else
       if(imin <  huge(imin)) imin = kx + imin - 1
@@ -1871,7 +1872,7 @@ contains
       call MPI_Allreduce(MPI_IN_PLACE, jmax, 1, MPI_INTEGER, MPI_MAX, __MPICOMM__, ierr)
 #ifndef CARTESIAN
       lat1 = (dble(jmax) + dble(jmin))/2.0d0
-      lat1 = y_min + y_inc*(lat1 - 1.0d0)
+      lat1 = y_max - y_inc*(lat1 - 1.0d0)
       call MPI_Allreduce(MPI_IN_PLACE, lat1, 1, MPI_DOUBLE_PRECISION, MPI_MIN, __MPICOMM__, ierr)
 #endif
       imin = imin - kx + 1; imin = max(imin, ibias + 1)
