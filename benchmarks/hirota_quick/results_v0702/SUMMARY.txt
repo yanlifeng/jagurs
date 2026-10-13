@@ -1,0 +1,37 @@
+V0702 patched: measured quick regression, 2026-10-13
+==================================================
+
+Source commit: c540bef2e1f59686d25f7d7336de32691386166d
+Direct official parent: f5c5e3f4d7a463f0092157d09db6622802e91cf2
+Executable SHA-256:
+  dc4dae78e0ea9c499f3549553ebaaced24e9cc1050ef916fd37c7fa3f18345b4
+Frozen V0701 dataset manifest SHA-256 (unchanged):
+  1892cf869065e18b335fd288d3672230ae7d9436cde58ddaa02ef56fcfa81d12
+
+Configuration             MPI wall s    Complete recurring check s    Result
+16 MPI, 4x4, OMP=1          165.9193                174.5008             PASS
+32 MPI, 8x4, OMP=1          102.8174                111.3682             PASS
+
+Both runs passed the original frozen thresholds, complete rank-timer coverage,
+and the 300-second budget. Final SD03 eta_raw, qx_raw, qy_south_raw and depth_raw
+were value-bit-identical to the historical reference. Neither the reference
+nor numerical thresholds were regenerated or relaxed.
+
+Independent discrete standing wave (same tested executable):
+  Relative L2 = 7.3653572e-6; maximum absolute elevation error = 1.2580051e-7 m.
+
+All four deliberate-error controls were correctly rejected: a +1 m water-level
+error, reversed southward flux sign, a missing native sample, and changed drag.
+See verifier_negative_controls.json; these checks never alter original runs.
+
+Build: GNU Fortran 8.5.0, Intel MPI 2021.12, MKL 2023.2, AMD EPYC 7T83 x86_64;
+REAL_DBLE, ONEFILE, USE_ALLTOALLV, -O3 -fopenmp -ffp-contract=off.
+Exact compiler/source hashes and commands are in tested_build.json; launch
+bindings and environment are in hirota{16,32}_mpi_run.json. These runs shared
+the machine with the isolated full parent validation on other CPU cores, so
+the numbers certify this run's budget, not a controlled V0701/V0702 speedup.
+
+The 18-second MPI boundary-layout check is in ../v0702_mpi_edges/.
+Complete 10861-second parent and sECOM interface validation are separately
+reported in ../v0702_validation/ and ../../../V0702_MIGRATION.txt.
+The quick-case PASS alone makes no full-chain or new observation-fit claim.

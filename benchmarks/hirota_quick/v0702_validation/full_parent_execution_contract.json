@@ -1,0 +1,23 @@
+{
+  "start_utc": "2026-10-13T08:18:32.861896+00:00",
+  "command": [
+    "mpirun",
+    "-np",
+    "16",
+    "/home/user_home/ylf/jagurs-v0702-hirota-chain-20261013/build/gnu/jagurs",
+    "par=tsun.par"
+  ],
+  "executable_sha256": "dc4dae78e0ea9c499f3549553ebaaced24e9cc1050ef916fd37c7fa3f18345b4",
+  "environment": {
+    "OMP_NUM_THREADS": "1",
+    "OMP_DYNAMIC": "FALSE",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "MKL_DYNAMIC": "FALSE",
+    "MKL_CBWR": "COMPATIBLE",
+    "I_MPI_PIN": "1",
+    "I_MPI_PIN_PROCESSOR_LIST": "16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31"
+  },
+  "dynamic_libraries": "\tlinux-vdso.so.1 (0x00007ffd441c8000)\n\tlibnetcdf.so.15 => /lib64/libnetcdf.so.15 (0x00007f98534ae000)\n\tlibmkl_rt.so.2 => /opt/intel/oneapi/mkl/2023.2.0/lib/intel64/libmkl_rt.so.2 (0x00007f98526b3000)\n\tlibpthread.so.0 => /lib64/libpthread.so.0 (0x00007f9852493000)\n\tlibgfortran.so.5 => /lib64/libgfortran.so.5 (0x00007f9852014000)\n\tlibm.so.6 => /lib64/libm.so.6 (0x00007f9851c92000)\n\tlibdl.so.2 => /lib64/libdl.so.2 (0x00007f9851a8e000)\n\tlibmpifort.so.12 => /opt/intel/oneapi/mpi/2021.12/lib/libmpifort.so.12 (0x00007f98516f7000)\n\tlibmpi.so.12 => /opt/intel/oneapi/mpi/2021.12/lib/libmpi.so.12 (0x00007f984ff5d000)\n\tlibrt.so.1 => /lib64/librt.so.1 (0x00007f984fd55000)\n\tlibgomp.so.1 => /lib64/libgomp.so.1 (0x00007f984fb1d000)\n\tlibgcc_s.so.1 => /lib64/libgcc_s.so.1 (0x00007f984f905000)\n\tlibquadmath.so.0 => /lib64/libquadmath.so.0 (0x00007f984f6c4000)\n\tlibc.so.6 => /lib64/libc.so.6 (0x00007f984f2ee000)\n\tlibmfhdf.so.0 => /lib64/libmfhdf.so.0 (0x00007f984f0c5000)\n\tlibdf.so.0 => /lib64/libdf.so.0 (0x00007f984ee1c000)\n\tlibjpeg.so.62 => /lib64/libjpeg.so.62 (0x00007f984ebb3000)\n\tlibsz.so.2 => /lib64/libsz.so.2 (0x00007f984e9b0000)\n\tlibhdf5_hl.so.100 => /lib64/libhdf5_hl.so.100 (0x00007f984e78c000)\n\tlibhdf5.so.103 => /lib64/libhdf5.so.103 (0x00007f984e201000)\n\tlibz.so.1 => /lib64/libz.so.1 (0x00007f984dfe9000)\n\tlibcurl.so.4 => /lib64/libcurl.so.4 (0x00007f984dd5a000)\n\tlibtirpc.so.3 => /lib64/libtirpc.so.3 (0x00007f984db26000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007f98537fa000)\n\tlibaec.so.0 => /lib64/libaec.so.0 (0x00007f984d91e000)\n\tlibnghttp2.so.14 => /lib64/libnghttp2.so.14 (0x00007f984d6f7000)\n\tlibidn2.so.0 => /lib64/libidn2.so.0 (0x00007f984d4d9000)\n\tlibssh.so.4 => /lib64/libssh.so.4 (0x00007f984d269000)\n\tlibpsl.so.5 => /lib64/libpsl.so.5 (0x00007f984d058000)\n\tlibssl.so.1.1 => /lib64/libssl.so.1.1 (0x00007f984cdc4000)\n\tlibcrypto.so.1.1 => /lib64/libcrypto.so.1.1 (0x00007f984c8d9000)\n\tlibgssapi_krb5.so.2 => /lib64/libgssapi_krb5.so.2 (0x00007f984c684000)\n\tlibkrb5.so.3 => /lib64/libkrb5.so.3 (0x00007f984c399000)\n\tlibk5crypto.so.3 => /lib64/libk5crypto.so.3 (0x00007f984c182000)\n\tlibcom_err.so.2 => /lib64/libcom_err.so.2 (0x00007f984bf7e000)\n\tlibldap-2.4.so.2 => /lib64/libldap-2.4.so.2 (0x00007f984bd2f000)\n\tliblber-2.4.so.2 => /lib64/liblber-2.4.so.2 (0x00007f984bb1f000)\n\tlibbrotlidec.so.1 => /lib64/libbrotlidec.so.1 (0x00007f984b912000)\n\tlibunistring.so.2 => /lib64/libunistring.so.2 (0x00007f984b591000)\n\tlibkrb5support.so.0 => /lib64/libkrb5support.so.0 (0x00007f984b380000)\n\tlibkeyutils.so.1 => /lib64/libkeyutils.so.1 (0x00007f984b17c000)\n\tlibresolv.so.2 => /lib64/libresolv.so.2 (0x00007f984af64000)\n\tlibsasl2.so.3 => /lib64/libsasl2.so.3 (0x00007f984ad46000)\n\tlibbrotlicommon.so.1 => /lib64/libbrotlicommon.so.1 (0x00007f984ab25000)\n\tlibselinux.so.1 => /lib64/libselinux.so.1 (0x00007f984a8fa000)\n\tlibcrypt.so.1 => /lib64/libcrypt.so.1 (0x00007f984a6d1000)\n\tlibpcre2-8.so.0 => /lib64/libpcre2-8.so.0 (0x00007f984a44d000)\n",
+  "mpi_version": "Intel(R) MPI Library for Linux* OS, Version 2021.12 Build 20240213 (id: 4f55822)\nCopyright 2003-2024, Intel Corporation.\n"
+}

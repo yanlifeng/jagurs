@@ -1,0 +1,64 @@
+{
+  "base_tag": "JAGURS-D_V0701",
+  "base_commit": "9934f8970f545deda2cdf4f1bc18f763e191b3cd",
+  "historical_executable_sha256": "63028023d254077649b9a8b989fdca91f9970cae228831701a876507343e3712",
+  "modified_files": [
+    {
+      "file": "JAGURS.f90",
+      "added": 72,
+      "removed": 7,
+      "official_sha256": "650490a9a7842270ee282adae3f6d1bbe0a641b23038718467d15600e953da2f",
+      "local_sha256": "1202bba2f410abe13a316d6c8a9c7faa0bd5a6ee9b5bd1f453779cf881cdc3d1"
+    },
+    {
+      "file": "mod_displacement.f90",
+      "added": 3,
+      "removed": 2,
+      "official_sha256": "8ac94b5812981ee18163995c640b0d2163f4f159e0214500f63a7119af7717ff",
+      "local_sha256": "388d62ee1f9be1bd3d40cc8cebe202fe20e727aad49333b8a77f69a5fc236457"
+    },
+    {
+      "file": "mod_fxy_disp.f90",
+      "added": 14,
+      "removed": 2,
+      "official_sha256": "3c01e248c8747f8244507fb48b6696b0e77ebce45aeb9a527c22c7a344d33e42",
+      "local_sha256": "cad62d229bfa9ec1e536340c320449b4fd1397d96b5803497b6fa86df4997932"
+    },
+    {
+      "file": "mod_fxy_linear_Coriolis_disp.f90",
+      "added": 3,
+      "removed": 0,
+      "official_sha256": "d8258afa6af1a79f8f917823df9aa30debc429cea056fe08e716a0d9daf6f41f",
+      "local_sha256": "930fdcd40b613e6b2a9a9d6dc954d18acb568ee936e10a738f9419f985505c5b"
+    },
+    {
+      "file": "mod_grid.f90",
+      "added": 1,
+      "removed": 0,
+      "official_sha256": "436c0954f0d99a92108f8152fc59b40a9ba17ccb5b4c61cc6ff1e50d0fa8b2c9",
+      "local_sha256": "fc3932fef250f91405ef3e7c04a76bbd25171c0ab3608a0465e13d2c2cd8fc75"
+    },
+    {
+      "file": "mod_interpolation.f90",
+      "added": 18,
+      "removed": 8,
+      "official_sha256": "ba75e0499fe973821de3dab03a99de63bc58043e4e94b7021dbd638205cbfec2",
+      "local_sha256": "34b907747fa599b273fe66b2e37b88a2d825f51732e0ab1ee2aeb672c5f6922e"
+    },
+    {
+      "file": "mod_mygmt_gridio.f90",
+      "added": 5,
+      "removed": 15,
+      "official_sha256": "79a7840f364c46fcf84be6a69260ab87323d7e212cd36332172702cf2897c6cc",
+      "local_sha256": "c46732b1915102a6c18963cf9d46e6c9c3316d3d2f25a3599b1339e81728aa86"
+    },
+    {
+      "file": "mod_nest.f90",
+      "added": 12,
+      "removed": 10,
+      "official_sha256": "4b5f2e5a9de6d187959c14d96218c79cd8fe597ac32dea095d16ad1881c5236a",
+      "local_sha256": "2cce8e1ca87606c03ee1d2c7dad67f21065ab26fa3650545f5a3ce7cc5d70145"
+    }
+  ],
+  "scope": "Exact eight Fortran source files of the previously validated Hirota parent; official build configurations preserved; no V0702 changes."
+}

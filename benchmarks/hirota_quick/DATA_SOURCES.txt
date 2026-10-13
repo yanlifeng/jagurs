@@ -1,0 +1,52 @@
+Input and reference provenance
+==============================
+
+Event: 11 March 2011 Tohoku tsunami, Hirota Bay / Rikuzentakata.
+
+Public bathymetry/topography source:
+  NTHMP 2023 sediment transport workshop, Benchmark Problem 2
+  https://www1.udel.edu/kirby/tsunami_sediment/problems/benchmark_2.html
+  DEM grids supplied with rikuzentakata.zip, attributed on that page to
+  Yamashita et al. (2022). Original 30/6/1.2 arcsecond layers were resampled
+  onto the pre-existing 27/9/3 arcsecond JAGURS threefold nesting lattice.
+  Northern outer-grid extension: NOAA ETOPO 2022.
+  These are the preserved input bytes from the completed parent experiment.
+  Regridding does not create additional surveyed terrain detail.
+
+Prescribed seismic source:
+  Yamazaki, Cheung and Lay (2018), DOI: 10.1002/2017JB014749
+  https://www1.udel.edu/kirby/tsunami_sediment/problems/Tohoku_source.html
+  https://www1.udel.edu/kirby/tsunami_sediment/problems/source_info/jgrb52507-sup-0002-data_s2.txt
+  60-subfault T-MOD model, prescribed rise/onset times and slip, converted
+  previously to time-dependent Okada seabed deformation, including the
+  existing horizontal-displacement bathymetric contribution. JAGURS receives
+  182 incremental GRDs per grid at tau=0.9 s. These are increments, not
+  cumulative displacement or earthquake elastic-wave propagation results.
+
+Historical computation supplying regression values:
+  root_tohoku_north_geoprecise_coherent_10m_parent
+  Full duration: 10861 s, 16 MPI ranks in a 4x4 process layout, OMP=1.
+  Historical executable SHA-256 and input hashes: dataset_manifest.json.
+  The reference is extracted from the completed full experiment, not produced
+  by the candidate build being tested. The 1800 s prefix contains the entire
+  prescribed source and the early coastal inundation stage.
+  Gauges are 11 ocean centers plus 37 coast receivers selected deterministically
+  by geographic ordering, before looking at candidate errors. All original
+  2482 gauges still run and output; 48 time histories are compared at 1 Hz.
+  All nodes of the SD03 raw eta/qx/qy/depth maps are compared at 1800 s.
+
+Packaging:
+  Exact frame bytes are XOR encoded against the preceding frame, then LZMA
+  compressed and split into 32 MiB pieces to fit normal Git blobs. Decoding
+  verifies every original frame's SHA-256. No lossy quantization is applied.
+  All distributed files and reference values have frozen SHA-256 entries.
+  make_dataset_local.py is a maintainer extraction tool requiring the archive;
+  normal users need only run.py and the already committed inputs/references.
+
+Attribution and scope:
+  JAGURS source retains its upstream LICENSE. Third-party terrain and seismic
+  input data retain their original attribution and any source-specific terms;
+  the software license does not newly license those underlying observations.
+  This is a project numerical regression/performance case. The NTHMP source
+  page calls its Hirota benchmark qualitative because some evaluation datasets
+  are unavailable. No claim of official NTHMP certification is made here.

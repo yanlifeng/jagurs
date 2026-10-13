@@ -1,0 +1,56 @@
+{
+  "pass_gate": true,
+  "rows": [
+    {
+      "grid_id": 1,
+      "input_vs_actual_output_axis_max_abs_degree": [
+        0.0,
+        0.0
+      ],
+      "actual_grid_header_file": "SD01.initl_disp001.grd",
+      "reported_extent_axis_vs_declared_internal_axis_max_abs_degree": [
+        5.172751116333529e-12,
+        0.0
+      ],
+      "same_shape": [
+        true,
+        true
+      ]
+    },
+    {
+      "grid_id": 2,
+      "input_vs_actual_output_axis_max_abs_degree": [
+        0.0,
+        0.0
+      ],
+      "actual_grid_header_file": "SD02.initl_disp001.grd",
+      "reported_extent_axis_vs_declared_internal_axis_max_abs_degree": [
+        7.389644451905042e-13,
+        5.968558980384842e-13
+      ],
+      "same_shape": [
+        true,
+        true
+      ]
+    },
+    {
+      "grid_id": 3,
+      "input_vs_actual_output_axis_max_abs_degree": [
+        0.0,
+        0.0
+      ],
+      "actual_grid_header_file": "SD03.depth_raw.00003600.grd",
+      "reported_extent_axis_vs_declared_internal_axis_max_abs_degree": [
+        3.979039320256561e-13,
+        3.339550858072471e-13
+      ],
+      "same_shape": [
+        true,
+        true
+      ]
+    }
+  ],
+  "tolerance_degree": 3e-13,
+  "meaning": "Actual lattice matches native double input-header geometry; separately retain endpoint/spacing roundoff, not the former float32 sub-metre offset.",
+  "input_geometry_unchanged": true
+}

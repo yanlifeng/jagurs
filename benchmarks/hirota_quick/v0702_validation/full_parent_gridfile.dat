@@ -1,0 +1,3 @@
+SD01 SD01 0 bathy1.grd disp1.list
+SD02 SD01 0 bathy2.grd disp2.list
+SD03 SD02 0 bathy3.grd disp3.list

@@ -1,0 +1,22 @@
+{
+  "official_base_commit": "f5c5e3f4d7a463f0092157d09db6622802e91cf2",
+  "official_base_tag": "JAGURS-D_V0702",
+  "original_patch_commit": "24bc4dcdd96525e7f9fee3d7696ad0ece6011420",
+  "source_patch_additions_deletions_exactly_match": true,
+  "comparison_method": "git diff/show --unified=0; compare file names and +/- lines; ignore hunk line numbers and blob hashes",
+  "normalized_source_delta_sha256": "87b67570155ba81b235a39abc1ac87356dcdd525b71aa29f2e0d5cc213510851",
+  "changed_files_count": 8,
+  "insertions": 128,
+  "deletions": 44,
+  "patched_source_sha256": {
+    "src/JAGURS.f90": "ed8df275d0189b24a1caa828694b28c8fe228ef4c0a6f0b803e09a222ae3c701",
+    "src/mod_displacement.f90": "85bb6a6eec742e030e3b052d48cb6d3c36071dc503e3b1c2df04cc0b44fe39d6",
+    "src/mod_fxy_disp.f90": "2c1f9c7b74b5e01c8d2340fe1393a4b393ea7c34aa6f268cb10e1b22d792cc6a",
+    "src/mod_fxy_linear_Coriolis_disp.f90": "930fdcd40b613e6b2a9a9d6dc954d18acb568ee936e10a738f9419f985505c5b",
+    "src/mod_grid.f90": "fc3932fef250f91405ef3e7c04a76bbd25171c0ab3608a0465e13d2c2cd8fc75",
+    "src/mod_interpolation.f90": "fe3521df6bd3b9b66e1800a4eb38ef3764aeb23da7049c11b701680b411ddfd1",
+    "src/mod_mygmt_gridio.f90": "c46732b1915102a6c18963cf9d46e6c9c3316d3d2f25a3599b1339e81728aa86",
+    "src/mod_nest.f90": "8772b11bba813e946e788ec6f511aa59660d78efa7a39ed8d2b6eb462ca5b537"
+  },
+  "conclusion": "All upstream V0702 changes retained; exact eight-file V0701 local patch applied with no added source edits."
+}

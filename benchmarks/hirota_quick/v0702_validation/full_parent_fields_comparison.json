@@ -1,0 +1,90 @@
+{
+  "original": "/home/user_home/ylf/disaster-chain-real-20261002/tsunami/root_tohoku_north_geoprecise_coherent_10m_parent",
+  "candidate": "/home/user_home/ylf/jagurs-v0702-hirota-chain-20261013/runs/full_chain_parent",
+  "file_count": 42564,
+  "counts": {
+    "initl_disp": 546,
+    "depth_raw": 10504,
+    "eta_raw": 10504,
+    "qx_raw": 10504,
+    "qy_south_raw": 10504,
+    "vmax": 1,
+    "zmax": 1
+  },
+  "byte_identical_files": 42564,
+  "new_and_archived_file_sets_equal": true,
+  "all_field_numeric_variables_finite": true,
+  "candidate_inputs_and_source_frames_unchanged_after_run": true,
+  "raw_snapshot_time_coverage_exact": true,
+  "physical_arrays_identical_files": 42564,
+  "total_original_bytes": 39369693932,
+  "all_physical_fields_bit_identical": true,
+  "source_clock_records": 4914,
+  "source_clock_exact": true,
+  "exact_post_depth": {
+    "all_arrays_bit_identical": true,
+    "arrays": {
+      "node_key": {
+        "dtype": "<U7",
+        "shape": [
+          2449
+        ],
+        "equal": true
+      },
+      "station_id": {
+        "dtype": "int64",
+        "shape": [
+          2449
+        ],
+        "equal": true,
+        "max_abs_difference": 0.0
+      },
+      "native_ij0": {
+        "dtype": "int64",
+        "shape": [
+          2449,
+          2
+        ],
+        "equal": true,
+        "max_abs_difference": 0.0
+      },
+      "initial_H_m": {
+        "dtype": "float64",
+        "shape": [
+          2449
+        ],
+        "equal": true,
+        "max_abs_difference": 0.0
+      },
+      "actual_post_source_H_double_m": {
+        "dtype": "float64",
+        "shape": [
+          2449
+        ],
+        "equal": true,
+        "max_abs_difference": 0.0
+      },
+      "post_H_snapshot_float32_m": {
+        "dtype": "float64",
+        "shape": [
+          2449
+        ],
+        "equal": true,
+        "max_abs_difference": 0.0
+      },
+      "source_logged_steps": {
+        "dtype": "int64",
+        "shape": [
+          1638,
+          3
+        ],
+        "equal": true,
+        "max_abs_difference": 0.0
+      }
+    }
+  },
+  "differing_fields": [],
+  "full_detail": "full_field_comparison.jsonl.gz",
+  "full_detail_sha256": "c5488c3365eb35f9393bdc49c55d1fd44c6bb27744ae16bd639ae59f2e542620",
+  "wall_s": 204.144881144166
+}

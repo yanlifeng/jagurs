@@ -1,0 +1,12 @@
+{
+  "method": "Double sequential subtraction of inputfloat32rawbed increments timesdt/tau at EVERY actually logged source step, no nominalpost replacement",
+  "source_steps": 1638,
+  "source_frames": 182,
+  "last_source_time_s": 163.8,
+  "rawbed_weight": 0.11111111111111112,
+  "maximum_difference_to_float32_snapshot_m": 3.0138642500787682e-05,
+  "meaning": "Depth output GRD is float32; residual only bounds exported quantization. Arithmetic reproduces rawdz update except platform roundoff; use source step ordering rather than rounded snapshot for 1e-6m wet decisions.",
+  "original_clock_preserved": false,
+  "integer_source_clock": true,
+  "exact_depth_reconstruction_source": "Own stdout.000000 source-step/frame sequence, no external trajectory"
+}

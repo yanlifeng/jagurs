@@ -1,0 +1,37 @@
+{
+  "original": "/home/user_home/ylf/disaster-chain-real-20261002/tsunami/root_tohoku_north_geoprecise_coherent_10m_parent",
+  "candidate": "/home/user_home/ylf/jagurs-v0702-hirota-chain-20261013/runs/full_chain_parent",
+  "station_count": 2482,
+  "byte_identical_files": 2482,
+  "numerically_identical_files": 2482,
+  "new_and_archived_file_sets_equal": true,
+  "all_values_finite": true,
+  "samples_per_station": 108611,
+  "first_s": 0.1,
+  "last_s": 10861.1,
+  "complete_native_step_time_coverage": true,
+  "exact_time_and_step_files": 2482,
+  "all_time_and_steps_exact": true,
+  "all_native_records_numerically_identical": true,
+  "maximum_absolute_eta_qx_qy_difference": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "changed_eta_qx_qy_samples": [
+    0,
+    0,
+    0
+  ],
+  "additional_roundoff_gate_absolute_eta_qx_qy": [
+    1e-09,
+    1e-08,
+    1e-08
+  ],
+  "additional_roundoff_gate_passed": true,
+  "note": "No tolerance declares downstream equivalence. Reconstructed float32 sECOM input equality is checked separately.",
+  "examples": [],
+  "full_detail": "full_gauge_comparison.jsonl.gz",
+  "full_detail_sha256": "8e86fc977c6386cbc82390f95767dea159c8adc933dd9172c8ceddc87637807e",
+  "wall_s": 148.67389350757003
+}

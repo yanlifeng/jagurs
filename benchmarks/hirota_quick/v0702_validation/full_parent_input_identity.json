@@ -1,0 +1,44 @@
+{
+  "original": "/home/user_home/ylf/disaster-chain-real-20261002/tsunami/root_tohoku_north_geoprecise_coherent_10m_parent",
+  "candidate": "/home/user_home/ylf/jagurs-v0702-hirota-chain-20261013/runs/full_chain_parent",
+  "original_version": "V0701 with chain fixes",
+  "candidate_version": "V0702 with chain fixes",
+  "all_input_files_byte_identical": true,
+  "physical_input_sha256": {
+    "tsun.par": "8d5716cf8241348288334d261ddfe225cb35378198092d59513ed3e51917de49",
+    "gridfile.dat": "6e5c3e328296e75874a271f9e060fcc8626ceb9db5753bcd4473a4177df4d0b0",
+    "stations.txt": "4d6cdc67b2b0c839f2122a0cde26d06522bd059eaf4261b39c032a59292a03a3",
+    "station_mapping.json": "c63aaa368d64227b0cf914ce523325341934ddd6035a89a24559f116a0c5be03",
+    "coastal_receiver_mapping.json": "49009a86d9a1d65cd514bbccc75edf38c271f17340d06babdf8d6bb7952e1bc6",
+    "highrate_sampling_request.json": "a2f0550f4d05e78a2bdef38f440787dd19878f7b3822dc5b05da1647a46de64a",
+    "bathy1.grd": "0009fc9e31a545802df6ae8cc689c4c456502ab34dee56c9c4182159e08d2f6f",
+    "post_bathy1.grd": "333b516f3b4821516cee5e7e2b1d081b924d4d468e538a06acdf3a50263be292",
+    "bed_final1.grd": "2292c68ab73f5dbd20b37768b2806bb647705bc00169b3f79691e87b7e06767e",
+    "bed_components1.npz": "31e7d6439031a413bbcf6d0753b6190b039ea648a6a5d79cf608a2fdca7ee231",
+    "disp1.list": "b96c2713f160c48c2e123b4b496e53ac7f6968621df8b5c55aa9c22dbebc2b6a",
+    "bathy2.grd": "7e597f22e68478b4955c3452e41700ea111dd11fdcc63356eddaf086369ff478",
+    "post_bathy2.grd": "8cbd29554ebe7dd7630009917abede1ff873209bc956985abb3740e5e9f3994f",
+    "bed_final2.grd": "053a6f6a951e0d80d7bac7f8a6d9f98d4c5d6520040a5699d4ecc86795f8c632",
+    "bed_components2.npz": "2f6042894b55b79cbc19fd4af6eb878e104d36f5eaecfd74b6844773a20493c5",
+    "disp2.list": "730a144f54646ca10842de6214e286dd3bb6a0e5b207f6b2f7e5233dd57f2c48",
+    "bathy3.grd": "44adad2175c78cdcea606b28eed1859052e724783c414877048ec28cb9cd4e5a",
+    "post_bathy3.grd": "919f6b72d686d49f4b18cf46a5461047d9fa82be4479a7e71786262d78527eb0",
+    "bed_final3.grd": "970b6884cc3e6d9df36878be81d8b464fa9f1e675ca8672f87d0eced7fe3a0dc",
+    "bed_components3.npz": "ba0049f6c75e07aceea31b81c928b7010795e5c60dac5521d3d94eaa85380509",
+    "disp3.list": "0b3c5971d6e489c1773a068101f447004b6f4b747b8f10cbc979a15c3a16ab1a"
+  },
+  "source_frame_count": 546,
+  "actual_station_count": 2482,
+  "original_case_metadata_stale_station_count": 4302,
+  "executable_sha256": "dc4dae78e0ea9c499f3549553ebaaced24e9cc1050ef916fd37c7fa3f18345b4",
+  "physical_duration_s": 10861,
+  "source_clock_dt_s": [
+    0.9,
+    0.3,
+    0.1
+  ],
+  "mpi_decomposition": [
+    4,
+    4
+  ]
+}

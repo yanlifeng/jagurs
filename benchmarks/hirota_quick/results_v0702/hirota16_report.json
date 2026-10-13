@@ -1,0 +1,84 @@
+{
+  "passed": true,
+  "hostname": "a4.localdomain",
+  "machine": "x86_64",
+  "platform": "Linux-4.18.0-513.24.1.el8_9.x86_64-x86_64-with-glibc2.28",
+  "ranks": 16,
+  "procx": 4,
+  "procy": 4,
+  "threads_per_rank": 1,
+  "dataset_manifest_sha256": "1892cf869065e18b335fd288d3672230ae7d9436cde58ddaa02ef56fcfa81d12",
+  "executable_sha256": "dc4dae78e0ea9c499f3549553ebaaced24e9cc1050ef916fd37c7fa3f18345b4",
+  "budget_s": 300.0,
+  "input_validation_wall_s": 0.5369128212332726,
+  "mpi_run": {
+    "command": [
+      "taskset",
+      "-c",
+      "0-15",
+      "mpiexec",
+      "-n",
+      "16",
+      "/home/user_home/ylf/jagurs-v0702-hirota-chain-20261013/build/gnu/jagurs",
+      "par=tsun.par"
+    ],
+    "returncode": 0,
+    "wall_s": 165.91930287983268,
+    "ranks": 16,
+    "threads_per_rank": 1,
+    "executable_sha256": "dc4dae78e0ea9c499f3549553ebaaced24e9cc1050ef916fd37c7fa3f18345b4",
+    "environment": {
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "MKL_CBWR": "COMPATIBLE",
+      "MKL_DYNAMIC": "FALSE",
+      "OPENBLAS_NUM_THREADS": "1",
+      "I_MPI_PIN_PROCESSOR_LIST": "0-15",
+      "I_MPI_FABRICS": "shm:tcp"
+    }
+  },
+  "historical_regression_passed": true,
+  "verification_wall_s": 4.588189058937132,
+  "timers_available": true,
+  "profile_complete": true,
+  "analytic": {
+    "passed": true,
+    "relative_L2": 7.365357248472654e-06,
+    "relative_L2_limit": 0.0001,
+    "max_abs_error_m": 1.2580051233536393e-07,
+    "max_abs_error_limit_m": 1e-06,
+    "timing_passed": true,
+    "final_time_s": 240.25,
+    "samples": 961,
+    "mpi_run": {
+      "command": [
+        "taskset",
+        "-c",
+        "0-15",
+        "mpiexec",
+        "-n",
+        "4",
+        "/home/user_home/ylf/jagurs-v0702-hirota-chain-20261013/build/gnu/jagurs",
+        "par=tsun.par"
+      ],
+      "returncode": 0,
+      "wall_s": 2.93183630425483,
+      "ranks": 4,
+      "threads_per_rank": 1,
+      "executable_sha256": "dc4dae78e0ea9c499f3549553ebaaced24e9cc1050ef916fd37c7fa3f18345b4",
+      "environment": {
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "OPENBLAS_NUM_THREADS": "1",
+        "I_MPI_PIN_PROCESSOR_LIST": "0-15",
+        "I_MPI_FABRICS": "shm:tcp"
+      }
+    },
+    "reference": "Independent discrete SWE dispersion, prescribed leapfrog half-step initialization; no fitted phase or amplitude."
+  },
+  "numerical_correctness_passed": true,
+  "recurring_wall_s": 174.50083198677748,
+  "within_5_minutes": true
+}

@@ -1,0 +1,85 @@
+{
+  "passed": true,
+  "gates": {
+    "original_parent_inputs_exact": true,
+    "complete_parent_execution": true,
+    "full_raw_source_maxima_fields_exact": true,
+    "physical_inputs_unchanged_during_parent": true,
+    "exact_source_clock": true,
+    "reconstructed_double_bed_exact": true,
+    "native_gauges_complete_and_finite": true,
+    "native_gauge_roundoff_bound": true,
+    "all_fifteen_reconstructed_child_inputs_exact": true,
+    "unchanged_child_executable": true,
+    "fresh_child_100s_completed": true,
+    "all_seven_fresh_child_outputs_exact": true,
+    "libraries_unchanged_during_new_child": true,
+    "historical_full_child_completed": true,
+    "historical_project_I_target_pass": true
+  },
+  "candidate_executable_sha256": "dc4dae78e0ea9c499f3549553ebaaced24e9cc1050ef916fd37c7fa3f18345b4",
+  "recomputed": [
+    "Full JAGURS 10861 s trajectory",
+    "Complete 10 m initial state and 360..10801 s boundary conversion",
+    "sECOM v1b 100 s runtime/coupling regression"
+  ],
+  "complete_10440_s_child_integration_rerun": false,
+  "complete_child_equivalence_basis": "Identical newly reconstructed 15 physical input files/arrays and unchanged solver executable, anchored to the completed historical full run; the seven new 100 s outputs must additionally match exactly. Historical dynamic-library hashes were unavailable, so current library hashes and unchanged-during-run checks are retained without claiming historical library byte identity.",
+  "historical_metrics_not_rescored": true,
+  "inherited_historical_I_metrics": {
+    "n": 61,
+    "wet_count": 61,
+    "dry_or_missing_count": 0,
+    "missing_count": 0,
+    "wet_fraction": 1.0,
+    "mean_observed_m": 13.956278688524588,
+    "mean_model_with_dry_zero_m": 14.423249526102035,
+    "mean_model_over_observed_ratio": 1.0616903638482933,
+    "ratio_of_sample_means": 1.0334595523634398,
+    "mean_bias_m": 0.4669708375774446,
+    "mean_absolute_error_m": 1.7109056255152968,
+    "RMSE_m": 2.2282696823710997,
+    "mean_absolute_relative_error": 0.14012213223097847,
+    "Aida_full_sample": {
+      "K": 0.9566874478140329,
+      "kappa": 1.18632958828244
+    },
+    "Aida_full_sample_valid": true,
+    "positive_wet_only_Aida_supplement": {
+      "K": 0.9566874478140329,
+      "kappa": 1.18632958828244
+    },
+    "positive_wet_only_n": 61,
+    "missing_dry_error_policy": "All original records retained; explicit zero for missed-water error accounting, not an asserted physical dry-cell water level; full-sample log metrics invalid."
+  },
+  "limitations": [
+    "Prescribed published Yamazaki/Okada forcing, not a CGFDM validation",
+    "Source inversion used tsunami/runup constraints; not blind source validation",
+    "Historical dry-front convergence/fixed-bed/59 R marker limitations retained",
+    "Only the 10 m child is qualified here; historical 20 m result did not pass all I-target gates"
+  ],
+  "evidence_sha256": {
+    "full_parent_input_identity.json": "155039f79556c3bd89e0727dedec8adb4050132e49adc46529c2a79e6b38eff9",
+    "full_parent_execution.json": "3aec759fada80f8770f74dd834ec1a34178807a9f1f59ba8dede8b8c7a87c298",
+    "full_parent_fields_comparison.json": "b2fc1633221c65383956e744c01bfa76bafaaa30d82b4ec780786e9af39baebf",
+    "full_parent_gauge_comparison.json": "e0eb55390c535b6dcacaec9b689a7fe716073d7ddeab1150edb06a8d1f17c0d5",
+    "child_reconstruction.json": "5a6ab6d73ef893ecd49c7919d377ae3fe6e035be31be62020cda0d4ef50c4bbc",
+    "child_physical_input_comparison.json": "433362b7e5b22e808946cd12145778ca1e5954ca30d06acaf69e6fd1c714f394",
+    "child_100s_runtime_contract.json": "42939106265bf756491454c0251a73b848b70486b155c2291db87ead021eae40",
+    "child_100s_execution_and_comparison.json": "4ce7b2f7141ee5e7ab6150d50631819ffa86073b4448aab3de69b9ec7799af8e",
+    "full_parent_tsun.par": "8d5716cf8241348288334d261ddfe225cb35378198092d59513ed3e51917de49",
+    "full_parent_gridfile.dat": "6e5c3e328296e75874a271f9e060fcc8626ceb9db5753bcd4473a4177df4d0b0",
+    "full_parent_input_contract.json": "b8cafffbb6562091c0cda2bf33d2f867f865febda9439054c2d85bfbedb1e189",
+    "full_parent_execution_contract.json": "e4834466bcf5b1315a7dee92a0e96f05c53bf46d1ac08a9535ed2b97121d0a35",
+    "full_parent_coordinate_gate.json": "196b7c29d1b7909c9dad304a3f2129f8e57fa3c7273a776795840c06831e11eb",
+    "full_parent_depth_audit.json": "196e95d93fd233cf995c44e4d1c1997f8d7794a5deab4b386c20140c2162b267"
+  },
+  "driver_sha256": "9e7b621f48bff7ce663fec0b2ab47e6ef97f03502d762dcbf7a1d7c4243ce7eb",
+  "wall_times_s": {
+    "full_parent": 1021.3001664290205,
+    "field_comparison": 204.144881144166,
+    "gauge_comparison": 148.67389350757003,
+    "child_reconstruction": 401.60651168692857,
+    "fresh_child_100s": 134.5229675769806
+  }
+}

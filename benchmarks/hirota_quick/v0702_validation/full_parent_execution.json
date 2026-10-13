@@ -1,0 +1,12 @@
+{
+  "returncode": 0,
+  "wall_s": 1021.3001664290205,
+  "command": [
+    "mpirun",
+    "-np",
+    "16",
+    "/home/user_home/ylf/jagurs-v0702-hirota-chain-20261013/build/gnu/jagurs",
+    "par=tsun.par"
+  ],
+  "executable_sha256": "dc4dae78e0ea9c499f3549553ebaaced24e9cc1050ef916fd37c7fa3f18345b4"
+}

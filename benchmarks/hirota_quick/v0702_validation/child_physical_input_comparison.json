@@ -1,0 +1,151 @@
+{
+  "original_child": "/home/user_home/ylf/disaster-chain-real-20261002/inundation/agent_hirota10_yamazaki2018_geoprecise_coherent_riemann_v3_viscex_v1b",
+  "candidate_child": "/home/user_home/ylf/jagurs-v0702-hirota-chain-20261013/runs/full_chain_child_10m",
+  "all_nine_files_byte_identical": true,
+  "all_nine_physical_inputs_bit_identical": true,
+  "auxiliary_netcdf_files": [
+    "run_data_bc_diff1.nc",
+    "run_data_bc_diff2.nc",
+    "run_data_bc_dis.nc",
+    "run_data_bc_met.nc",
+    "run_data_bc_ts.nc",
+    "run_data_ic_ts.nc"
+  ],
+  "all_netcdf_input_file_sets_equal": true,
+  "all_fifteen_input_files_byte_identical": true,
+  "all_fifteen_physical_inputs_bit_identical": true,
+  "files": {
+    "bfric2d.inp": {
+      "original_sha256": "443037ad27553eaf3205642e8770be593fd36e41f653247af4a1ad7cb8874d91",
+      "candidate_sha256": "443037ad27553eaf3205642e8770be593fd36e41f653247af4a1ad7cb8874d91",
+      "byte_identical": true,
+      "bytes": 22468701,
+      "historical_execution_hash_available": true,
+      "physical_arrays_equal": true
+    },
+    "boundary_riemann.bin": {
+      "original_sha256": "b70d6ca677be0627b90488399e1fc6961ecf87385121018606de6162732279b7",
+      "candidate_sha256": "b70d6ca677be0627b90488399e1fc6961ecf87385121018606de6162732279b7",
+      "byte_identical": true,
+      "bytes": 3537453160,
+      "historical_execution_hash_available": true,
+      "physical_arrays_equal": true
+    },
+    "initial_eta.bin": {
+      "original_sha256": "6d0892808975b90cff91dcef57df012620562114dabf490880fa24aea5d03d6c",
+      "candidate_sha256": "6d0892808975b90cff91dcef57df012620562114dabf490880fa24aea5d03d6c",
+      "byte_identical": true,
+      "bytes": 4279728,
+      "historical_execution_hash_available": true,
+      "physical_arrays_equal": true
+    },
+    "initial_velocity.bin": {
+      "original_sha256": "b644080ac492aa0e4c12bd1b4a20130caed03995503b5b3fe460c1a950c77ec7",
+      "candidate_sha256": "b644080ac492aa0e4c12bd1b4a20130caed03995503b5b3fe460c1a950c77ec7",
+      "byte_identical": true,
+      "bytes": 8559456,
+      "historical_execution_hash_available": true,
+      "physical_arrays_equal": true
+    },
+    "model_grid.nc": {
+      "original_sha256": "c58684fa46a2ef1f386dfb1c2e1302d90813ce4ab84328a2b33878095bb55c09",
+      "candidate_sha256": "c58684fa46a2ef1f386dfb1c2e1302d90813ce4ab84328a2b33878095bb55c09",
+      "byte_identical": true,
+      "bytes": 29958796,
+      "historical_execution_hash_available": true,
+      "physical_arrays_equal": true
+    },
+    "observations_locked.json": {
+      "original_sha256": "90188c526eb9e386c7d3a0ea80a49c17ffa979f33a9dd39cb5cd5ad022625065",
+      "candidate_sha256": "90188c526eb9e386c7d3a0ea80a49c17ffa979f33a9dd39cb5cd5ad022625065",
+      "byte_identical": true,
+      "bytes": 281674,
+      "historical_execution_hash_available": true,
+      "physical_arrays_equal": true
+    },
+    "run_data.txt": {
+      "original_sha256": "453ee8cf3d32f907bfa1182a7578ec8190e4a3d81045ed8e2472e6ef22f58264",
+      "candidate_sha256": "453ee8cf3d32f907bfa1182a7578ec8190e4a3d81045ed8e2472e6ef22f58264",
+      "byte_identical": true,
+      "bytes": 817,
+      "historical_execution_hash_available": true,
+      "physical_arrays_equal": true
+    },
+    "run_data_bc_diff1.nc": {
+      "original_sha256": "436fa6d7adad527b555988edee8e576e273f0e46cd251c7992a9f0030dfb23ea",
+      "candidate_sha256": "436fa6d7adad527b555988edee8e576e273f0e46cd251c7992a9f0030dfb23ea",
+      "byte_identical": true,
+      "bytes": 136,
+      "historical_execution_hash_available": false,
+      "physical_arrays_equal": true
+    },
+    "run_data_bc_diff2.nc": {
+      "original_sha256": "a06030476d2b29ca670365d4baa0f2ce06dedcacb32a3565a0ed28fe03e056fa",
+      "candidate_sha256": "a06030476d2b29ca670365d4baa0f2ce06dedcacb32a3565a0ed28fe03e056fa",
+      "byte_identical": true,
+      "bytes": 136,
+      "historical_execution_hash_available": false,
+      "physical_arrays_equal": true
+    },
+    "run_data_bc_dis.nc": {
+      "original_sha256": "5a91b3e6b7922958a459648705fc96607da5a80f575df0e4d77454045097b263",
+      "candidate_sha256": "5a91b3e6b7922958a459648705fc96607da5a80f575df0e4d77454045097b263",
+      "byte_identical": true,
+      "bytes": 136,
+      "historical_execution_hash_available": false,
+      "physical_arrays_equal": true
+    },
+    "run_data_bc_elev.nc": {
+      "original_sha256": "425136a72cb0b81d6d253f2527197674a3136295f145da2b3547fc3b0d977a6a",
+      "candidate_sha256": "425136a72cb0b81d6d253f2527197674a3136295f145da2b3547fc3b0d977a6a",
+      "byte_identical": true,
+      "bytes": 88499040,
+      "historical_execution_hash_available": true,
+      "physical_arrays_equal": true
+    },
+    "run_data_bc_met.nc": {
+      "original_sha256": "2d6c0bbe8c75a1468b5adb0534af6c664db570da5f94bf6ea4f1c1620fad119f",
+      "candidate_sha256": "2d6c0bbe8c75a1468b5adb0534af6c664db570da5f94bf6ea4f1c1620fad119f",
+      "byte_identical": true,
+      "bytes": 820,
+      "historical_execution_hash_available": false,
+      "physical_arrays_equal": true
+    },
+    "run_data_bc_ts.nc": {
+      "original_sha256": "dc7b3bb763bbd47e740224598c63db0f060ac7fdb3b6a40f65561a9a64f78863",
+      "candidate_sha256": "dc7b3bb763bbd47e740224598c63db0f060ac7fdb3b6a40f65561a9a64f78863",
+      "byte_identical": true,
+      "bytes": 373040,
+      "historical_execution_hash_available": false,
+      "physical_arrays_equal": true
+    },
+    "run_data_ic_ts.nc": {
+      "original_sha256": "88b449b566bd300541d6a06c5198663108e6b95b85c8d93c5f86c59e369d67b0",
+      "candidate_sha256": "88b449b566bd300541d6a06c5198663108e6b95b85c8d93c5f86c59e369d67b0",
+      "byte_identical": true,
+      "bytes": 484,
+      "historical_execution_hash_available": false,
+      "physical_arrays_equal": true
+    },
+    "terrain.npz": {
+      "original_sha256": "961f39aba4113f03b570b78b69f023443f143e1884bf636f6fdaa0d612878f1d",
+      "candidate_sha256": "961f39aba4113f03b570b78b69f023443f143e1884bf636f6fdaa0d612878f1d",
+      "byte_identical": true,
+      "bytes": 33985274,
+      "historical_execution_hash_available": true,
+      "physical_arrays_equal": true
+    }
+  },
+  "historical_inputs_still_match_execution_record": true,
+  "historical_full_execution_complete": true,
+  "historical_full_numerical_checks_pass": true,
+  "historical_project_I_target_pass": true,
+  "historical_evidence_sha256": {
+    "execution.json": "c9bfeab1791db305d395c32cb88f20c2c7049ef6a3e2b71f1226c8f9c2bf383a",
+    "numerical_validation.json": "c7decb9e8452b4d337d3477d9414335a7dfa1d3ba9cb2b59b723cb5b4e5a9427",
+    "historical_acceptance.json": "3aca3b6f2a9ad4230c5ce2e05245fac9f8327401f9433c152bf3ddf803f356dc"
+  },
+  "executable_sha256": "41e83ec8ebbcc11e8b187b7d3c02ae63b117e07a2703597de3bce0f22ad4da97",
+  "child_executable_matches_historical": true,
+  "excluded_metadata": "case.json contains new paths/provenance; it is not a solver physics input."
+}

@@ -1,0 +1,170 @@
+{
+  "actual_new_child_duration_s": 100,
+  "original": "/home/user_home/ylf/disaster-chain-real-20261002/inundation/agent_hirota10_viscex_v1b_prefix100_omp32",
+  "candidate": "/home/user_home/ylf/jagurs-v0702-hirota-chain-20261013/runs/full_chain_child_10m_prefix100",
+  "all_seven_outputs_byte_identical": true,
+  "files": {
+    "chain_max.bin": {
+      "original_sha256": "be4fa7c543f7deb39c8568b8a65d30e647baa6a23b3a06a3178c225dec61eaa3",
+      "candidate_sha256": "be4fa7c543f7deb39c8568b8a65d30e647baa6a23b3a06a3178c225dec61eaa3",
+      "byte_identical": true
+    },
+    "chain_snapshots.bin": {
+      "original_sha256": "d0fd177a38d34c864a7a39c76a53ce45063b470030a98cb4865e0a2f87bafadb",
+      "candidate_sha256": "d0fd177a38d34c864a7a39c76a53ce45063b470030a98cb4865e0a2f87bafadb",
+      "byte_identical": true
+    },
+    "chain_metrics.csv": {
+      "original_sha256": "cce21d6f8373815694f994bf8fa397b382e578d074be30bd3ccb0eb30cd38bae",
+      "candidate_sha256": "cce21d6f8373815694f994bf8fa397b382e578d074be30bd3ccb0eb30cd38bae",
+      "byte_identical": true
+    },
+    "mass_audit.csv": {
+      "original_sha256": "e70aae7d8b81e599379af8df6e31e0683544fb0de140fd42787de6a204029f64",
+      "candidate_sha256": "e70aae7d8b81e599379af8df6e31e0683544fb0de140fd42787de6a204029f64",
+      "byte_identical": true
+    },
+    "depth_audit.csv": {
+      "original_sha256": "1ec11f7d1d81b1b2230cfba5ab027f46ef2a0e5e93f8f7fda279b5004cb9745d",
+      "candidate_sha256": "1ec11f7d1d81b1b2230cfba5ab027f46ef2a0e5e93f8f7fda279b5004cb9745d",
+      "byte_identical": true
+    },
+    "closure_audit.csv": {
+      "original_sha256": "3e55bd32f04a28ffae052b08133c24e8fddef53908d1c7acd3e0268e1fe401a0",
+      "candidate_sha256": "3e55bd32f04a28ffae052b08133c24e8fddef53908d1c7acd3e0268e1fe401a0",
+      "byte_identical": true
+    },
+    "riemann_flux_audit.csv": {
+      "original_sha256": "dbcb59006eabce8ee125ac04a72f014591f4b58de6192f03f8b9dec49d47aed2",
+      "candidate_sha256": "dbcb59006eabce8ee125ac04a72f014591f4b58de6192f03f8b9dec49d47aed2",
+      "byte_identical": true
+    }
+  },
+  "execution": {
+    "start_utc": "2026-10-13T08:43:28.412136+00:00",
+    "cpu": "64-95",
+    "threads": 32,
+    "executable": "/home/user_home/ylf/disaster-chain-real-20261002/inundation/agent_build_hirota_978x1094_viscex_v1b/s--pom.x",
+    "executable_sha256": "41e83ec8ebbcc11e8b187b7d3c02ae63b117e07a2703597de3bce0f22ad4da97",
+    "physical_inputs_sha256": {
+      "run_data.txt": "83463173ded6dd6016576e50d6ff6d1deb6586c5a16224c2804125ae8f585f35",
+      "model_grid.nc": "c58684fa46a2ef1f386dfb1c2e1302d90813ce4ab84328a2b33878095bb55c09",
+      "run_data_bc_elev.nc": "425136a72cb0b81d6d253f2527197674a3136295f145da2b3547fc3b0d977a6a",
+      "bfric2d.inp": "443037ad27553eaf3205642e8770be593fd36e41f653247af4a1ad7cb8874d91",
+      "initial_eta.bin": "6d0892808975b90cff91dcef57df012620562114dabf490880fa24aea5d03d6c",
+      "initial_velocity.bin": "b644080ac492aa0e4c12bd1b4a20130caed03995503b5b3fe460c1a950c77ec7",
+      "boundary_riemann.bin": "b70d6ca677be0627b90488399e1fc6961ecf87385121018606de6162732279b7",
+      "terrain.npz": "961f39aba4113f03b570b78b69f023443f143e1884bf636f6fdaa0d612878f1d",
+      "observations_locked.json": "90188c526eb9e386c7d3a0ea80a49c17ffa979f33a9dd39cb5cd5ad022625065",
+      "case.json": "b624b1b7b328b275088818cfa8462fb81d2992a4af309c0b4a8df19dbc7ed054"
+    },
+    "status": "completed",
+    "event": "2011-03-11 Tohoku",
+    "source_role": "Published Yamazaki2018 analytical-source hydrodynamic diagnostic; not actual CGFDM chain",
+    "chain_includes_CGFDM": false,
+    "independent_of_source_inversion": false,
+    "pipeline_only": true,
+    "upstream_final_gates_sha256": {
+      "/home/user_home/ylf/jagurs-v0702-hirota-chain-20261013/runs/full_chain_parent/actual_coordinate_axis_gate.json": "196b7c29d1b7909c9dad304a3f2129f8e57fa3c7273a776795840c06831e11eb",
+      "/home/user_home/ylf/jagurs-v0702-hirota-chain-20261013/runs/full_chain_packet_10m/coordinate_contract.json": "79204a2c769a6d8d714dd7dd5cb25d6042418f47209d43a3d6712c4e3d351cfd",
+      "/home/user_home/ylf/jagurs-v0702-hirota-chain-20261013/runs/full_chain_parent/exact_depth_reconstruction_audit.json": "196e95d93fd233cf995c44e4d1c1997f8d7794a5deab4b386c20140c2162b267"
+    },
+    "end_utc": "2026-10-13T08:45:47.332154+00:00",
+    "wall_time_s": 134.5229675769806,
+    "exit_code": 0,
+    "final_local_time_s": 100.00000149,
+    "expected_local_time_s": 100.0,
+    "assessment_status": "pipeline_only"
+  },
+  "validation": {
+    "pipeline_only": true,
+    "not_historical_validation": true,
+    "min_active_depth_m": 0.0026161670685,
+    "mass_relative_residual_max": 6.6773409652928e-12,
+    "negative_file_present": false,
+    "pass": true
+  },
+  "short_input_identity": {
+    "bfric2d.inp": {
+      "original_short_sha256": "443037ad27553eaf3205642e8770be593fd36e41f653247af4a1ad7cb8874d91",
+      "candidate_short_sha256": "443037ad27553eaf3205642e8770be593fd36e41f653247af4a1ad7cb8874d91",
+      "matches_historical_full_except_duration": true
+    },
+    "boundary_riemann.bin": {
+      "original_short_sha256": "b70d6ca677be0627b90488399e1fc6961ecf87385121018606de6162732279b7",
+      "candidate_short_sha256": "b70d6ca677be0627b90488399e1fc6961ecf87385121018606de6162732279b7",
+      "matches_historical_full_except_duration": true
+    },
+    "initial_eta.bin": {
+      "original_short_sha256": "6d0892808975b90cff91dcef57df012620562114dabf490880fa24aea5d03d6c",
+      "candidate_short_sha256": "6d0892808975b90cff91dcef57df012620562114dabf490880fa24aea5d03d6c",
+      "matches_historical_full_except_duration": true
+    },
+    "initial_velocity.bin": {
+      "original_short_sha256": "b644080ac492aa0e4c12bd1b4a20130caed03995503b5b3fe460c1a950c77ec7",
+      "candidate_short_sha256": "b644080ac492aa0e4c12bd1b4a20130caed03995503b5b3fe460c1a950c77ec7",
+      "matches_historical_full_except_duration": true
+    },
+    "model_grid.nc": {
+      "original_short_sha256": "c58684fa46a2ef1f386dfb1c2e1302d90813ce4ab84328a2b33878095bb55c09",
+      "candidate_short_sha256": "c58684fa46a2ef1f386dfb1c2e1302d90813ce4ab84328a2b33878095bb55c09",
+      "matches_historical_full_except_duration": true
+    },
+    "observations_locked.json": {
+      "original_short_sha256": "90188c526eb9e386c7d3a0ea80a49c17ffa979f33a9dd39cb5cd5ad022625065",
+      "candidate_short_sha256": "90188c526eb9e386c7d3a0ea80a49c17ffa979f33a9dd39cb5cd5ad022625065",
+      "matches_historical_full_except_duration": true
+    },
+    "run_data.txt": {
+      "original_short_sha256": "83463173ded6dd6016576e50d6ff6d1deb6586c5a16224c2804125ae8f585f35",
+      "candidate_short_sha256": "83463173ded6dd6016576e50d6ff6d1deb6586c5a16224c2804125ae8f585f35",
+      "matches_historical_full_except_duration": true
+    },
+    "run_data_bc_diff1.nc": {
+      "original_short_sha256": "436fa6d7adad527b555988edee8e576e273f0e46cd251c7992a9f0030dfb23ea",
+      "candidate_short_sha256": "436fa6d7adad527b555988edee8e576e273f0e46cd251c7992a9f0030dfb23ea",
+      "matches_historical_full_except_duration": true
+    },
+    "run_data_bc_diff2.nc": {
+      "original_short_sha256": "a06030476d2b29ca670365d4baa0f2ce06dedcacb32a3565a0ed28fe03e056fa",
+      "candidate_short_sha256": "a06030476d2b29ca670365d4baa0f2ce06dedcacb32a3565a0ed28fe03e056fa",
+      "matches_historical_full_except_duration": true
+    },
+    "run_data_bc_dis.nc": {
+      "original_short_sha256": "5a91b3e6b7922958a459648705fc96607da5a80f575df0e4d77454045097b263",
+      "candidate_short_sha256": "5a91b3e6b7922958a459648705fc96607da5a80f575df0e4d77454045097b263",
+      "matches_historical_full_except_duration": true
+    },
+    "run_data_bc_elev.nc": {
+      "original_short_sha256": "425136a72cb0b81d6d253f2527197674a3136295f145da2b3547fc3b0d977a6a",
+      "candidate_short_sha256": "425136a72cb0b81d6d253f2527197674a3136295f145da2b3547fc3b0d977a6a",
+      "matches_historical_full_except_duration": true
+    },
+    "run_data_bc_met.nc": {
+      "original_short_sha256": "2d6c0bbe8c75a1468b5adb0534af6c664db570da5f94bf6ea4f1c1620fad119f",
+      "candidate_short_sha256": "2d6c0bbe8c75a1468b5adb0534af6c664db570da5f94bf6ea4f1c1620fad119f",
+      "matches_historical_full_except_duration": true
+    },
+    "run_data_bc_ts.nc": {
+      "original_short_sha256": "dc7b3bb763bbd47e740224598c63db0f060ac7fdb3b6a40f65561a9a64f78863",
+      "candidate_short_sha256": "dc7b3bb763bbd47e740224598c63db0f060ac7fdb3b6a40f65561a9a64f78863",
+      "matches_historical_full_except_duration": true
+    },
+    "run_data_ic_ts.nc": {
+      "original_short_sha256": "88b449b566bd300541d6a06c5198663108e6b95b85c8d93c5f86c59e369d67b0",
+      "candidate_short_sha256": "88b449b566bd300541d6a06c5198663108e6b95b85c8d93c5f86c59e369d67b0",
+      "matches_historical_full_except_duration": true
+    },
+    "terrain.npz": {
+      "original_short_sha256": "961f39aba4113f03b570b78b69f023443f143e1884bf636f6fdaa0d612878f1d",
+      "candidate_short_sha256": "961f39aba4113f03b570b78b69f023443f143e1884bf636f6fdaa0d612878f1d",
+      "matches_historical_full_except_duration": true
+    }
+  },
+  "original_short_execution_status": "completed",
+  "runtime_contract": "child_100s_runtime_contract.json",
+  "runtime_contract_sha256": "42939106265bf756491454c0251a73b848b70486b155c2291db87ead021eae40",
+  "dynamic_libraries_unchanged_during_new_run": true,
+  "complete_child_10440_s_recomputed": false,
+  "complete_child_equivalence_basis": "All nine core reconstructed physical inputs and all six auxiliary NetCDF inputs exactly equal the completed historical archive; same unchanged executable. A fresh 100 s integration additionally checks the coupling and runtime environment. Historical execution froze core nine hashes; auxiliary NetCDF files are compared to their retained current archive."
+}
