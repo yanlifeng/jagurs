@@ -1,0 +1,256 @@
+JAGURS 广田湾快速案例：正确性检查方法
+==================================
+日期：2026-10-13
+适用分支：hpc/hirota-v0701-fixed
+已实测的代码与数据基线：25846a4374869cd685c1fe146b7dcb06496024dd
+本文路径和命令均以克隆后的 jagurs 仓库根目录为准。
+
+一、先说检查什么
+----------------
+优化后，自动回答两个问题：
+  1. 同样的真实广田湾输入，是否仍算出与此前完整计算一致的结果？
+  2. 基础浅水波传播，是否仍与独立的离散解析关系一致？
+
+第一项是历史结果回归，第二项是平底小振幅驻波检查。两项同时通过，才把
+numerical_correctness_passed 写为 true。完整 HPC 快速验收还要求详细计时齐全、
+整轮小于 300 秒；数值是否正确与速度是否达标分别记录。
+
+这是检查 HPC 修改有没有破坏固定模型的数值行为。真实观测拟合、完整洪峰、
+精细漫滩及其他物理路径，仍需要对应的长算例或专门验证。
+
+二、直接运行
+------------
+前提：已按 HANDOFF_20261013_JAGURS.txt 编译好 JAGURS，配置好 MPI 和 Python
+依赖，并分配至少 16 个物理核。默认程序路径是 build/gnu/jagurs。
+
+首次解包输入（只需一次）：
+
+  python3 benchmarks/hirota_quick/run.py prepare
+
+完整检查默认构建：
+
+  python3 benchmarks/hirota_quick/run.py run --output runs/check01
+
+检查另一份优化后的构建：
+
+  python3 benchmarks/hirota_quick/run.py run --exe build/gnu-opt/jagurs --output runs/opt01
+
+输出目录每次使用新名字。默认真实案例为 16 MPI、4x4 分块、每进程 1 线程；
+之后使用同一可执行文件启动 4 MPI 跑驻波。MPI 启动器要支持先 -n 16 再 -n 4。
+OpenMPI 绑定可加 --mpi-args="--bind-to core --map-by core"，按实际资源分配使用。
+32 进程对照加 --ranks 32 --procx 8 --procy 4，进程数必须等于 procx*procy。
+
+一次 run 顺序完成：
+  输入和参数核验 → 真实案例 → 冻结参考比较 → 详细计时提取 → 独立驻波 → 总报告。
+首次下载、编译、解包不算进这轮计时。一次真实案例输出约 12 GB，建议预留 20 GB。
+结果目录通过符号链接复用 build/hirota_inputs，后续 verify/负向检查还会核验
+输入。保留这份解包目录；单独复制输出场和测点文件并不足以再次执行完整核验。
+
+三、第一关：确认测试的是同一个案例
+--------------------------------
+依据 benchmarks/hirota_quick/dataset_manifest.json 校验 SHA-256：
+  - 地形、测点、参考结果、驻波输入等固定文件。
+  - 三层各 182 帧已解包震源，共 546 个 GRD；同时核对帧顺序。
+  - 网格描述和物理参数模板。
+
+prepare 校验压缩包及逐帧解码结果；每次 run 校验实际参与运行的解包输入。
+实际 tsun.par 允许 procx/procy 改变，其他冻结参数必须保持一致。改 dt、摩擦、
+震源、输出频率等会被拒绝，因为这时已换了问题或计算负载。
+
+换架构后程序二进制哈希不同是正常的；输入和参考值的哈希应该一致。
+候选程序可以优化，但不要为了通过测试修改 manifest、参考值或验收阈值。
+
+四、第二关：与真实广田湾的冻结结果比较
+------------------------------------
+参考来源是已完成的 10861 秒完整父模型：
+  root_tohoku_north_geoprecise_coherent_10m_parent
+
+参考直接提取其中前 1800 秒，而不是用待测程序现跑一份作为自己的答案。
+参考来源、历史可执行文件哈希和输入哈希写在 dataset_manifest.json。
+这份参考属于此前固定模型的数值结果，不是现场实测水位本身。
+
+4.1 测点时间序列
+  原案例仍运行全部 2482 个测点；数值比较固定选取 48 个测点。
+  选择为 11 个海上中心站，加按地理位置顺序选出的 37 个岸边站。
+  参考文件：benchmarks/hirota_quick/data/reference_gauges.npz。
+
+  每个点比较 t=1,2,...,1800 秒，共 1800 个时刻的三个量：
+    eta：水位异常，m。
+    qx：正东向单宽通量，m^2/s。
+    qy_south：正南向单宽通量，m^2/s。
+
+  同时读入所选点的原生 0.1 秒记录，检查起始时间、连续间隔、单调性和有限值。
+  所以漏掉 0.2 秒这种不在 1Hz 比较集合里的样本，也会失败。
+  时间值和间隔比较的绝对容差为 1e-8 秒。
+  这里没有比较全部 2482 个点在每一个原生时刻的数值，不能把抽样范围说大。
+
+4.2 最终全场
+  比较精确的 1800.0 秒、SD03 全部 517x445=230065 个节点：
+    SD03.eta_raw.00018000.grd
+    SD03.qx_raw.00018000.grd
+    SD03.qy_south_raw.00018000.grd
+    SD03.depth_raw.00018000.grd
+  参考文件：benchmarks/hirota_quick/data/reference_fields.npz。
+
+  要求数值形状正确、没有缺失或掩码点、没有 NaN/无穷值。
+  dimension 必须为 [517,445]；坐标范围绝对误差不超过 1e-12 度，网格步长
+  绝对误差不超过 1e-14 度。这样能识别“值接近但实际格点位置被改动”的情况。
+  SD01/SD02 没有在此校验器中逐节点逐时刻比较；它们参与真实求解及向下层传递。
+
+4.3 固定数值容差
+  对每一个被比较的数值，要求：
+
+    abs(actual - reference) <= atol + 1e-6 * abs(reference)
+
+  变量                          atol             单位
+  eta / eta_raw                 2e-5             m
+  depth_raw                     2e-5             m
+  qx / qx_raw                   1e-4             m^2/s
+  qy_south / qy_south_raw        1e-4             m^2/s
+
+  例如参考水位是 10 m，允许误差为 0.00002+0.00001=0.00003 m。
+  这是数值回归的一致性要求，不意味着历史观测拟合精度达到了这个量级。
+  任何被比较的点超限，该项即失败；不能靠平均误差小来抵消某个点的大错误。
+  真实例报告中的 relative_L2 用来辅助分析，不是另一个替代逐点门槛的通过标准。
+
+4.4 干湿状态
+  用有符号水柱 D=eta_raw+depth_raw，按 D>1e-6 m 构造诊断湿点掩码。
+  参考水柱离阈值大于以下误差裕量的节点，认为是可稳定比较的节点：
+
+    margin = 4e-5 + 1e-6 * (abs(eta_ref) + abs(depth_ref))
+    stable = abs(D_ref - 1e-6) > margin
+
+  stable 节点不允许出现干湿差异。阈值附近节点单独报告，避免把允许浮点误差
+  内的跨阈值当成物理失配；这些节点仍必须通过前面的水位、深度数值比较。
+  干陆的有符号水柱可为负，不要对整个网格简单断言 D>=0。
+  这个输出层诊断不等于逐步验证求解器所有内部干湿分支。
+
+五、第三关：独立驻波检查
+----------------------
+同一 JAGURS 程序另外运行一个平底小振幅驻波：
+  水深 H=4000 m，波长 L=40000 m，dx=500 m，dt=0.25 s，振幅 A=0.01 m。
+  运行约 240 秒模型时间，固定 4 MPI；实际记录会包含到 240.25 秒。
+  不使用历史真实例输出作为答案，而是独立计算离散浅水波关系。
+
+参考公式与 run.py 一致：
+  g = 9.8，k = 2*pi/L
+  kh = 2*sin(k*dx/2)/dx
+  omega = (2/dt)*asin(dt*sqrt(g*H*kh^2)/2)
+  eta_ref(t) = A*cos(omega*(t+dt/2))/cos(omega*dt/2)
+
+半步相位由初始跃蛙时间层确定，不能通过拟合或挪动相位去追上计算结果。
+这是小振幅条件下的离散浅水波参考，不是任意非线性/干湿问题的精确解析解。
+
+同时满足以下条件才通过：
+  relative_L2 = norm(eta-eta_ref)/norm(eta_ref) < 1e-4。
+  max(abs(eta-eta_ref)) < 1e-6 m。
+  时间采样从 .25 s 开始、间隔 .25 s、覆盖至少 240 s，且数据有限。
+
+输出在 runs/check01/analytic/：
+  analytic.json 保存判定和误差；analytic_comparison.csv 保存计算值与参考值。
+该检查针对基本传播，不能替代真实地形上的非线性和湿干检查。
+
+六、结果怎么读
+--------------
+先看 runs/check01/report.json，正常完整通过时包含：
+
+  {
+    "historical_regression_passed": true,
+    "numerical_correctness_passed": true,
+    "profile_complete": true,
+    "within_5_minutes": true,
+    "passed": true
+  }
+
+historical_regression_passed：第四节的真实例检查通过。
+numerical_correctness_passed：真实例检查和第五节驻波都通过。
+profile_complete：所有预期 MPI rank 的详细计时存在，且含所需区段。
+within_5_minutes：recurring_wall_s < 300。
+passed：数值、计时完整性、时间预算三项都通过。
+
+run 子命令退出码：
+  0：完整通过。
+  2：数值失败或详细计时不完整。
+  3：数值和详细计时通过，但超过 300 秒。
+  异常：输入损坏、MPI 运行错误等也返回非零，运行阶段通常记录 report.error。
+        可执行文件不存在、进程参数错误、输出目录已存在等提前失败时，可能还没有
+        report.json，先看终端错误。
+
+速度未达标不能直接解释成“计算错了”。自定义编译漏掉 TIMER=DETAIL，也可能
+数值正确但 profile_complete=false。当前测试应保持该编译选项及 ONEFILE 原生输出。
+
+具体误差查看 verification.json：
+  gauges[站点编号]：time_and_shape_passed、eta_m、qx_m2_s、qy_south_m2_s。
+  fields[字段名]：数值误差、coordinates_passed、dimensions_passed、spacing_passed。
+  wetdry：stable_mask_differences、near_threshold_nodes、all_mask_differences。
+
+每个数值项中，max_abs_error 是最大绝对误差；failing_samples 是超限个数；
+max_tolerance_ratio 是“误差 / 该点允许误差”的最大值，大于 1 表示超限。
+输入、缺失文件、NaN 等结构错误可能直接抛出异常，未必生成完整 verification.json。
+MPI/求解错误还要查看 launcher.log 和 stdout.000000 等日志。
+
+只想重查现有真实例输出：
+
+  python3 benchmarks/hirota_quick/run.py verify --output runs/check01
+
+只提取现有计时：
+
+  python3 benchmarks/hirota_quick/run.py profile --output runs/check01
+
+只运行独立驻波（新目录）：
+
+  python3 benchmarks/hirota_quick/run.py analytic --exe build/gnu/jagurs --output runs/wave01
+
+注意：verify 只重写 verification.json；profile 只重写 profile.json；它们不会
+重跑驻波、重新测总时间或更新旧 report.json。profile 返回 0 只表示提取完成，
+不代表计时完整。完整验收应使用新目录执行 run，而不是只看旧报告的 passed。
+
+七、怎样确认校验器确实能抓错
+--------------------------
+已有完整通过的 runs/check01 后，可执行负向测试：
+
+  python3 benchmarks/hirota_quick/check_verifier.py --output runs/check01 --report runs/negative01.json
+
+前提是原 report.json 的 passed=true，且使用同一份冻结 manifest。新报告路径
+必须不存在，并位于原算例目录外；负向测试不会启动 MPI 求解。
+它在临时副本里分别做四种故意破坏，调用实际 verify 检查是否拒绝：
+  - 在明确湿节点把水位加 1 m。
+  - 将整个南向流量场取反。
+  - 删除某测点原生 t=.2 s 行。
+  - 把海洋摩擦参数 cf 改成另一个值。
+
+四种错误都被预期检查拒绝，且原文件哈希未变，负向测试报告才 passed=true，
+退出码才为 0。这里的“通过”指成功抓住故意错误，不是破坏后的结果正确。
+这是校验工具自身的开发测试，额外计时，不需要每次 HPC 优化都重复做。
+
+八、已有证据、失败处理和适用范围
+------------------------------
+本机 16 MPI 和 32 MPI 都已完整通过：
+  16 MPI：整轮 169.75 s；32 MPI：整轮 105.39 s。
+  SD03 终态四个场逐值一致；16 MPI 站点最大水位差约 1.01e-13 m，
+  最大通量差约 1.02e-12 m^2/s；所有诊断干湿掩码一致。
+  驻波相对 L2 约 7.37e-6，最大水位误差约 1.26e-7 m。
+  四项负向控制均成功拒绝，原结果未被修改。
+
+完整记录都在 benchmarks/hirota_quick/results/：
+  hirota16_report.json、hirota16_verification.json。
+  hirota32_report.json、hirota32_verification.json。
+  verifier_negative_controls.json、test_environment.json、tested_build.json。
+
+新平台失败时，按以下顺序处理：
+  先区分输入/环境错误、数值错误、计时缺失和纯超时；
+  再从 verification.json 或异常定位到时间轴、坐标头、某个站点、某个原生场；
+  保存失败运行、构建参数、源码版本和程序哈希，回到上一份通过的构建作对照。
+改变编译器/MPI/FFT 库或实现后，优先核对方向、单位、时间层、源施加顺序及
+坐标精度。修复候选实现，再重新执行完整 run。不要重生成参考、跳过哈希或放宽
+门槛来让失败结果变成通过。
+
+本例为 1800 秒、三层真实网格、with_disp=0，包含初期沿岸进水。测试没有覆盖
+完整洪峰/退水、全部格点每个时刻、色散/Jacobi、所有可选初值和完整灾害链。
+数值回归通过与实测观测精度通过是两种结论，需分别给出证据；新平台的时间也
+必须在新平台实测。本次新增此说明文档，没有改动固定参考、阈值或校验程序。
+
+实现入口：benchmarks/hirota_quick/run.py 的 validate_work、validate_simulation_input、
+          read_history、compare、verify、analytic、run_all。
+校验器负向检查：benchmarks/hirota_quick/check_verifier.py。
+环境和开发交接：HANDOFF_20261013_JAGURS.txt。

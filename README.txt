@@ -11,6 +11,7 @@ JAGURS V0701 修复版：广田湾 HPC 开发基线
 
 跨平台开发交接（新平台先读）：HANDOFF_20261013_JAGURS.txt
 快速案例、数据和使用步骤：benchmarks/hirota_quick/README.txt
+正确性检查方法与结果判读：benchmarks/hirota_quick/CORRECTNESS_CHECK.txt
 修改原因和适用范围：benchmarks/hirota_quick/CHANGES.txt
 原始数据出处：benchmarks/hirota_quick/DATA_SOURCES.txt
 本机实测报告：benchmarks/hirota_quick/results/
