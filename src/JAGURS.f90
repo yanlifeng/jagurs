@@ -26,6 +26,10 @@ program JAGURS
    use mod_rwg
    use mod_nest
    use mod_newsubs
+   use mod_coupling_output, only : coupling_output_initialize, coupling_extra_output_due
+#if defined(MPI) && defined(ONEFILE) && !defined(NCDIO) && !defined(PIXELOUT) && !defined(DIROUT)
+   use mod_coupling_output, only : coupling_write_raw_fields
+#endif
 #ifdef TIMER
    use mod_timer
 #endif
@@ -1927,6 +1931,7 @@ program JAGURS
       end do
    end if
 
+   call coupling_output_initialize(myrank)
    source_integer_clock = .false.
    source_clock_steps = 0_8
    if(dt > 0.0d0 .and. tau > 0.0d0) then
@@ -2692,27 +2697,16 @@ program JAGURS
          TIMER_STOP('error_check')
 
          if(plotgrd(1) < 0 .or. plotgrd_num(ig)) then
-            ! Output-only: native neighbors of the fixed360s child handoff.
+            ! Coupling output policy is separate from the time integrator.
             if((mod(istep,itmap) == 0 .and. istep >= itmap_start .and. istep <= itmap_end) .or. &
-               (velgrd == 2 .and. (istep == 3599 .or. istep == 3601))) then
+               coupling_extra_output_due(istep, velgrd)) then
 #ifndef NCDIO
 ! === Conversion from flux to velocity should be done right after calc. ========
 !              TIMER_START('dump_gmt_nl')
                TIMER_START('dump_gmt_nl_hgt')
 #if defined(MPI) && defined(ONEFILE) && !defined(PIXELOUT) && !defined(DIROUT)
                if(velgrd == 2) then
-                  write(str,'(a,a,i8.8,a)') trim(dgrid(ig)%my%base_name),'.eta_raw.',istep,'.grd'
-                  call maxgrd_write_gmt(dgrid(ig)%wave_field%hz(1:niz,1:njz),dgrid(ig)%my%nx,dgrid(ig)%my%ny, &
-                     dgrid(ig)%my%mlon0,dgrid(ig)%my%mlat0,dgrid(ig)%my%dh,str,.false.,dgrid(ig),myrank)
-                  write(str,'(a,a,i8.8,a)') trim(dgrid(ig)%my%base_name),'.qx_raw.',istep,'.grd'
-                  call maxgrd_write_gmt(dgrid(ig)%wave_field%fx(1:niz,1:njz),dgrid(ig)%my%nx,dgrid(ig)%my%ny, &
-                     dgrid(ig)%my%mlon0,dgrid(ig)%my%mlat0,dgrid(ig)%my%dh,str,.false.,dgrid(ig),myrank)
-                  write(str,'(a,a,i8.8,a)') trim(dgrid(ig)%my%base_name),'.qy_south_raw.',istep,'.grd'
-                  call maxgrd_write_gmt(dgrid(ig)%wave_field%fy(1:niz,1:njz),dgrid(ig)%my%nx,dgrid(ig)%my%ny, &
-                     dgrid(ig)%my%mlon0,dgrid(ig)%my%mlat0,dgrid(ig)%my%dh,str,.false.,dgrid(ig),myrank)
-                  write(str,'(a,a,i8.8,a)') trim(dgrid(ig)%my%base_name),'.depth_raw.',istep,'.grd'
-                  call maxgrd_write_gmt(dgrid(ig)%depth_field%dz(1:niz,1:njz),dgrid(ig)%my%nx,dgrid(ig)%my%ny, &
-                     dgrid(ig)%my%mlon0,dgrid(ig)%my%mlat0,dgrid(ig)%my%dh,str,.false.,dgrid(ig),myrank)
+                  call coupling_write_raw_fields(dgrid(ig), istep, myrank)
                end if
 #endif
 

@@ -1,4 +1,7 @@
 #include "real.h"
+#if defined(JAGURS_COLLECTIVE_ONEFILE) && defined(USE_GPU)
+#error JAGURS_COLLECTIVE_ONEFILE is a CPU-only experimental path
+#endif
 module mod_onefile
 use mpi
 #ifdef MULTI
@@ -60,7 +63,12 @@ contains
       srcount   = srcount_x*srcount_y
 
       if(myrank == 0) then
+#ifdef JAGURS_COLLECTIVE_ONEFILE
+         ! Rank-ordered slots; scatter still uses only the first srcount entries.
+         allocate(dg%my%buf_g(int(srcount,kind=8)*nprocs))
+#else
          allocate(dg%my%buf_g(srcount))
+#endif
 #ifdef NCDIO
          allocate(dg%my%buf_g_ncdio(srcount*nprocs))
 #endif
@@ -72,6 +80,11 @@ contains
       end if
 
       allocate(dg%my%buf_l(srcount_x,srcount_y))
+#ifdef JAGURS_COLLECTIVE_ONEFILE
+      ! Uneven decompositions leave padding outside local nx/ny. It is sent,
+      ! but never unpacked into a physical cell.
+      dg%my%buf_l = 0.0d0
+#endif
 #ifdef NCDIO
       allocate(dg%my%buf_l_ncdio(srcount_x,srcount_y))
 #endif
@@ -165,6 +178,9 @@ contains
       real(kind=REAL_BYTE), pointer, dimension(:,:) :: buf_l
       integer(kind=4) :: i, j, p, ind, ierr
       integer(kind=4) :: ireq, istat(MPI_STATUS_SIZE)
+#ifdef JAGURS_COLLECTIVE_ONEFILE
+      integer(kind=8) :: gather_ind, rank_offset
+#endif
 
       nx        => dg%my%nx
       ny        => dg%my%ny
@@ -182,6 +198,27 @@ contains
       buf_g     => dg%my%buf_g
       buf_l     => dg%my%buf_l
 
+#ifdef JAGURS_COLLECTIVE_ONEFILE
+      ! Pack on all ranks before the collective. No numerical reduction:
+      ! these are copies of the original values with the original ownership.
+      do j = 1, ny
+         do i = 1, nx
+            buf_l(i,j) = ain(i,j)
+         end do
+      end do
+      call MPI_Gather(buf_l, srcount, REAL_MPI, buf_g, srcount, REAL_MPI, 0, __MPICOMM__, ierr)
+      if(myrank == 0) then
+         do p = 0, nprocs - 1
+            rank_offset = int(srcount,kind=8)*p
+            do j = iy_all(p), iyend_all(p)
+               do i = ix_all(p), ixend_all(p)
+                  gather_ind = rank_offset + (i - kx_all(p) + 1) + int(j - ky_all(p),kind=8)*srcount_x
+                  aout(i,j) = buf_g(gather_ind)
+               end do
+            end do
+         end do
+      end if
+#else
       do p = 0, nprocs - 1
          if(myrank == 0) then
             call MPI_Irecv(buf_g, srcount, REAL_MPI, p, 0, __MPICOMM__, ireq, ierr)
@@ -214,6 +251,7 @@ contains
             end do
          end if
       end do
+#endif
 
       return
    end subroutine onefile_gather_array

@@ -1,0 +1,6 @@
+! Explicit legacy-equivalent policy. Step indices refer to the global dt=0.1 s.
+! No field conversion, extra interpolation, or change to regular output times.
+&coupling_output
+ extra_output_count = 2
+ extra_output_steps = 3599, 3601
+/
