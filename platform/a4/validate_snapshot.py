@@ -22,6 +22,7 @@ def main():
     args = ap.parse_args()
     history, exe, dest = (p.resolve() for p in (args.historical, args.candidate, args.output))
     dest.mkdir(parents=True, exist_ok=False)
+    sys.dont_write_bytecode = True  # Even imported helper caches stay read-only.
     sys.path.insert(0, str(history))
     common = importlib.import_module('common')
     runner = importlib.import_module('run_case')

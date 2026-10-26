@@ -1,0 +1,160 @@
+{
+  "passed": true,
+  "checks": {
+    "exit_zero": true,
+    "not_timed_out": true,
+    "eleven_stations": true,
+    "finite_monotone_gauges": true,
+    "sampling_declared": true,
+    "complete_time": true,
+    "finite_fields": true,
+    "final_raw_four_fields": true,
+    "no_fatal_log": true,
+    "source_frames": true,
+    "source_frame_sequence": true,
+    "no_source_diagnostic_fields": true,
+    "no_max_velocity_field": true,
+    "quiet_run": true,
+    "comparison": true,
+    "exact_source_clock": true,
+    "affinity": true,
+    "timer_rank_count": true,
+    "error_guard_count": true,
+    "gauge_count": true
+  },
+  "mpi_wall_s": 52.93371138628572,
+  "max_other_cpu_cores": 0.28096005451559614,
+  "comparison": {
+    "a": "control-instrumented",
+    "b": "merged-p064",
+    "rtol": 1e-06,
+    "passed": true,
+    "comparisons": [
+      {
+        "file": "SD01.eta_raw.00000600.grd",
+        "atol": 2e-05,
+        "max_abs_difference": 0.0,
+        "passed": true
+      },
+      {
+        "file": "SD01.qx_raw.00000600.grd",
+        "atol": 0.0001,
+        "max_abs_difference": 0.0,
+        "passed": true
+      },
+      {
+        "file": "SD01.qy_south_raw.00000600.grd",
+        "atol": 0.0001,
+        "max_abs_difference": 0.0,
+        "passed": true
+      },
+      {
+        "file": "SD01.depth_raw.00000600.grd",
+        "atol": 2e-05,
+        "max_abs_difference": 0.0,
+        "passed": true
+      },
+      {
+        "file": "SD01.zmax.grd",
+        "atol": 2e-05,
+        "max_abs_difference": 0.0,
+        "passed": true
+      },
+      {
+        "file": "tgs000001",
+        "common_samples": 200,
+        "a_samples": 200,
+        "b_samples": 200,
+        "max_abs_difference": 0.0,
+        "passed": true
+      },
+      {
+        "file": "tgs000002",
+        "common_samples": 200,
+        "a_samples": 200,
+        "b_samples": 200,
+        "max_abs_difference": 0.0,
+        "passed": true
+      },
+      {
+        "file": "tgs000003",
+        "common_samples": 200,
+        "a_samples": 200,
+        "b_samples": 200,
+        "max_abs_difference": 0.0,
+        "passed": true
+      },
+      {
+        "file": "tgs000004",
+        "common_samples": 200,
+        "a_samples": 200,
+        "b_samples": 200,
+        "max_abs_difference": 0.0,
+        "passed": true
+      },
+      {
+        "file": "tgs000005",
+        "common_samples": 200,
+        "a_samples": 200,
+        "b_samples": 200,
+        "max_abs_difference": 0.0,
+        "passed": true
+      },
+      {
+        "file": "tgs000006",
+        "common_samples": 200,
+        "a_samples": 200,
+        "b_samples": 200,
+        "max_abs_difference": 0.0,
+        "passed": true
+      },
+      {
+        "file": "tgs000007",
+        "common_samples": 200,
+        "a_samples": 200,
+        "b_samples": 200,
+        "max_abs_difference": 0.0,
+        "passed": true
+      },
+      {
+        "file": "tgs000008",
+        "common_samples": 200,
+        "a_samples": 200,
+        "b_samples": 200,
+        "max_abs_difference": 0.0,
+        "passed": true
+      },
+      {
+        "file": "tgs000009",
+        "common_samples": 200,
+        "a_samples": 200,
+        "b_samples": 200,
+        "max_abs_difference": 0.0,
+        "passed": true
+      },
+      {
+        "file": "tgs000010",
+        "common_samples": 200,
+        "a_samples": 200,
+        "b_samples": 200,
+        "max_abs_difference": 0.0,
+        "passed": true
+      },
+      {
+        "file": "tgs000011",
+        "common_samples": 200,
+        "a_samples": 200,
+        "b_samples": 200,
+        "max_abs_difference": 0.0,
+        "passed": true
+      },
+      {
+        "file": "final stable wet/dry mask",
+        "stable_nodes": 19967386,
+        "different_nodes": 0,
+        "passed": true
+      }
+    ],
+    "tolerance_source": "Unchanged historical CORRECTNESS_CHECK.txt, §4.3–4.4; frozen before first solver run"
+  }
+}

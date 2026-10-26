@@ -1,0 +1,18 @@
+{
+  "scientific_base": "fddf60996db9044d1bedb18d8d281dd8804e2bf8",
+  "git_commit": "927eff9fa606717a52d25e3d6802e45ae6c99f45",
+  "git_status": "",
+  "backend": "cpu_fortran",
+  "output_gather": "legacy",
+  "skip_max_velocity": true,
+  "command": [
+    "/home/user_home/ylf/disaster-chain-secom-20260928/py/bin/python",
+    "/home/user_home/ylf/jagurs-portable-20261026/benchmarks/build_gnu.py",
+    "--build-dir",
+    "/home/user_home/ylf/jagurs-portable-20261026/build/cpu-a4",
+    "--opt=-O3 -fopenmp -ffp-contract=off -DSKIP_MAX_VEL",
+    "--local"
+  ],
+  "gpu_validated": false,
+  "note": "Opt-in CPU engineering changes; frozen inputs/references/verifier unchanged. Source and executable hashes are recorded in build.json."
+}

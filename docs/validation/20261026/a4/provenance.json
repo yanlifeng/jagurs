@@ -1,0 +1,12 @@
+{
+  "git_commit": "af286d8d91910811c3cc52c1d0f859b477327f33",
+  "files": {
+    "/home/user_home/ylf/jagurs-tohoku-config-20261026/common.py": "f43494ed535e9febc3cd83726551efe58feb680a7d541785cf8e98da2ccdf232",
+    "/home/user_home/ylf/jagurs-tohoku-config-20261026/run_case.py": "52d861596a89e6df1dd001252c8471a70b41ec822c25771576a5261560933f07",
+    "/home/user_home/ylf/jagurs-tohoku-config-20261026/rank_exec.py": "343ce606ced9fee3f32b9881554a57f280c2b6077fa555f5a4548e2b0aa338c3",
+    "/home/user_home/ylf/jagurs-tohoku-config-20261026/affinity_probe": "0e34e82358c934417e7baac15f7e533b854d3c4885ca9c67870da889fba4054a"
+  },
+  "candidate_sha256": "390e2a57ff79cc0ee08b9098a94f8d66aafdf28d69320a0917201a57df4a29a5",
+  "historical_directory": "/home/user_home/ylf/jagurs-tohoku-config-20261026",
+  "scope": "Short source-path/coupling regression; not a new scaling curve or full-event observation validation"
+}
