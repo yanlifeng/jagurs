@@ -11,7 +11,7 @@ export LD_LIBRARY_PATH="$NETCDF_PREFIX/lib:$PROJ_PREFIX/lib64:$FFTW_PREFIX/lib:/
 export PATH="$NETCDF_PREFIX/bin:$PATH"
 export FC=mpif90 CC=gcc
 export JAGURS_ROOT=$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd -P)
-export JAGURS_PYTHON="$JAGURS_ROOT/build/pyenv/bin/python"
+export JAGURS_PYTHON="${JAGURS_PYTHON:-$JAGURS_ROOT/build/pyenv/bin/python}"
 export OMP_NUM_THREADS=1 OMP_DYNAMIC=FALSE OMP_PROC_BIND=close OMP_PLACES=cores
 export OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1
 if ((_jagurs_restore_u)); then set -u; fi

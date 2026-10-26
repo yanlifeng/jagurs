@@ -5,4 +5,4 @@ source "$(dirname "$0")/env.sh"
 set -u
 cd "$JAGURS_ROOT"
 exec "$JAGURS_PYTHON" tools/build_cpu.py --proj9 --output-gather collective \
-    --build-dir "$JAGURS_ROOT/build/cpu-collective" "$@"
+    --build-dir "${JAGURS_BUILD_DIR:-$JAGURS_ROOT/build/cpu-collective}" "$@"
