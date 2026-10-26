@@ -18,7 +18,7 @@ use mod_onefile, only : onefile_scatter_array, onefile_gather_array
 #ifdef NORMALMODE
 use mod_params, only : dumpp
 #endif
-use mod_params, only : grd_nan2zero
+use mod_params, only : grd_nan2zero, source_local_read
 implicit none
 
 contains
@@ -2617,6 +2617,13 @@ contains
       ! RWG
       if(trim(fname(1:15)) == 'NO_DISPLACEMENT') return
 
+#if defined(MPI) && defined(ONEFILE) && !defined(PIXELIN) && !defined(CARTESIAN) && !defined(USE_GPU)
+      if(source_local_read == 1) then
+         call read_rupture_local_cf(zz, nlon, nlat, fname, dg)
+         return
+      end if
+#endif
+
 #ifndef PIXELIN
 #if defined(MPI) && defined(ONEFILE)
       if(myrank == 0) then
@@ -2823,5 +2830,80 @@ contains
 
       return
    end subroutine read_rupture
+
+#if defined(MPI) && defined(ONEFILE) && !defined(PIXELIN) && !defined(CARTESIAN) && !defined(USE_GPU)
+   subroutine read_rupture_local_cf(zz,nlon,nlat,fname,dg)
+      use netcdf
+      use, intrinsic :: ieee_arithmetic, only : ieee_is_finite
+      integer, intent(in) :: nlon,nlat
+      real(kind=REAL_BYTE), intent(out) :: zz(nlon,nlat)
+      character(len=*), intent(in) :: fname
+      type(data_grids), intent(in) :: dg
+      integer :: nc,vid,xd,yd,nx,ny,offset,xvar,yvar,status,i,j,ndims,dims(2),bad,anybad,ierr
+      real(kind=8) :: xr(2),yr(2),coordinates(1),x0,y0,dx,dy
+      real(kind=4), allocatable :: tile(:,:)
+      ! Independent read of the same CF lon/lat rectangle, including halos.
+      ! A strict opt-in path: reject other layouts, scaling, fill values or
+      ! misalignment rather than silently changing the original mapping.
+      call nc_check(nf90_open(trim(fname),nf90_nowrite,nc))
+      call nc_check(nf90_inq_dimid(nc,'lon',xd))
+      call nc_check(nf90_inq_dimid(nc,'lat',yd))
+      call nc_check(nf90_inquire_dimension(nc,xd,len=nx))
+      call nc_check(nf90_inquire_dimension(nc,yd,len=ny))
+      call nc_check(nf90_get_att(nc,nf90_global,'node_offset',offset))
+      call nc_check(nf90_inq_varid(nc,'lon',xvar))
+      call nc_check(nf90_inq_varid(nc,'lat',yvar))
+      call nc_check(nf90_get_att(nc,xvar,'actual_range',xr))
+      call nc_check(nf90_get_att(nc,yvar,'actual_range',yr))
+      call nc_check(nf90_get_var(nc,xvar,coordinates,start=[1],count=[1])); x0=coordinates(1)
+      call nc_check(nf90_get_var(nc,yvar,coordinates,start=[1],count=[1])); y0=coordinates(1)
+      dx=(xr(2)-xr(1))/(nx-1); dy=(yr(2)-yr(1))/(ny-1)
+      bad=0
+      if(nx /= dg%my%totalNx .or. ny /= dg%my%totalNy .or. offset /= 0) bad=1
+      if(abs(x0-xr(1))>1d-10 .or. abs(y0-yr(1))>1d-10) bad=1
+      if(abs(dx-dg%my%dh)>1d-10 .or. abs(dy-dg%my%dh)>1d-10) bad=1
+      if(abs(dg%my%mlon0/60d0-(xr(1)+(dg%my%kx-1)*dx))>1d-8) bad=1
+      if(abs(90d0-dg%my%mlat0/60d0-(yr(2)-(dg%my%ky-1)*dy))>1d-8) bad=1
+      if(nlon /= dg%my%kxend-dg%my%kx+1 .or. nlat /= dg%my%kyend-dg%my%ky+1) bad=1
+      call MPI_Allreduce(bad,anybad,1,MPI_INTEGER,MPI_MAX,__MPICOMM__,ierr)
+      if(anybad /= 0) then
+         write(0,*) 'ERROR!: local rupture input must match the computational grid',trim(fname)
+         call fatal_error(251)
+      end if
+      call nc_check(nf90_inq_varid(nc,'z',vid))
+      call nc_check(nf90_inquire_variable(nc,vid,ndims=ndims))
+      if(ndims /= 2) call fatal_error(252)
+      call nc_check(nf90_inquire_variable(nc,vid,dimids=dims))
+      if(any(dims /= [xd,yd])) call fatal_error(252)
+      status=nf90_inquire_attribute(nc,vid,'scale_factor')
+      if(status /= nf90_enotatt) call fatal_error(253)
+      status=nf90_inquire_attribute(nc,vid,'add_offset')
+      if(status /= nf90_enotatt) call fatal_error(253)
+      status=nf90_inquire_attribute(nc,vid,'_FillValue')
+      if(status /= nf90_enotatt) call fatal_error(253)
+      allocate(tile(nlon,nlat))
+      call nc_check(nf90_get_var(nc,vid,tile, &
+          start=[dg%my%kx,ny-dg%my%kyend+1],count=[nlon,nlat]))
+      call nc_check(nf90_close(nc))
+      bad=0
+      do j=1,nlat
+         do i=1,nlon
+            if(.not. ieee_is_finite(tile(i,j))) bad=1
+            zz(i,nlat-j+1)=tile(i,j)
+         end do
+      end do
+      deallocate(tile)
+      call MPI_Allreduce(bad,anybad,1,MPI_INTEGER,MPI_MAX,__MPICOMM__,ierr)
+      if(anybad /= 0) call fatal_error(254)
+   contains
+      subroutine nc_check(code)
+         integer,intent(in)::code
+         if(code /= nf90_noerr) then
+            write(0,*) 'ERROR!: local rupture netCDF ',trim(nf90_strerror(code)),trim(fname)
+            call fatal_error(255)
+         end if
+      end subroutine nc_check
+   end subroutine read_rupture_local_cf
+#endif
 
 end module mod_newsubs

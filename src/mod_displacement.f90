@@ -5,7 +5,7 @@ module mod_displacement
 use omp_lib
 #endif
 use mod_grid
-use mod_params, only : hzdisp_effect, fault_param_file, apply_kj_filter
+use mod_params, only : hzdisp_effect, fault_param_file, apply_kj_filter, kj_workspace_cache
 use mod_mygmt_gridio, only : read_gmt_grd_hdr
 #ifdef MPI
 #ifdef MULTI
@@ -893,6 +893,12 @@ contains
       integer(kind=4) :: nxorg, nyorg
       integer(kind=4) :: formatid
 
+      ! One workspace per rank; invalidate on grid/decomposition/thread change.
+      ! No source fields, bathymetry, h0, lat1 or filter coefficients are cached.
+      save
+      logical :: workspace_valid = .false., keep_workspace, cache_hit
+      integer :: workspace_key(20) = 0, current_key(20), requested_threads
+
       write(6,'(a)') '[displacement] Kajiura filter is applied!'
 
 ! ==============================================================================
@@ -906,6 +912,24 @@ contains
       m_nyg = dg%my%totalNy
 #endif
 
+      requested_threads = 1
+#if defined(_OPENMP) && !defined(USE_GPU)
+      requested_threads = omp_get_max_threads()
+#endif
+      keep_workspace = kj_workspace_cache == 1
+#ifdef USE_GPU
+      keep_workspace = .false. ! GPU plan/buffer lifetime is not validated here.
+#endif
+      current_key = 0
+      current_key(1:5) = [m_nxg,m_nyg,nlon,nlat,requested_threads]
+#ifdef MPI
+      current_key(6:20) = [dg%my%ix,dg%my%iy,dg%my%ixend,dg%my%iyend, &
+          dg%my%kx,dg%my%ky,dg%my%kxend,dg%my%kyend, &
+          nprocs,npx,npy,myrank,MPI_X_WORLD,MPI_Y_WORLD,__MPICOMM__]
+#endif
+      cache_hit = workspace_valid .and. keep_workspace .and. all(current_key == workspace_key)
+      if(workspace_valid .and. .not. cache_hit) call release_fft_workspace()
+      if(.not. cache_hit) then
       N_X = m_nxg
       N_Y = m_nyg
       if(m_nxg > m_nyg) then
@@ -1132,6 +1156,9 @@ contains
          call make_plan_z2z(yplan_backward(it), N_Y, itn2(it))
 #endif
       end do
+      workspace_key = current_key
+      workspace_valid = .true.
+      end if ! workspace setup; all field values are refreshed below every call
 ! ==============================================================================
 ! === Initialize FFT End =======================================================
 ! ==============================================================================
@@ -1632,6 +1659,12 @@ contains
 ! ==============================================================================
 ! === Finalize FFT Begin =======================================================
 ! ==============================================================================
+      if(.not. keep_workspace) call release_fft_workspace()
+      return
+
+   contains
+   subroutine release_fft_workspace()
+      ! Plans must be destroyed before freeing the arrays to which they refer.
       do it = 0, nthreads-1
 #ifndef USE_GPU
          call dfftw_destroy_plan(xplan_forward(it))
@@ -1679,11 +1712,12 @@ contains
       deallocate(recvcounts2)
       deallocate(rdispls2)
 #endif
+      workspace_valid = .false.
 ! ==============================================================================
 ! === Finalize FFT End =========================================================
 ! ==============================================================================
 
-      return
+   end subroutine release_fft_workspace
    end subroutine displacement_apply_kj_filter
 
 #ifndef CARTESIAN

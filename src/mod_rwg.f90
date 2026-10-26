@@ -576,19 +576,23 @@ contains
             TIMER_STOP('- fxy_rwg')
          else
             TIMER_START('- fxynl_rwg')
+            TIMER_START('momentum_compute')
             if((with_disp == 0) .or. (with_disp == 2 .and. ig == 1)) then
                call fxynl_rwg(wfld,dfld,ffld,wod,cf,cfl,crls,dt,th0,dth,joff,niz,njz,ig,smallh_xy,bflag,istep,fg)
             else
                call fxynl_rwg_disp(wfld,dfld,ffld,wod,cf,cfl,crls,dt,th0,dth,joff,niz,njz, &
                                    ig,smallh_xy,bflag,fg,cg,conv_step,istep)
             end if
+            TIMER_STOP('momentum_compute')
 #ifdef MPI
 ! === Flood Change =============================================================
+            TIMER_START('momentum_hgt_exchange')
             if(timenest /= 1) then
                call exchange_edges(HGT,fg)
             else
                call exchange_edges_b(HGT,fg)
             end if
+            TIMER_STOP('momentum_hgt_exchange')
 ! ==============================================================================
 #endif
             TIMER_STOP('- fxynl_rwg')

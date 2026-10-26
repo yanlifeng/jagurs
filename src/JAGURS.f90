@@ -270,6 +270,7 @@ program JAGURS
    integer(kind=4) :: formatid
    real(kind=REAL_BYTE), pointer, dimension(:,:) :: tmp
    TIMER_START('All')
+   TIMER_START('initialization')
 
 #ifdef MULTI
    call MPI_Init(ierr)
@@ -314,6 +315,14 @@ program JAGURS
    TIMER_START('getpar')
    call getpar()
    TIMER_STOP('getpar')
+   if(error_check_interval < 1) then
+      write(0,'(a)') 'error_check_interval must be at least 1'
+#ifdef MPI
+      call MPI_Abort(MPI_COMM_WORLD, 108, ierr)
+#else
+      stop 108
+#endif
+   end if
 ! === Support truncation =======================================================
    if(max_time_i /= 0) call start_trunc()
 ! ==============================================================================
@@ -1943,6 +1952,8 @@ program JAGURS
    end if
    write(6,*) 'SOURCE_CLOCK integer=',source_integer_clock,' steps_per_frame=',source_clock_steps
    ! Noncommensurate intervals retain the legacy floating-time algorithm.
+   TIMER_STOP('initialization')
+   TIMER_START('time_loop')
    do istep = istart, nstep
       do ig = 1, ngrid
          dgrid(ig)%my%numneststeps = 3**(dgrid(ig)%my%maxnl - dgrid(ig)%my%nl)
@@ -2141,6 +2152,7 @@ program JAGURS
                end if
 ! ==============================================================================
 ! === Multiple rupture =========================================================
+               if(source_field_output /= 0) then
 #ifndef NCDIO
 #ifndef MPI
                write(str,'(a,a,i3.3,a)') &
@@ -2221,6 +2233,7 @@ program JAGURS
 #endif
                TIMER_STOP('write_initial_displacement')
 #endif
+               end if ! source_field_output (diagnostics only, not source forcing)
 ! ==============================================================================
                jrupt = irupt
             end if
@@ -2652,8 +2665,12 @@ program JAGURS
 #endif
 
          ! Burbidge: Stop things if the maximum wave height gets silly
-         TIMER_START('error_check')
          error = 0
+         ! All ranks enter on the same steps. Never skip the first/final check.
+         ! hzmax is cumulative, so a positive threshold violation persists.
+         if(mod(istep,error_check_interval) == 0 .or. istep == istart .or. istep == nstep) then
+         TIMER_START('error_check')
+         TIMER_START('error_local_scan')
 #ifndef USE_GPU
 #ifndef __NEC__
 !$omp parallel do private(i)
@@ -2677,8 +2694,11 @@ program JAGURS
             end do
          end do
 ! === Finalized if error occurred. =============================================
+         TIMER_STOP('error_local_scan')
 #ifdef MPI
+         TIMER_START('error_global_reduce')
          call MPI_Allreduce(MPI_IN_PLACE, error, 1, MPI_INTEGER, MPI_SUM, __MPICOMM__, ierr)
+         TIMER_STOP('error_global_reduce')
 #endif
          if(error /= 0) then
             TIMER_STOP('error_check')
@@ -2695,11 +2715,12 @@ program JAGURS
          end if
 ! ==============================================================================
          TIMER_STOP('error_check')
+         end if ! error_check_interval
 
          if(plotgrd(1) < 0 .or. plotgrd_num(ig)) then
-            ! Coupling output policy is separate from the time integrator.
+            ! Coupling output policy stays outside the scientific time integrator.
             if((mod(istep,itmap) == 0 .and. istep >= itmap_start .and. istep <= itmap_end) .or. &
-               coupling_extra_output_due(istep, velgrd)) then
+               (legacy_velocity_diagnostics /= 0 .and. coupling_extra_output_due(istep, velgrd))) then
 #ifndef NCDIO
 ! === Conversion from flux to velocity should be done right after calc. ========
 !              TIMER_START('dump_gmt_nl')
@@ -2761,6 +2782,7 @@ program JAGURS
       ! tgs text output
 ! === To decimate outputs by tkato. 2016/10/24 =================================
       if(mod(istep,itgrn) == 0) then
+      TIMER_START('gauge_output')
 ! ==============================================================================
 #ifndef SINGLE_TGS
       do j = 1, nsta
@@ -2872,6 +2894,7 @@ program JAGURS
       end do
 #endif
 ! === To decimate outputs by tkato. 2016/10/24 =================================
+      TIMER_STOP('gauge_output')
       end if
 ! ==============================================================================
 
@@ -2898,6 +2921,7 @@ program JAGURS
       end if
 ! ==============================================================================
    end do ! end of main loop
+   TIMER_STOP('time_loop')
 ! === Restart output for truncation ============================================
       if(restart_interval /= 0 .and. trunc_flag) then
          istep = istep - 1

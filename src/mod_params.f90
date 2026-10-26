@@ -180,6 +180,11 @@ real(kind=REAL_BYTE) :: froude_lim = 2.0d0
 integer(kind=4) :: init_disp_fault = 0
 integer(kind=4) :: hzdisp_effect = 0
 integer(kind=4) :: apply_kj_filter = 0 ! Apply Kajiura filter to zz.
+! Opt-in engineering controls. Defaults preserve the historical execution.
+integer(kind=4) :: source_field_output = 1, legacy_velocity_diagnostics = 1
+integer(kind=4) :: kj_workspace_cache = 0, source_local_read = 0
+! Engineering guard cadence; 1 preserves the original every-step check.
+integer(kind=4) :: error_check_interval = 1
 character(len=256) :: fault_param_file = 'fault'
 ! ==============================================================================
 ! === 1-way nest ===============================================================
@@ -251,6 +256,7 @@ contains
 ! ==============================================================================
 ! === Dispersive ===============================================================
          with_disp, max_step, min_depth, &
+         source_field_output, legacy_velocity_diagnostics, kj_workspace_cache, source_local_read, error_check_interval, &
 #ifdef CONV_CHECK
          conv_val, &
 #endif
